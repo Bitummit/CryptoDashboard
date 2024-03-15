@@ -1,0 +1,56 @@
+.widget {
+    margin-top: 30px;
+    position: relative;
+    text-align: center;
+    flex: 1;
+    padding: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+    border-radius: 10px;
+    height: 200px;
+    transition: opacity 500ms ease-in;
+
+    img {
+        width: 100px;
+        height: 100px;
+        -webkit-filter: drop-shadow(5px 5px 5px rgba(201, 201, 201, 0.47));
+        filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.47));
+        position: absolute;
+        top: -40px;
+        right: 36%;
+      }
+    .text{
+        justify-content: center;
+        align-items: center;
+
+        .header {
+            margin-top: 70px;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .time {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            color:gray;
+            font-size: 20px;
+            
+            .up {
+                color:greenyellow;
+                margin-right: 10px;
+            }
+
+            .down {
+                color:red;
+                margin-right: 10px;      
+            }
+        }
+    }
+
+    &:hover {
+        top:-20px;
+    }
+
+}
