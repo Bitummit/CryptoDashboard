@@ -11,7 +11,7 @@ export default function Navbar() {
         <div className="wrapper">
           <div className="search">
             <input type="text" placeholder="Search..."/>
-            <SearchIcon />
+            <span className="searchIcon"><SearchIcon /></span>
           </div>
           <div className="items">
             <div className="item">
