@@ -3,7 +3,6 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 
 export default function Widget(props) {
-  // тут пропсы
   return (
     <div className="widget">
       <img src={props.image} alt="" />
