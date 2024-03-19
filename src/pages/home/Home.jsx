@@ -8,6 +8,7 @@ import ethImage from '../../assets/eth.png'
 import btcImage from '../../assets/btc.png'
 import ltcImage from '../../assets/ltc.png'
 import solImage from '../../assets/sol.png'
+import Table from "../../components/Table/Table";
 
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
           </div>
           <div className="listContainer">
             <div className="listTitle">Latest transactions</div>
+            <Table />
           </div>
         </div>
       </div>
