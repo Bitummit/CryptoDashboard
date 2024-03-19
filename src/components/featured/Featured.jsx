@@ -43,14 +43,13 @@ export default function Featured() {
         <h1 className="title">Wallet Statistic</h1>
         <MoreVertIcon fontSize="small" />
       </div>
-      {/* <div className="total">Total: ${total}</div> */}
       <div className="bottom">
         <div className="featuredChart">
           <ReactApexChart
             options={data.options}
             series={data.series}
             type="donut"
-            width={380}
+            width={370}
           />
         </div>
       </div>
