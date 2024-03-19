@@ -1,9 +1,10 @@
 .sidebar {
   flex: 1;
+  position: sticky;
+  top: 0;
   border-right: 0.5px solid rgb(241, 238, 238);
-  min-height: 100vh;
-  background-color: white;
   height: 100vh;
+  background-color: white;
 
   .top {
     height: 70px;
@@ -42,7 +43,7 @@
         }
         .icon {
           font-size: 24px;
-          color: #7451f8
+          color: #7451f8;
         }
         span {
           font-size: 20px;
@@ -51,7 +52,6 @@
           margin-left: 10px;
         }
       }
-      
     }
   }
   .bottom {
@@ -71,11 +71,9 @@
 
       &:nth-child(1) {
         background-color: whitesmoke;
-
       }
       &:nth-child(2) {
         background-color: #333;
-
       }
     }
   }
