@@ -9,12 +9,13 @@
   .top {
     display: flex;
     align-items: center;
-    // justify-content: space-between;
+    justify-content: space-between;
     color: rgb(100, 97, 97);
 
     .title {
       font-size: 25px;
       font-weight: 500;
+      margin: 10px;
     }
   }
 
