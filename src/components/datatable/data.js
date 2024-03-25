@@ -82,4 +82,22 @@ export const rows = [
       test: "testField",
       status: "Active",
     },
-  ];
+    {
+      id: 10,
+      lastName: "Lannister",
+      firstName: "Cersei",
+      login: "Psina",
+      email: "2@mail.ru",
+      test: "testField",
+      status: "Active",
+    },
+    {
+      id: 11,
+      lastName: "Lannister",
+      firstName: "Cersei",
+      login: "Psina",
+      email: "2@mail.ru",
+      test: "testField",
+      status: "Active",
+    },
+];
