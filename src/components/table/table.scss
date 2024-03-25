@@ -1,7 +1,10 @@
+
 .table {
   margin-top: 20px;
   font-size: 18px;
-text-align: center;
+  text-align: center;
+  
+
 
   // .tableHead {
   //     border: 10px;
@@ -11,8 +14,10 @@ text-align: center;
   // }
 
   .tableCell {
+    
     font-size: 18px;
     text-align: center;
+    background-color: white;
 
     .incoming {
       height: 50px;
