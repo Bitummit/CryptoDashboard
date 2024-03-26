@@ -7,7 +7,8 @@ import {
 import Login from "./pages/login/Login"
 import Wallet from "./pages/wallet/Wallet"
 import List from "./pages/list/List"
-import AddUser from "./pages/add/AddUser"
+import New from "./pages/add/New"
+import { userInputs } from "./pages/add/formSource"
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
             <Route path="wallet" element={<Wallet />} />
             <Route path="users" >
               <Route index element={<List />} />
-              <Route path="new" element={<AddUser />} />
+              <Route path="new" element={<New inputs={userInputs} title="Add New User"/>} />
             </Route>
           </Route>
         </Routes>
