@@ -5,6 +5,8 @@ import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import {Link} from "react-router-dom"
+
 
 export default function Sidebar() {
   return (
@@ -15,15 +17,22 @@ export default function Sidebar() {
       <hr />
       <div className="center">
         <ul>
-          
+        <Link to="/" style={{textDecoration:"none"}}>
           <li>
             < DashboardIcon className="icon"/>
+            
             <span>Dashboard</span>
+            
           </li>
+          </Link>
+          <Link to="/users" style={{textDecoration:"none"}}>
           <li>
             < GroupIcon className="icon"/>
+            
             <span>Users</span>
+            
           </li>
+          </Link>
           <li>
             <AccountBalanceWalletIcon className="icon"/>
             <span>Wallet</span>
