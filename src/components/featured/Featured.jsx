@@ -20,9 +20,15 @@ const data = {
               fontSize: '20px',
               fontWeight: 'bold',
             }
-          }
+          },
+          
         }
       }
+    },
+    legend: {
+      labels: {
+        color: 'white',
+      },
     },
     labels: ["ETH", "BTC", "LTC", "SOL"],
     colors: ['#658ed7', '#f5c627', '#5e685c', '#daa9d2'],
