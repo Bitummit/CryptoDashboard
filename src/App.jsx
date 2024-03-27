@@ -9,11 +9,12 @@ import Wallet from "./pages/wallet/Wallet"
 import List from "./pages/list/List"
 import New from "./pages/add/New"
 import { userInputs } from "./pages/add/formSource"
+import "./style/dark.scss"
 
 function App() {
 
   return (
-    <div className="App">
+    <div className="app dark">
       <BrowserRouter> 
         <Routes>
           <Route path="/">

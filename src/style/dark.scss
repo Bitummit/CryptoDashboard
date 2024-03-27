@@ -1,0 +1,57 @@
+.app.dark {
+    background-color: #222;
+
+    .home {
+        .homeContainer {
+            background-color: #222;
+
+            .content {
+                .pageHeader {
+                    color: rgb(184, 179, 179);
+                }
+
+                .widgets, .charts {
+                    
+                    .widget {
+                        background-color: #323131;
+                        color: rgb(184, 179, 179);
+                    } 
+                    .featured {
+                        background-color: #323131;
+                        
+
+                        .top {
+                            color:rgb(184, 179, 179);
+                            .title {
+                                color:rgb(184, 179, 179);
+                            }
+                        }
+                        .bottom{
+                            .apexcharts-legend-series{
+                                color: green;
+                            }
+                        }
+                    }
+                  }  
+                
+            }
+
+            .navbar {
+                background-color: #1f1e1e;
+                color:rgb(184, 179, 179);
+                border-color: rgb(184, 179, 179);
+
+                .wrapper {
+                    .search {
+                        input {
+                            color: white;
+                        }
+                    }
+                }
+            }
+            
+        }
+
+    }
+}
+
