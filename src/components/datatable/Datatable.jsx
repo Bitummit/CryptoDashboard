@@ -30,7 +30,7 @@ export default function DataTable() {
   return (
     <div className="content">
       <div className="title">Users data</div>
-      <Link to="/users/new">
+      <Link to="/users/new" style={{textDecoration:"none"}}>
       <button className="addButton">+ Add user</button>
       </Link>
       <div className="datatable">
