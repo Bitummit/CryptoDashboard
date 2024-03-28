@@ -36,7 +36,33 @@
         .widget {
             background-color: #323131;
             color: rgb(184, 179, 179);
-        } 
+        }
+        .chart {
+            background-color: #323131;
+            color: rgb(127, 122, 122);
+
+            .title {
+                color: rgb(184, 179, 179);
+            }
+            text {
+                fill: rgb(184, 179, 179);
+            }
+        }
+        .listContainer {
+            background-color: #323131;
+            .listTitle {
+                color: rgb(184, 179, 179);
+            }
+            
+        .table {
+            border-radius: 10px;
+            .tableCell {
+                background-color: #383737;
+                color: rgb(197, 194, 194);
+                border-color: #1b1a1a;
+            }
+        }
+    }
         .featured {
             background-color: #323131;
                         
@@ -50,7 +76,7 @@
             }
             .bottom {
                 text {
-                    fill: rgb(227, 223, 223);
+                    fill: rgb(223, 220, 220);
                 }
                 span{
                     color: rgb(227, 223, 223);

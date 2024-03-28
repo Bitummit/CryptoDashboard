@@ -26,7 +26,10 @@ const data = {
       }
     },
     legend: {
+      fontSize: '16px',
+      position: 'bottom',
       labels: {
+        // colors: 'white',
         // colors: darkMode ? 'white' : '#222',
         useSeriesColors: false
       },
@@ -48,7 +51,7 @@ export default function Featured() {
     <div className="featured">
       <div className="top">
         <h1 className="title">Wallet Statistic</h1>
-        <MoreVertIcon fontSize="small" />
+        <MoreVertIcon className="icon" fontSize="medium" />
       </div>
       <div className="bottom">
         <div className="featuredChart">
@@ -56,7 +59,7 @@ export default function Featured() {
             options={data.options}
             series={data.series}
             type="donut"
-            width={370}
+            width={400}
           />
         </div>
       </div>
