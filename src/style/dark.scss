@@ -1,6 +1,17 @@
 .app.dark {
     background-color: #222;
 
+    .sidebar {
+        background-color: #222;
+
+        hr {
+            border: 0.5px solid rgb(184, 179, 179);
+          }
+        li:hover {
+            background-color: #323131;
+        }
+    }
+
     .navbar {
         background-color: #1f1e1e;
         color:rgb(184, 179, 179);

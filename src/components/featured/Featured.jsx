@@ -27,7 +27,8 @@ const data = {
     },
     legend: {
       labels: {
-        color: 'white',
+        // colors: darkMode ? 'white' : '#222',
+        useSeriesColors: false
       },
     },
     labels: ["ETH", "BTC", "LTC", "SOL"],
