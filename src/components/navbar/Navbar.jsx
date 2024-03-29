@@ -4,8 +4,12 @@ import LanguageIcon from '@mui/icons-material/Language';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
 
 export default function Navbar() {
+  const {dispatch} = useContext(DarkModeContext)
+
   return (
     <div className="navbar">
         <div className="wrapper">
@@ -18,7 +22,7 @@ export default function Navbar() {
               <LanguageIcon className="icon"/> English
             </div>
             <div className="item">
-              <DarkModeIcon className="icon"/>
+              <DarkModeIcon className="icon" onClick={()=>dispatch({type:"TOGGLE"})}/>
             </div>
             <div className="item">
               <NotificationsIcon className="icon"/>
