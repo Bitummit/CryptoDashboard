@@ -1,95 +1,141 @@
 .app.dark {
+  background-color: #222;
+
+  .sidebar {
+    background-color: #1f1e1e;
+    border: none;
+
+    hr {
+      border: 0.1px solid rgb(184, 179, 179);
+    }
+    li:hover {
+      background-color: #323131;
+    }
+  }
+
+  .navbar {
+    background-color: #1f1e1e;
+    color: rgb(184, 179, 179);
+    border: none;
+
+    .wrapper {
+      .search {
+        input {
+          color: white;
+        }
+      }
+    }
+  }
+  .list {
     background-color: #222;
 
-    .sidebar {
+    .listContainer {
+      .title {
+        color: rgb(184, 179, 179);
+      }
+      button {
+        color: rgb(184, 179, 179);
+        &:hover {
+          background-color: #3d3c3c;
+        }
+      }
+      .addButton {
         background-color: #222;
+      }
+      .datatable {
+        border-radius: 10px;
+        
+        .css-1essi2g-MuiDataGrid-columnHeaderRow {
+            background-color: #252525;
+            
+        }
+        .data {
+            background-color: #2c2b2b;
+            color: rgb(190, 188, 188);
+            border: none;
+            --DataGrid-rowBorderColor: #222121;
 
-        hr {
-            border: 0.5px solid rgb(184, 179, 179);
+            .MuiDataGrid-withBorderColor {
+                border-color: #222121;
+            }
+            .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root{
+                color: rgba(127, 66, 241, 0.47);
+            }
+            
+        }
+        .viewButton {
+            color: rgba(127, 66, 241, 0.47);
+  
+            &:hover {
+              color: rgb(87, 87, 214);
+            }
           }
-        li:hover {
-            background-color: #323131;
+  
+          .deleteButton {
+            color: rgb(172, 9, 9);
+  
+            &:hover {
+              color: rgb(206, 103, 103);
+            }
         }
+      }
     }
+  }
 
-    .navbar {
-        background-color: #1f1e1e;
-        color:rgb(184, 179, 179);
-        border-color: rgb(184, 179, 179);
+  .homeContainer {
+    background-color: #222;
 
-        .wrapper {
-            .search {
-                input {
-                    color: white;
-                }
-            }
-        }
+    .pageHeader {
+      color: rgb(184, 179, 179);
     }
-
-    .homeContainer {
-        background-color: #222;
-
-
-        .pageHeader {
-            color: rgb(184, 179, 179);
-        }
-        .widget {
-            background-color: #323131;
-            color: rgb(184, 179, 179);
-        }
-        .chart {
-            background-color: #323131;
-            color: rgb(127, 122, 122);
-
-            .title {
-                color: rgb(184, 179, 179);
-            }
-            text {
-                fill: rgb(184, 179, 179);
-            }
-        }
-        .listContainer {
-            background-color: #323131;
-            .listTitle {
-                color: rgb(184, 179, 179);
-            }
-            
-        .table {
-            border-radius: 10px;
-            .tableCell {
-                background-color: #383737;
-                color: rgb(197, 194, 194);
-                border-color: #1b1a1a;
-            }
-        }
+    .widget {
+      background-color: #323131;
+      color: rgb(184, 179, 179);
     }
-        .featured {
-            background-color: #323131;
-                        
-            .top {
-                color:rgb(184, 179, 179);
+    .chart {
+      background-color: #323131;
+      color: rgb(127, 122, 122);
 
-                .title {
-                    color:rgb(184, 179, 179);
-                }
-
-            }
-            .bottom {
-                text {
-                    fill: rgb(223, 220, 220);
-                }
-                span{
-                    color: rgb(227, 223, 223);
-                }
-            }
-        }
+      .title {
+        color: rgb(184, 179, 179);
+      }
+      text {
+        fill: rgb(184, 179, 179);
+      }
     }
-}  
+    .listContainer {
+      background-color: #323131;
+      .listTitle {
+        color: rgb(184, 179, 179);
+      }
 
+      .table {
+        border-radius: 10px;
+        .tableCell {
+          background-color: #383737;
+          color: rgb(197, 194, 194);
+          border-color: #1b1a1a;
+        }
+      }
+    }
+    .featured {
+      background-color: #323131;
 
-            
-            
+      .top {
+        color: rgb(184, 179, 179);
 
-    
-
-
+        .title {
+          color: rgb(184, 179, 179);
+        }
+      }
+      .bottom {
+        text {
+          fill: rgb(223, 220, 220);
+        }
+        span {
+          color: rgb(227, 223, 223);
+        }
+      }
+    }
+  }
+}

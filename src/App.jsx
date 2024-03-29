@@ -14,7 +14,8 @@ import "./style/dark.scss"
 function App() {
 
   return (
-    <div className="app">
+    <div className="app dark">
+      {/* <div className="app"> */}
       <BrowserRouter> 
         <Routes>
           <Route path="/">
