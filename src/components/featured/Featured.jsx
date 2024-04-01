@@ -40,16 +40,18 @@ const data = {
   },
 };
 
-let total = 0;
+// let total = 0;
 
-data.series.forEach((num) => {
-  total += num;
-});
+// data.series.forEach((num) => {
+//   total += num;
+// });
 
 export default function Featured() {
   
   const theme = useContext(DarkModeContext);
-  data.options.legend.labels.colors = theme.darkMode ? "rgb(184, 179, 179);" : "#222";
+  console.log(theme.darkMode);
+  data.options.legend.labels.colors = theme.darkMode ? "#658ed7;" : "#222";
+  console.log(data);
 
   return (
     <div className="featured">
