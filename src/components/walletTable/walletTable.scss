@@ -1,0 +1,23 @@
+.walletTable {
+  .totalStatistic {
+    margin: 50px;
+    color: gray;
+    h1 {
+        font-weight: bold;
+        color: rgb(56, 56, 56);
+    }
+    p {
+        font-size: 14px;
+    }
+    .up {
+        color: rgb(139, 202, 45);
+      }
+
+      .down {
+        color: red;
+      }
+  }
+  .table {
+    width:100%;
+  }
+}
