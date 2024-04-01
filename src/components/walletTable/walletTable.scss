@@ -8,16 +8,35 @@
     }
     p {
         font-size: 14px;
+        font-weight: bold;
     }
     .up {
-        color: rgb(139, 202, 45);
+        color: rgb(56, 140, 28);
       }
 
       .down {
         color: red;
       }
   }
-  .table {
-    width:100%;
-  }
+  .datatable{
+    .MuiDataGrid-cell {
+      font-size: 20px;
+    }
+    .name,.amount,.portfolio, .price,.balance {
+      text-align: center;
+    }
+    .amount {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .icon {
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+      }
+    }
+    .name {
+      font-weight: bold;
+    }
+}
 }
