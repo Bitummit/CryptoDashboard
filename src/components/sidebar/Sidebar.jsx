@@ -23,35 +23,45 @@ export default function Sidebar() {
         <ul>
         <Link to="/" style={{textDecoration:"none"}}>
           <li>
+          <div className="iconWarpper">
             < DashboardIcon className="icon"/>
-            
-            <span>Dashboard</span>
+            </div>
+            <p>Dashboard</p>
             
           </li>
           </Link>
           <Link to="/users" style={{textDecoration:"none"}}>
           <li>
+          <div className="iconWarpper">
             < GroupIcon className="icon"/>
-            
-            <span>Users</span>
+            </div>
+            <p>Users</p>
             
           </li>
           </Link>
           <li>
+            <div className="iconWarpper">
             <AccountBalanceWalletIcon className="icon"/>
-            <span>Wallet</span>
+            </div>
+            <p>Wallet</p>
           </li>
           <li>
+          <div className="iconWarpper">
             < SettingsIcon className="icon"/>
-            <span>Settings</span>
+            </div>
+            <p>Settings</p>
           </li>
           <li>
+          <div className="iconWarpper">
             < AccountCircleIcon className="icon"/>
-            <span>Profile</span>
+            </div>
+            <p>Profile</p>
           </li>
           <li>
+          <div className="iconWarpper">
             <LogoutIcon className="icon"/>
-            <span>Logout</span>
+            </div>
+            <p>Logout</p>
           </li>
         </ul>
       </div>
