@@ -3,41 +3,55 @@
     margin: 50px;
     color: gray;
     h1 {
-        font-weight: bold;
-        color: rgb(56, 56, 56);
+      font-weight: bold;
+      color: rgb(56, 56, 56);
     }
     p {
-        font-size: 14px;
-        font-weight: bold;
+      font-size: 14px;
+      font-weight: bold;
     }
     .up {
-        color: rgb(56, 140, 28);
-      }
+      color: rgb(56, 140, 28);
+    }
 
-      .down {
-        color: red;
-      }
+    .down {
+      color: red;
+    }
   }
-  .datatable{
+  .datatable {
     border-radius: 10px;
+
     .MuiDataGrid-cell {
       font-size: 20px;
+      font-weight: bold;
+      --rowBorderColor: none;
+
+      &:focus {
+        outline: none;
+      }
     }
-    .name,.amount,.portfolio, .price,.balance {
+    .name,
+    .amount,
+    .portfolio,
+    .price,
+    .balance {
       text-align: center;
     }
-    .amount {
+    .amount,
+    .name {
       display: flex;
       align-items: center;
       justify-content: center;
+
       .icon {
         margin-left: 5px;
         width: 20px;
         height: 20px;
       }
     }
-    .name {
-      font-weight: bold;
+    .nameIcon {
+      width: 40px;
+      margin-right: 20px;
     }
-}
+  }
 }
