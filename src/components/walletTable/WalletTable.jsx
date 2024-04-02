@@ -1,16 +1,23 @@
 /* eslint-disable react/prop-types */
 import "./walletTable.scss";
 import { DataGrid } from "@mui/x-data-grid";
+import { useEffect, useState } from "react";
 
 
 export default function WalletTable(props) {
-  let total = 0;
-  props.data.forEach((item) => {
-    total += item.balance;
-  });
-  props.data.map((coin) => {
-    coin.portfolio = parseFloat((coin.balance / total) * 100).toFixed(2);
-  });
+
+  const [total, setTotal] = useState(0)
+
+  useEffect(() => {
+    setTotal(0)
+    props.data.forEach((item) => {
+      setTotal(prev => prev + item.balance)
+    });
+    props.data.map((coin) => {
+      coin.portfolio = parseFloat((coin.balance / total) * 100).toFixed(2);
+    });
+  }, []);
+  
   const columns =[
     { field: "name", headerName: "Token", flex: 1,headerAlign: 'center', cellClassName: 'name',},
     { 
@@ -30,7 +37,6 @@ export default function WalletTable(props) {
     { field: "price", headerName: "Price(24h)", flex: 1, headerAlign: 'center', cellClassName: 'price', },
     { field: "balance", headerName: "Balance", flex: 1, headerAlign: 'center', cellClassName: 'balance', }
   ]
-
   return (
     <div className="walletTable">
       <div className="totalStatistic">
