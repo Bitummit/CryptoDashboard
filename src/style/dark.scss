@@ -150,25 +150,27 @@
       }
     }
   }
-  .walletTable {
-    h1 {
-      color: rgb(214, 214, 214);
+  .walletContainer {
+    .content {
+      h1 {
+        color: rgb(214, 214, 214);
+      }
     }
     .datatable {
-      background-color: #323131;
+        background-color: #323131;
 
-      .MuiDataGrid-cell {
-        color: rgb(197, 194, 194);
-      }
-      .css-1essi2g-MuiDataGrid-columnHeaderRow {
-        background-color: #2d2d2d;
-        color: rgb(197, 194, 194);
-      }
-      button {
-        color: white;
-        &:hover{
-          background-color: rgb(89, 53, 117);
+        .MuiDataGrid-cell {
+          color: rgb(197, 194, 194);
         }
+        .css-1essi2g-MuiDataGrid-columnHeaderRow {
+          background-color: #2d2d2d;
+          color: rgb(197, 194, 194);
+        }
+        button {
+          color: white;
+          &:hover {
+            background-color: rgb(89, 53, 117);
+          }
       }
     }
   }

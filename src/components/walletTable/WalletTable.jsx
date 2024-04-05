@@ -1,21 +1,10 @@
 /* eslint-disable react/prop-types */
 import "./walletTable.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { useEffect, useState } from "react";
+
 
 export default function WalletTable(props) {
-  const [total, setTotal] = useState(0);
-
-  useEffect(() => {
-    setTotal(0);
-    props.data.forEach((item) => {
-      setTotal((prev) => prev + item.balance);
-    });
-    props.data.map((coin) => {
-      coin.portfolio = parseFloat((coin.balance / total) * 100).toFixed(2);
-    });
-  }, [total]);
-
+  
   const columns = [
     {
       field: "name",
@@ -25,8 +14,8 @@ export default function WalletTable(props) {
       renderCell: (params) => {
         return (
           <div className="name">
-            
-            <img className="nameIcon" src={params.row.image} /> {params.row.name}
+            <img className="nameIcon" src={params.row.image} />{" "}
+            {params.row.name}
           </div>
         );
       },
@@ -51,7 +40,7 @@ export default function WalletTable(props) {
       flex: 1,
       headerAlign: "center",
       cellClassName: "portfolio",
-      valueGetter: (value) => value +"%",
+      valueGetter: (value) => value + "%",
     },
     {
       field: "price",
@@ -70,13 +59,8 @@ export default function WalletTable(props) {
       valueGetter: (value) => "$" + value,
     },
   ];
+
   return (
-    <div className="walletTable">
-      <div className="totalStatistic">
-        <h3>Portfolio value</h3>
-        <h1>$ {total.toLocaleString()}</h1>
-        <p className="up">+$1201.47 (+3.8%)</p>
-      </div>
       <div className="datatable">
         <DataGrid
           className="data"
@@ -90,6 +74,5 @@ export default function WalletTable(props) {
           rowHeight={70}
         />
       </div>
-    </div>
   );
 }

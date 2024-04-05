@@ -1,7 +1,29 @@
 .wallet {
-    display: flex;
+  display: flex;
 
-    .walletContainer {
-        flex: 9;
+  .walletContainer {
+    flex: 9;
+
+    .content {
+        .totalStatistic {
+            margin: 50px;
+            color: gray;
+            h1 {
+              font-weight: bold;
+              color: rgb(56, 56, 56);
+            }
+            p {
+              font-size: 14px;
+              font-weight: bold;
+            }
+            .up {
+              color: rgb(56, 140, 28);
+            }
+        
+            .down {
+              color: red;
+            }
+          }
     }
+  }
 }

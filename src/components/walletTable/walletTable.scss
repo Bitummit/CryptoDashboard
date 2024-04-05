@@ -1,26 +1,6 @@
-.walletTable {
-  .totalStatistic {
-    margin: 50px;
-    color: gray;
-    h1 {
-      font-weight: bold;
-      color: rgb(56, 56, 56);
-    }
-    p {
-      font-size: 14px;
-      font-weight: bold;
-    }
-    .up {
-      color: rgb(56, 140, 28);
-    }
-
-    .down {
-      color: red;
-    }
-  }
-  .datatable {
-    border-radius: 10px;
-
+.datatable {
+  border-radius: 10px;
+  .data {
     .MuiDataGrid-cell {
       font-size: 20px;
       font-weight: bold;
@@ -36,6 +16,7 @@
     .price,
     .balance {
       text-align: center;
+
     }
     .amount,
     .name {

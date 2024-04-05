@@ -2,53 +2,58 @@ import "./wallet.scss";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import WalletTable from "../../components/walletTable/WalletTable";
+import { useEffect, useState } from "react";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import {data} from "./data.js";
 
 export default function Wallet() {
+  const [total, setTotal] = useState(0);
+  const [alignment, setAlignment] = useState("wallet");
 
-    const data = [
-        {
-            id: 1,
-            name: 'ETH',
-            image: "/src/assets/eth.png",
-            amount: 1.2301,
-            price: 3558.56,
-            balance: 4336.14,
-        },
-        {
-            id: 2,
-            name: 'BTC',
-            image: "/src/assets/btc.png",
-            amount: 0.12821,
-            price: 72000,
-            balance: 9231.56,
-        },
-        {
-            id: 3,
-            name: 'LTC',
-            image: "/src/assets/ltc.png",
-            amount: 154.65756,
-            price: 83.91,
-            balance: 12977.07,
-        },
-        {
-            id: 4,
-            name: 'SOL',
-            image: "/src/assets/sol.png",
-            amount: 21.435612,
-            price: 210.80,
-            balance: 4518.80,
-        },
-    ]
-    // fetch to get wallet static 
-    return (
-        <div className="wallet">
-            <Sidebar />
-            <div className="walletContainer">
-            <Navbar />
-            <div className="content">
-                <WalletTable data={data}/>
-            </div>
-            </div>
+  const handleChange = (newAlignment) => {
+    setAlignment(newAlignment.target.value);
+  };
+  console.log(alignment);
+
+  useEffect(() => {
+    setTotal(0);
+    data.forEach((item) => {
+      setTotal((prev) => prev + item.balance);
+    });
+    data.map((coin) => {
+      coin.portfolio = parseFloat((coin.balance / total) * 100).toFixed(2);
+    });
+  });
+
+  return (
+    <div className="wallet">
+      <Sidebar />
+      <div className="walletContainer">
+        <Navbar />
+        <div className="content">
+          <div className="totalStatistic">
+            <h3>Portfolio value</h3>
+            <h1>$ {total.toLocaleString()}</h1>
+            <p className="up">+$1201.47 (+3.8%)</p>
+          </div>
+          <div className="buttonGroup">
+            <ToggleButtonGroup
+              color="primary"
+              value={alignment}
+              onChange={handleChange}
+            >
+              <ToggleButton value="wallet">
+                Wallet
+              </ToggleButton>
+              <ToggleButton value="swap">
+                Swap
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
+          <WalletTable data={data} />
         </div>
-    )
+      </div>
+    </div>
+  );
 }
