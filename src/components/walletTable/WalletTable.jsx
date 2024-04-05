@@ -2,9 +2,7 @@
 import "./walletTable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 
-
 export default function WalletTable(props) {
-  
   const columns = [
     {
       field: "name",
@@ -47,32 +45,35 @@ export default function WalletTable(props) {
       headerName: "Price(24h)",
       flex: 1,
       headerAlign: "center",
-      cellClassName: "price",
-      valueGetter: (value) => "$" + value,
+      renderCell: (params) => {
+        return <div className="price">${params.row.price}</div>;
+      },
     },
     {
       field: "balance",
       headerName: "Balance",
       flex: 1,
       headerAlign: "center",
-      cellClassName: "balance",
-      valueGetter: (value) => "$" + value,
+      renderCell: (params) => {
+        return <div className="balance">${params.row.balance}</div>;
+      },
+      // valueGetter: (value) => "$" + value,  with $ sort is incorrect
     },
   ];
 
   return (
-      <div className="datatable">
-        <DataGrid
-          className="data"
-          rows={props.data}
-          columns={columns}
-          disableColumnFilter
-          disableColumnMenu
-          disableColumnResize
-          disableRowSelectionOnClick
-          hideFooter
-          rowHeight={70}
-        />
-      </div>
+    <div className="walletDatatable">
+      <DataGrid
+        className="data"
+        rows={props.data}
+        columns={columns}
+        disableColumnFilter
+        disableColumnMenu
+        disableColumnResize
+        disableRowSelectionOnClick
+        hideFooter
+        rowHeight={70}
+      />
+    </div>
   );
 }
