@@ -5,25 +5,37 @@
     flex: 9;
 
     .content {
-        .totalStatistic {
-            margin: 50px;
-            color: gray;
-            h1 {
-              font-weight: bold;
-              color: rgb(56, 56, 56);
-            }
-            p {
-              font-size: 14px;
-              font-weight: bold;
-            }
-            .up {
-              color: rgb(56, 140, 28);
-            }
-        
-            .down {
-              color: red;
-            }
-          }
+      .totalStatistic {
+        margin: 50px;
+        color: gray;
+        h1 {
+          font-weight: bold;
+          color: rgb(56, 56, 56);
+        }
+        p {
+          font-size: 14px;
+          font-weight: bold;
+        }
+        .up {
+          color: rgb(56, 140, 28);
+        }
+
+        .down {
+          color: red;
+        }
+      }
+      .buttonGroup {
+        display: flex;
+        justify-content: center;
+
+        button {
+            font-weight: bold;
+            text-transform: none;
+            padding: 10px;
+            margin: 0px;
+            font-size: 14px;
+        }
+      }
     }
   }
 }
