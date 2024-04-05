@@ -8,7 +8,7 @@
       background-color: #2c2b2b;
       color: rgb(184, 179, 179);
 
-      input{
+      input {
         background-color: #2c2b2b;
         color: rgb(140, 139, 139);
       }
@@ -58,39 +58,37 @@
       }
       .datatable {
         border-radius: 10px;
-        
+
         .css-1essi2g-MuiDataGrid-columnHeaderRow {
-            background-color: #2d2d2d;
-            
+          background-color: #2d2d2d;
         }
         .data {
-            background-color: #323131;
-            color: rgb(190, 188, 188);
-            border: none;
-            --DataGrid-rowBorderColor: #222121;
+          background-color: #323131;
+          color: rgb(190, 188, 188);
+          border: none;
+          --DataGrid-rowBorderColor: #222121;
 
-            .MuiDataGrid-withBorderColor {
-                border-color: #222121;
-            }
-            .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root{
-                color: rgba(127, 66, 241, 0.47);
-            }
-            
+          .MuiDataGrid-withBorderColor {
+            border-color: #222121;
+          }
+          .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root {
+            color: rgba(127, 66, 241, 0.47);
+          }
         }
         .viewButton {
-            color: rgba(127, 66, 241, 0.47);
-  
-            &:hover {
-              color: rgb(87, 87, 214);
-            }
+          color: rgba(127, 66, 241, 0.47);
+
+          &:hover {
+            color: rgb(87, 87, 214);
           }
-  
-          .deleteButton {
-            color: rgb(172, 9, 9);
-  
-            &:hover {
-              color: rgb(206, 103, 103);
-            }
+        }
+
+        .deleteButton {
+          color: rgb(172, 9, 9);
+
+          &:hover {
+            color: rgb(206, 103, 103);
+          }
         }
       }
     }
@@ -148,6 +146,28 @@
         }
         span {
           color: rgb(227, 223, 223);
+        }
+      }
+    }
+  }
+  .walletTable {
+    h1 {
+      color: rgb(214, 214, 214);
+    }
+    .datatable {
+      background-color: #323131;
+
+      .MuiDataGrid-cell {
+        color: rgb(197, 194, 194);
+      }
+      .css-1essi2g-MuiDataGrid-columnHeaderRow {
+        background-color: #2d2d2d;
+        color: rgb(197, 194, 194);
+      }
+      button {
+        color: white;
+        &:hover{
+          background-color: rgb(89, 53, 117);
         }
       }
     }
