@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { data } from "./data.js";
+import Swap from "../../components/swap/Swap.jsx";
 
 export default function Wallet() {
   const [total, setTotal] = useState(0);
@@ -25,6 +26,13 @@ export default function Wallet() {
       coin.portfolio = parseFloat((coin.balance / total) * 100).toFixed(2);
     });
   }, [total]);
+
+  let component;
+  if (alignment === "wallet") {
+    component = <WalletTable data={data} />
+  } else {
+    component = <Swap/>
+  }
 
   return (
     <div className="wallet">
@@ -47,7 +55,7 @@ export default function Wallet() {
               <ToggleButton value="swap">Swap</ToggleButton>
             </ToggleButtonGroup>
           </div>
-          <WalletTable data={data} />
+          {component}
         </div>
       </div>
     </div>
