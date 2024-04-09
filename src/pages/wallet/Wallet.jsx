@@ -31,7 +31,7 @@ export default function Wallet() {
   if (alignment === "wallet") {
     component = <WalletTable data={data} />
   } else {
-    component = <Swap/>
+    component = <Swap data={data}/>
   }
 
   return (
