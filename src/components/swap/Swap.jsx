@@ -30,8 +30,8 @@ export default function Swap(props) {
             >
               {props.data.map((item) => {
                 return (
-                  <MenuItem key={item.id} value={item.name}>
-                    {item.name}
+                  <MenuItem key={item.id} value={item.name} className="dropItems">
+                    <img src={item.image}/>{item.name}
                   </MenuItem>
                 );
               })}

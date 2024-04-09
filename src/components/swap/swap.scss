@@ -14,12 +14,28 @@
       border: none;
       border-bottom: 1px solid gray;
       font-size: 18px;
-      height: 45px;
+      margin-top: 22px;
+        &:focus {
+            outline: none;
+        }
     }
+    .dropItems{
+        display: flex;
+        align-items: center;
+
+        
+    }
+    
+    
   }
   .table {
     flex: 2;
     margin: 30px;
     border: 1px solid green;
   }
+}
+
+img {
+    width:18px;
+    margin-right: 5px;
 }
