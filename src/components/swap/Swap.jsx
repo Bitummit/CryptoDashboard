@@ -10,23 +10,27 @@ export default function Swap(props) {
   const [token, setToken] = useState(initValue);
 
   const handleChange = (event) => {
-    setToken(event.target.value);
+    const name = event.target.value;
+    const item = props.data.find((item) => {
+      return item.name === name;
+    });
+    setToken(item);
   };
 
   return (
     <div className="swap">
       <div className="converter">
         <div className="menu">
-          <FormControl sx={{ m: 1, minWidth: 80 }}>
+          <FormControl sx={{ m: 1, minWidth: 80, height: 2 }}>
             <Select
-              defaultValue={token.name}
               value={token.name}
               onChange={handleChange}
               autoWidth
+              variant={"standard"}
             >
               {props.data.map((item) => {
                 return (
-                  <MenuItem key={item.id} value={item}>
+                  <MenuItem key={item.id} value={item.name}>
                     {item.name}
                   </MenuItem>
                 );
