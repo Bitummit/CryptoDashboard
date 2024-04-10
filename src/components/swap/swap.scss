@@ -7,27 +7,6 @@
     box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
     border-radius: 10px;
     margin: 30px;
-
-    .from {
-      display: flex;
-      align-items: center;
-
-      input {
-        width: 70%;
-        padding: 5px;
-        border: none;
-        border-bottom: 1px solid gray;
-        font-size: 18px;
-        margin-top: 32px;
-        &:focus {
-          outline: none;
-        }
-      }
-      .dropItem {
-        display: flex;
-        align-items: center;
-      }
-    }
     .arrow {
       margin: 20px 50%;
       .icon {

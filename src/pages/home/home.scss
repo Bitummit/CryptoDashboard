@@ -2,20 +2,19 @@
   display: flex;
 
   .homeContainer {
-    background-color: #e5e3ee;
     flex: 9;
 
     .content {
-
       .pageHeader {
         padding-top: 20px;
         padding-left: 40px;
         font-size: 40px;
         font-weight: bold;
-        color: rgb(100, 97, 97)
-    }
+        color: rgb(100, 97, 97);
+      }
 
-      .widgets, .charts {
+      .widgets,
+      .charts {
         display: flex;
         padding: 20px;
         gap: 20px;
@@ -37,5 +36,4 @@
       }
     }
   }
-
 }
