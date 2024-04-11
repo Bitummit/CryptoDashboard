@@ -29,12 +29,22 @@
         align-items: center;
       }
     }
+    .balance {
+      margin-top: 10px;
+      margin-left: 20px;
+      font-size: 14px;
+      color: gray
+    }
+
     .arrow {
-      margin-left: 50%;
+      margin-left: 45%;
       margin-top: 40px;
       .icon {
         font-size: 40px;
       }
+    }
+    button {
+      width: calc(100% - 40px);
     }
   }
   .table {

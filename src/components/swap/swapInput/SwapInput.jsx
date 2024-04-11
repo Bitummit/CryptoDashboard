@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
@@ -5,7 +6,7 @@ import Select from "@mui/material/Select";
 export default function SwapInput(props) {
     return (
         <div className="swapInput">
-            <FormControl sx={{ m: 1, minWidth: 80, height: 2 }}>
+            <FormControl sx={{ m: 1, minWidth: 80, height: 2, ml: 2}}>
             <Select
             name={props.tokenType}
               value={props.token.name}
