@@ -1,0 +1,48 @@
+.walletDatatable {
+    margin: 20px;
+    border-radius: 10px;
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+      box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
+    .data {
+      border: none;
+  
+      .MuiDataGrid-columnHeaderTitleContainer{
+        font-size: 20px;
+      }
+  
+      .MuiDataGrid-cell {
+        font-size: 20px;
+        font-weight: bold;
+        --rowBorderColor: none;
+  
+        &:focus {
+          outline: none;
+        }
+      }
+      .name,
+      .amount,
+      .portfolio,
+      .price,
+      .balance {
+        text-align: center;
+  
+      }
+      .amount,
+      .name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+  
+        .icon {
+          margin-left: 5px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .nameIcon {
+        width: 40px;
+        margin-right: 20px;
+      }
+    }
+  }
+  
