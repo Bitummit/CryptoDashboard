@@ -169,12 +169,11 @@
       .css-qcqlck-MuiDataGrid-root {
         --DataGrid-rowBorderColor: none;
       }
-
-      button {
-        color: white;
-        &:hover {
-          background-color: rgb(89, 53, 117);
-        }
+    }
+    button {
+      color: rgb(184, 179, 179);
+      &:hover {
+        background-color: rgb(89, 53, 117);
       }
     }
     .converter {
@@ -196,7 +195,7 @@
     }
   }
 }
-.MuiList-root{
+.MuiList-root {
   background-color: #2d2d2d;
   color: rgb(184, 179, 179);
 }
