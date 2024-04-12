@@ -33,7 +33,7 @@
       margin-top: 10px;
       margin-left: 20px;
       font-size: 14px;
-      color: gray
+      color: gray;
     }
 
     .arrow {
@@ -47,10 +47,10 @@
       width: calc(100% - 40px);
     }
   }
-  .table {
+  .pass {
     flex: 2;
-    margin: 30px;
-    border: 1px solid green;
+    // margin: 30px;
+    // border: 1px solid green;
   }
 }
 

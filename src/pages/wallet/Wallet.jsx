@@ -5,69 +5,11 @@ import DataGridTable from "../../components/datagridtable/DataGridTable";
 import { useEffect, useState } from "react";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { data } from "./data.js";
+import { data as walletData } from "./data.js";
 import Swap from "../../components/swap/Swap.jsx";
 
 export default function Wallet() {
   const walletColumns = [
-    {
-      field: "name",
-      headerName: "Token",
-      flex: 1,
-      headerAlign: "center",
-      renderCell: (params) => {
-        return (
-          <div className="name">
-            <img className="nameIcon" src={params.row.image} />{" "}
-            {params.row.name}
-          </div>
-        );
-      },
-    },
-    {
-      field: "amount",
-      headerName: "Amount",
-      flex: 1,
-      headerAlign: "center",
-      renderCell: (params) => {
-        return (
-          <div className="amount">
-            {params.row.amount}
-            <img className="icon" src={params.row.image} />
-          </div>
-        );
-      },
-    },
-    {
-      field: "portfolio",
-      headerName: "Portfolio %",
-      flex: 1,
-      headerAlign: "center",
-      cellClassName: "portfolio",
-      valueGetter: (value) => value + "%",
-    },
-    {
-      field: "price",
-      headerName: "Price(24h)",
-      flex: 1,
-      headerAlign: "center",
-      renderCell: (params) => {
-        return <div className="price">${params.row.price}</div>;
-      },
-    },
-    {
-      field: "balance",
-      headerName: "Balance",
-      flex: 1,
-      headerAlign: "center",
-      renderCell: (params) => {
-        return <div className="balance">${params.row.balance}</div>;
-      },
-      // valueGetter: (value) => "$" + value,  with $ sort is incorrect
-    },
-  ];
-
-  const transactionColumns = [
     {
       field: "name",
       headerName: "Token",
@@ -134,10 +76,10 @@ export default function Wallet() {
 
   useEffect(() => {
     setTotal(0);
-    data.forEach((item) => {
+    walletData.forEach((item) => {
       setTotal((prev) => prev + item.balance);
     });
-    data.map((coin) => {
+    walletData.map((coin) => {
       coin.portfolio = parseFloat((coin.balance / total) * 100).toFixed(2);
     });
   }, [total]);
@@ -145,12 +87,12 @@ export default function Wallet() {
   let component;
   if (alignment === "wallet") {
     component = (
-      <div className="walletDatatable">
-        <DataGridTable data={data} columns={walletColumns} />
+      <div className="table">
+        <DataGridTable data={walletData} columns={walletColumns} />
       </div>
     );
   } else {
-    component = <Swap data={data} />;
+    component = <Swap walletData={walletData} />;
   }
 
   return (
