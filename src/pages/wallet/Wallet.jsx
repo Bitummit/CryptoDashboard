@@ -87,7 +87,7 @@ export default function Wallet() {
   let component;
   if (alignment === "wallet") {
     component = (
-      <div className="table">
+      <div className="datagridtable">
         <DataGridTable data={walletData} columns={walletColumns} />
       </div>
     );

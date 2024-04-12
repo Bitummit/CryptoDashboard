@@ -156,7 +156,7 @@
         color: rgb(214, 214, 214);
       }
     }
-    .walletDatatable {
+    .datagridtable {
       background-color: #323131;
 
       .MuiDataGrid-cell {
@@ -166,7 +166,7 @@
         background-color: #2d2d2d;
         color: rgb(197, 194, 194);
       }
-      .css-qcqlck-MuiDataGrid-root{
+      .css-qcqlck-MuiDataGrid-root {
         --DataGrid-rowBorderColor: none;
       }
 
@@ -177,5 +177,26 @@
         }
       }
     }
+    .converter {
+      background-color: #323131;
+      color: rgb(184, 179, 179);
+
+      input {
+        background-color: #323131;
+        color: rgb(140, 139, 139);
+
+        &:disabled {
+          background-color: #2d2d2d;
+        }
+      }
+      .MuiSelect-select {
+        background-color: #323131;
+        color: rgb(184, 179, 179);
+      }
+    }
   }
+}
+.MuiList-root{
+  background-color: #2d2d2d;
+  color: rgb(184, 179, 179);
 }
