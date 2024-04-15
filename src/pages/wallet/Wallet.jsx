@@ -89,7 +89,7 @@ export default function Wallet() {
   if (alignment === "wallet") {
     component = (
       <div className="walletTable">
-        <DataGridTable data={walletData} columns={walletColumns} />
+        <DataGridTable data={walletData} columns={walletColumns} hideFooter={true}/>
       </div>
     );
   } else {
