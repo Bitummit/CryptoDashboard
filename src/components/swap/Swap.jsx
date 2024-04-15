@@ -5,7 +5,7 @@ import DataGridTable from "../../components/datagridtable/DataGridTable";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import SwapInput from "./swapInput/SwapInput";
 import { tokens } from "./tokens.js";
-import data  from "../table/data.json";
+import data from "../table/data.json";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import CallReceivedIcon from "@mui/icons-material/CallReceived";
 
@@ -76,13 +76,13 @@ export default function Swap(props) {
       renderCell: (params) => {
         return (
           <div className="isIncoming">
-            {params.isIncoming ? (
+            {params.row.isIncoming ? (
               <div className="incoming">
-                <CallReceivedIcon className="icon" />
+                <CallReceivedIcon className="typeIcon" />
               </div>
             ) : (
               <div className="outcoming">
-                <CallMadeIcon className="icon" />
+                <CallMadeIcon className="typeIcon" />
               </div>
             )}
           </div>
@@ -94,7 +94,7 @@ export default function Swap(props) {
       headerName: "Transaction ID",
       flex: 2,
       headerAlign: "center",
-      cellClassName: "id"
+      cellClassName: "id",
     },
     {
       field: "date",
@@ -204,8 +204,8 @@ export default function Swap(props) {
         <div className="info"></div>
         <button>Submit</button>
       </form>
-      <div className="pass">
-        {/* <DataGridTable data={data} columns={transactionColumns} /> */}
+      <div className="transactionTable">
+        <DataGridTable data={data} columns={transactionColumns} />
       </div>
     </div>
   );

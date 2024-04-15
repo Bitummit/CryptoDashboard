@@ -4,6 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 
 export default function DataGridTable(props) {
     return(
+      <div className="datagridtable">
       <DataGrid
         className="data"
         rows={props.data}
@@ -15,5 +16,6 @@ export default function DataGridTable(props) {
         hideFooter
         rowHeight={70}
       />
+      </div>
     )
 }

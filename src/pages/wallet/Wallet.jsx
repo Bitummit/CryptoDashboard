@@ -43,8 +43,9 @@ export default function Wallet() {
       headerName: "Portfolio %",
       flex: 1,
       headerAlign: "center",
-      cellClassName: "portfolio",
-      valueGetter: (value) => value + "%",
+      renderCell: (params) => {
+        return <div className="portfolio">{params.row.portfolio}%</div>;
+      },
     },
     {
       field: "price",
@@ -87,7 +88,7 @@ export default function Wallet() {
   let component;
   if (alignment === "wallet") {
     component = (
-      <div className="datagridtable">
+      <div className="walletTable">
         <DataGridTable data={walletData} columns={walletColumns} />
       </div>
     );

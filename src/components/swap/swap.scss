@@ -14,7 +14,7 @@
       align-items: center;
 
       input {
-        width: 70%;
+        width: 60%;
         padding: 5px;
         border: none;
         border-bottom: 1px solid gray;
@@ -47,8 +47,8 @@
       width: calc(100% - 40px);
     }
   }
-  .pass {
-    flex: 2;
+  .transactionTable {
+    flex: 3;
     // margin: 30px;
     // border: 1px solid green;
   }
