@@ -6,15 +6,30 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
+import DehazeIcon from "@mui/icons-material/Dehaze";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Sidebar() {
   const { dispatch } = useContext(DarkModeContext);
+  const [collapsed, setCollapsed] = useState(false);
+
   return (
     <div className="sidebar">
       <div className="top">
-        <span className="logo"> AdminPanel</span>
+        <span className="logo"></span>
+        <button
+          onClick={() => {
+            setCollapsed(!collapsed);
+          }}
+        >
+          {collapsed ? (
+            <ArrowBackIcon className="icon" />
+          ) : (
+            <DehazeIcon className="icon " />
+          )}
+        </button>
       </div>
       <hr />
       <div className="center">
@@ -23,43 +38,43 @@ export default function Sidebar() {
             <li>
               <div className="iconWarpper">
                 <DashboardIcon className="icon" />
+                <span>{collapsed ? "Dashboard" : ""}</span>
               </div>
-              <p>Dashboard</p>
             </li>
           </Link>
           <Link to="/users" style={{ textDecoration: "none" }}>
             <li>
               <div className="iconWarpper">
                 <GroupIcon className="icon" />
+                <span>{collapsed ? "Users" : ""}</span>
               </div>
-              <p>Users</p>
             </li>
           </Link>
           <Link to="/wallet" style={{ textDecoration: "none" }}>
-          <li>
-            <div className="iconWarpper">
-              <AccountBalanceWalletIcon className="icon" />
-            </div>
-            <p>Wallet</p>
-          </li>
+            <li>
+              <div className="iconWarpper">
+                <AccountBalanceWalletIcon className="icon" />
+                <span>{collapsed ? "Wallet" : ""}</span>
+              </div>
+            </li>
           </Link>
           <li>
             <div className="iconWarpper">
               <SettingsIcon className="icon" />
+              <span>{collapsed ? "Settings" : ""}</span>
             </div>
-            <p>Settings</p>
           </li>
           <li>
             <div className="iconWarpper">
               <AccountCircleIcon className="icon" />
+              <span>{collapsed ? "Profile" : ""}</span>
             </div>
-            <p>Profile</p>
           </li>
           <li>
             <div className="iconWarpper">
               <LogoutIcon className="icon" />
+              <span>{collapsed ? "Logout" : ""}</span>
             </div>
-            <p>Logout</p>
           </li>
         </ul>
       </div>

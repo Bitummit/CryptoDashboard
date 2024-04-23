@@ -1,21 +1,35 @@
 .sidebar {
-  flex: 1;
+  flex: 0;
   position: sticky;
   top: 0;
   border-right: 0.5px solid rgb(241, 238, 238);
   height: 100vh;
   background-color: white;
+  transition: margin-right 4s 1s;
 
   .top {
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: center;
 
     .logo {
+      flex: 1;
       font-size: 20px;
       font-weight: bold;
       color: #6439ff;
+    }
+
+    button {
+      margin: 5px;
+      color: #7451f8;
+      border: none;
+      background: none;
+      cursor: pointer;
+      float: right;
+
+      .icon {
+        font-size: 35px;
+      }
     }
   }
   hr {
@@ -32,32 +46,26 @@
       padding: 0;
 
       li {
-        // display: flex;
-        // align-items: center;
-        padding: 5px;
+        padding: 20px;
         margin-top: 10px;
         margin-left: -10px;
-        // float:left;
         cursor: pointer;
 
         .iconWarpper {
           display: flex;
-          justify-content: center;
+          justify-content: left;
+          align-items: center;
         }
 
         &:hover {
           background-color: #ece8ff;
         }
         .icon {
-          display: flex;
-          justify-content: center;
           align-items: center;
           font-size: 30px;
           color: #7451f8;
         }
-        p {
-          display: flex;
-          justify-content: center;
+        span {
           font-size: 20px;
           font-weight: 600;
           color: #888;
@@ -68,7 +76,7 @@
   }
   .bottom {
     position: absolute;
-    width:100%;
+    width: 100%;
     bottom: 0;
     margin-bottom: 40px;
     display: flex;

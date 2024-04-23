@@ -29,6 +29,7 @@ const columns = [
 export default function DataTable() {
   return (
     <div className="content">
+      <div>
       <div className="title">Users data</div>
       <Link to="/users/new" style={{textDecoration:"none"}}>
       <button className="addButton">+ Add user</button>
@@ -45,6 +46,7 @@ export default function DataTable() {
           }}
           checkboxSelection
         />
+      </div>
       </div>
     </div>
   );

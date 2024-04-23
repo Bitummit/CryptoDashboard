@@ -49,7 +49,7 @@ const data = {
 export default function Featured() {
   
   const theme = useContext(DarkModeContext);
-  data.options.legend.labels.colors = theme.darkMode ? "#658ed7;" : "#222";
+  data.options.legend.labels.colors = theme.darkMode ? "#ece8ff" : "#222";
 
   return (
     <div className="featured">

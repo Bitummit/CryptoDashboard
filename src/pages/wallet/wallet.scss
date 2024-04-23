@@ -3,8 +3,9 @@
 
   .walletContainer {
     flex: 9;
-
     .content {
+      display: block;
+
       .totalStatistic {
         margin: 50px;
         color: gray;
@@ -12,15 +13,15 @@
           font-weight: bold;
           color: rgb(56, 56, 56);
         }
-        p {
+        .up {
           font-size: 14px;
           font-weight: bold;
-        }
-        .up {
           color: rgb(56, 140, 28);
         }
 
         .down {
+          font-size: 14px;
+          font-weight: bold;
           color: red;
         }
       }
