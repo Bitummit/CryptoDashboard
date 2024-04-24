@@ -16,7 +16,7 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <div className="top">
         <span className="logo"></span>
         <button

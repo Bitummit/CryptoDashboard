@@ -1,8 +1,14 @@
 .datagridtable {
   margin: 30px;
+  width: 90%;
   border-radius: 10px;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
+}
+.walletTable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .walletTable .datagridtable .data {
   border: none;

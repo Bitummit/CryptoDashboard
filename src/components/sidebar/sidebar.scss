@@ -1,5 +1,5 @@
 .sidebar {
-  flex: 0;
+  flex: 0.3;
   position: sticky;
   top: 0;
   border-right: 0.5px solid rgb(241, 238, 238);
@@ -99,4 +99,8 @@
       }
     }
   }
+}
+
+.sidebar.collapsed {
+  flex: 1;
 }

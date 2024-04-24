@@ -14,6 +14,7 @@ export default function Wallet() {
       field: "name",
       headerName: "Token",
       flex: 1,
+      minWidth: 100,
       headerAlign: "center",
       renderCell: (params) => {
         return (
@@ -28,6 +29,7 @@ export default function Wallet() {
       field: "amount",
       headerName: "Amount",
       flex: 1,
+      minWidth: 100,
       headerAlign: "center",
       renderCell: (params) => {
         return (
@@ -42,6 +44,7 @@ export default function Wallet() {
       field: "portfolio",
       headerName: "Portfolio %",
       flex: 1,
+      minWidth: 100,
       headerAlign: "center",
       renderCell: (params) => {
         return <div className="portfolio">{params.row.portfolio}%</div>;
@@ -51,6 +54,7 @@ export default function Wallet() {
       field: "price",
       headerName: "Price(24h)",
       flex: 1,
+      minWidth: 100,
       headerAlign: "center",
       renderCell: (params) => {
         return <div className="price">${params.row.price}</div>;
@@ -60,6 +64,7 @@ export default function Wallet() {
       field: "balance",
       headerName: "Balance",
       flex: 1,
+      minWidth: 100,
       headerAlign: "center",
       renderCell: (params) => {
         return <div className="balance">${params.row.balance}</div>;
