@@ -6,25 +6,21 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import { DarkModeContext } from "../../context/darkModeContext";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import btcImage from "../../assets/btc.png";
+import { CollapseContext } from "../../context/collapseContext.jsx";
 
 export default function Sidebar() {
   const { dispatch } = useContext(DarkModeContext);
-  const [collapsed, setCollapsed] = useState(false);
+  const { collapse, setCollapse } = useContext(CollapseContext);
 
   function showText() {
     let elements = [...document.getElementsByClassName("hiddenText")];
 
     elements.forEach((element) => {
-      //   if(element.classList.includes("logo")){
-      //     element.style.display = "flex";
-      //   } else{
-      //     element.style.display = "flex";
-      // }
       element.style.display = "flex";
       setTimeout(() => {
         element.style.opacity = 1;
@@ -32,8 +28,24 @@ export default function Sidebar() {
     });
   }
 
+  useEffect(() => {
+    let sidebar = document.getElementsByClassName("sidebar")[0];
+    let elements = [...document.getElementsByClassName("hiddenText")];
+    console.log(collapse);
+    if (!collapse) {
+      sidebar.style.flex = 0.3;
+      elements.forEach((element) => {
+        element.style.display = "none";
+        element.style.opacity = 0;
+      });
+    } else {
+      sidebar.style.flex = 1.1;
+      setTimeout(showText, 300);
+    }
+  }, [collapse]);
+
   return (
-    <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+    <div className={`sidebar ${collapse ? "collapsed" : ""}`}>
       <div className="top">
         <span className="logo hiddenText">
           <img src={btcImage} />
@@ -41,26 +53,11 @@ export default function Sidebar() {
         </span>
         <button
           onClick={() => {
-            setCollapsed(!collapsed);
-
-            let sidebar = document.getElementsByClassName("sidebar")[0];
-
-            let elements = [...document.getElementsByClassName("hiddenText")];
-            console.log(elements);
-            if (collapsed) {
-              sidebar.style.flex = 0.3;
-
-              elements.forEach((element) => {
-                element.style.display = "none";
-                element.style.opacity = 0;
-              });
-            } else {
-              sidebar.style.flex = 1.1;
-              setTimeout(showText, 400);
-            }
+            setCollapse(!collapse);
           }}
         >
-          {collapsed ? (
+          {collapse ? (
+            
             <ArrowBackIcon className="icon back" />
           ) : (
             <DehazeIcon className="icon open" />
