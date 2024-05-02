@@ -12,12 +12,13 @@
 
   .wrapper {
     width: 100%;
-    padding: 50px;
+    padding-left: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     .search {
+      border-radius: 20px;
       display: flex;
       align-items: center;
       border: 0.5px solid lightgray;
@@ -29,6 +30,7 @@
         background: transparent;
       }
       .searchIcon {
+        margin-right: 5px;
         cursor: pointer;
       }
     }

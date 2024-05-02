@@ -17,10 +17,16 @@
       font-weight: 500;
       margin: 10px;
     }
+    .icon:hover {
+      color:rgb(100, 97, 97);
+      cursor: pointer;
+    }
   }
 
   .bottom {
     margin-top: 20px;
     margin-bottom: 30px;
+
+    
   }
 }

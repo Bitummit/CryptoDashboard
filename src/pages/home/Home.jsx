@@ -17,7 +17,7 @@ export default function Home() {
       <Sidebar />
       <div className="homeContainer">
         <Navbar />
-        <div className="content">
+        <div className="pageContent">
           <div className="pageHeader">Dashboard</div>
 
           <div className="widgets">

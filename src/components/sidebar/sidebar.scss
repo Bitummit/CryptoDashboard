@@ -1,21 +1,54 @@
 .sidebar {
-  flex: 1;
+  flex: 0.3;
   position: sticky;
   top: 0;
   border-right: 0.5px solid rgb(241, 238, 238);
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
   height: 100vh;
   background-color: white;
+  transition: flex 0.2s, background-color 0.5s;
+  z-index: 2;
 
   .top {
     height: 70px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     .logo {
-      font-size: 20px;
+      flex: 2;
+      display: flex;
+      align-items: center;
+      margin-left: 30px;
+      font-size: 28px;
       font-weight: bold;
-      color: #6439ff;
+      color: #4827c0;
+
+      img {
+        width: 50px;
+      }
+    }
+    .hiddenText {
+      opacity: 0;
+      display: none;
+      transition: opacity 0.5s;
+    }
+    button {
+      display: flex;
+      flex: 1;
+      justify-content: right;
+      align-items: center;
+      margin: 5px;
+      color: #7451f8;
+      border: none;
+      background: none;
+      cursor: pointer;
+      float: right;
+
+      .icon {
+        font-size: 35px;
+      }
     }
   }
   hr {
@@ -32,18 +65,29 @@
       padding: 0;
 
       li {
-        display: flex;
-        align-items: center;
-        padding: 5px;
+        padding: 20px;
         margin-top: 10px;
+        margin-left: -10px;
         cursor: pointer;
+
+        .iconWarpper {
+          display: flex;
+          justify-content: left;
+          align-items: center;
+        }
 
         &:hover {
           background-color: #ece8ff;
         }
         .icon {
-          font-size: 24px;
+          align-items: center;
+          font-size: 30px;
           color: #7451f8;
+        }
+        .hiddenText {
+          opacity: 0;
+          display: none;
+          transition: opacity 0.5s;
         }
         span {
           font-size: 20px;
@@ -55,11 +99,13 @@
     }
   }
   .bottom {
-    vertical-align: bottom;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 55vh;
 
     .colorOption {
       width: 30px;

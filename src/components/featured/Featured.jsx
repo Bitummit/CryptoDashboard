@@ -1,12 +1,14 @@
 import "./featured.scss";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ReactApexChart from "react-apexcharts";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/darkModeContext";
 
 const data = {
   series: [1023.2, 23042.12, 3821.61, 12412.01],
   options: {
     chart: {
-      type: 'donut'
+      type: "donut",
     },
     plotOptions: {
       pie: {
@@ -16,32 +18,44 @@ const data = {
             total: {
               showAlways: true,
               show: true,
-              label: 'Total',
-              fontSize: '20px',
-              fontWeight: 'bold',
-            }
-          }
-        }
-      }
+              label: "Total",
+              fontSize: "20px",
+              fontWeight: "bold",
+            },
+          },
+        },
+      },
+    },
+    legend: {
+      fontSize: "16px",
+      position: "bottom",
+      labels: {
+        // colors: 'white',
+        // colors: theme.darkMode ? 'white' : '#222',
+        useSeriesColors: false,
+      },
     },
     labels: ["ETH", "BTC", "LTC", "SOL"],
-    colors: ['#658ed7', '#f5c627', '#5e685c', '#daa9d2'],
-  }
-
+    colors: ["#658ed7", "#f5c627", "#5e685c", "#daa9d2"],
+  },
 };
 
-let total = 0;
+// let total = 0;
 
-data.series.forEach((num) => {
-  total += num;
-});
+// data.series.forEach((num) => {
+//   total += num;
+// });
 
 export default function Featured() {
+  
+  const theme = useContext(DarkModeContext);
+  data.options.legend.labels.colors = theme.darkMode ? "#ece8ff" : "#222";
+
   return (
     <div className="featured">
       <div className="top">
         <h1 className="title">Wallet Statistic</h1>
-        <MoreVertIcon fontSize="small" />
+        <MoreVertIcon className="icon" fontSize="medium" />
       </div>
       <div className="bottom">
         <div className="featuredChart">
@@ -49,7 +63,7 @@ export default function Featured() {
             options={data.options}
             series={data.series}
             type="donut"
-            width={370}
+            width={400}
           />
         </div>
       </div>
