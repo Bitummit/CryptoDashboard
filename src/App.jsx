@@ -12,7 +12,7 @@ import { userInputs } from "./pages/add/formSource"
 import "./style/dark.scss"
 import { DarkModeContext } from "./context/darkModeContext"
 import {useContext} from "react"
-
+import "./app.scss"
 function App() {
 
   const {darkMode} = useContext(DarkModeContext)

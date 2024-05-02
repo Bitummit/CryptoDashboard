@@ -40,7 +40,7 @@ export default function Sidebar() {
       });
     } else {
       sidebar.style.flex = 1.1;
-      setTimeout(showText, 300);
+      setTimeout(showText, 200);
     }
   }, [collapse]);
 

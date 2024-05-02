@@ -7,7 +7,7 @@
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
   height: 100vh;
   background-color: white;
-  transition: flex 0.3s;
+  transition: flex 0.2s, background-color 0.5s;
   z-index: 2;
 
   .top {
@@ -32,7 +32,7 @@
     .hiddenText {
       opacity: 0;
       display: none;
-      transition: opacity 1s;
+      transition: opacity 0.5s;
     }
     button {
       display: flex;
@@ -45,7 +45,6 @@
       background: none;
       cursor: pointer;
       float: right;
-      transition: all 0.3s;
 
       .icon {
         font-size: 35px;
@@ -88,7 +87,7 @@
         .hiddenText {
           opacity: 0;
           display: none;
-          transition: opacity 3s;
+          transition: opacity 0.5s;
         }
         span {
           font-size: 20px;
