@@ -1,6 +1,6 @@
 .featured {
   flex: 1;
-  background-color: white;
+  background-color: var(--second_background-color);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
   padding: 10px;
@@ -10,15 +10,16 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: rgb(100, 97, 97);
+    color: rgb(var(--color_gray));
 
     .title {
       font-size: 25px;
       font-weight: 500;
       margin: 10px;
+      color: rgb(var(--color));
     }
     .icon:hover {
-      color:rgb(100, 97, 97);
+      color: rgb(var(--color_gray));
       cursor: pointer;
     }
   }
@@ -27,6 +28,5 @@
     margin-top: 20px;
     margin-bottom: 30px;
 
-    
   }
 }

@@ -2,11 +2,13 @@
   margin-top: 20px;
   font-size: 18px;
   text-align: center;
+  border-radius: 10px;
 
   .tableCell {
     font-size: 18px;
     text-align: center;
-    background-color: white;
+    background-color: var(--second_background-color);
+    color: rgb(var(--color));
 
     .incoming {
       height: 50px;

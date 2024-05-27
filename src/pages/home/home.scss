@@ -1,5 +1,6 @@
 .home {
   display: flex;
+  background-color: var(--background-color);
 
   .homeContainer {
     flex: 9;
@@ -10,7 +11,7 @@
         padding-left: 40px;
         font-size: 40px;
         font-weight: bold;
-        color: rgb(100, 97, 97);
+        color: rgb(var(--color_gray))
       }
 
       .widgets,
@@ -22,7 +23,7 @@
     }
 
     .listContainer {
-      background-color: white;
+      background-color: var(--second_background-color);
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
       border-radius: 10px;
@@ -32,7 +33,7 @@
       .listTitle {
         font-weight: 500;
         font-size: 24px;
-        color: rgb(100, 97, 97);
+        color: rgb(var(--color));
       }
     }
   }

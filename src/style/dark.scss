@@ -1,71 +1,41 @@
+.root.dark {
+  --color: 184, 179, 179;
+  --color_gray: 140, 139, 139;
+  --background-color: #222;
+  --second_background-color: #323131;
+}
+
 .app.dark {
-  background-color: #222;
-
-  .addContainer {
-    background-color: #222;
-    .top,
-    .bottom {
-      background-color: #2c2b2b;
-      color: rgb(184, 179, 179);
-
-      input {
-        background-color: #2c2b2b;
-        color: rgb(140, 139, 139);
-      }
-    }
-  }
-
   .sidebar {
-    background-color: #1f1e1e;
     border: none;
 
     hr {
-      border: 0.1px solid rgb(184, 179, 179);
+      border: none;
     }
-    li:hover {
-      background-color: #323131;
+    li {
+      &:hover {
+        background-color: var(--second_background-color);
+      }
     }
   }
 
   .navbar {
-    background-color: #1f1e1e;
-    color: rgb(184, 179, 179);
     border: none;
-
-    .wrapper {
-      .search {
-        input {
-          color: white;
-        }
-      }
-    }
   }
-  .list {
-    background-color: #222;
 
+  .list {
     .listContainer {
-      .title {
-        color: rgb(184, 179, 179);
-      }
       button {
-        color: rgb(184, 179, 179);
         &:hover {
-          background-color: #3d3c3c;
+          background-color: rgb(67, 67, 129);
         }
-      }
-      .addButton {
-        background-color: #222;
       }
       .datatable {
-        border-radius: 10px;
-
         .css-1essi2g-MuiDataGrid-columnHeaderRow {
           background-color: #2d2d2d;
         }
+
         .data {
-          background-color: #323131;
-          color: rgb(190, 188, 188);
-          border: none;
           --DataGrid-rowBorderColor: #222121;
 
           .MuiDataGrid-withBorderColor {
@@ -76,7 +46,7 @@
           }
         }
         .viewButton {
-          color: rgba(127, 66, 241, 0.47);
+          color: rgba(151, 109, 230, 0.47);
 
           &:hover {
             color: rgb(87, 87, 214);
@@ -95,59 +65,15 @@
   }
 
   .homeContainer {
-    background-color: #222;
-
-    .pageHeader {
-      color: rgb(184, 179, 179);
+    .tableCell {
+      border-color: #1b1a1a;
     }
-    .widget {
-      background-color: #323131;
-      color: rgb(184, 179, 179);
+
+    text {
+      fill: rgb(223, 220, 220);
     }
-    .chart {
-      background-color: #323131;
-      color: rgb(127, 122, 122);
-
-      .title {
-        color: rgb(184, 179, 179);
-      }
-      text {
-        fill: rgb(184, 179, 179);
-      }
-    }
-    .listContainer {
-      background-color: #323131;
-      .listTitle {
-        color: rgb(184, 179, 179);
-      }
-
-      .table {
-        border-radius: 10px;
-        .tableCell {
-          background-color: #383737;
-          color: rgb(197, 194, 194);
-          border-color: #1b1a1a;
-        }
-      }
-    }
-    .featured {
-      background-color: #323131;
-
-      .top {
-        color: rgb(184, 179, 179);
-
-        .title {
-          color: rgb(184, 179, 179);
-        }
-      }
-      .bottom {
-        text {
-          fill: rgb(223, 220, 220);
-        }
-        span {
-          color: rgb(227, 223, 223);
-        }
-      }
+    span {
+      color: rgb(227, 223, 223);
     }
   }
   .walletContainer {

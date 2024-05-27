@@ -1,7 +1,7 @@
 import "./featured.scss";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ReactApexChart from "react-apexcharts";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeModeContext } from "../../context/themeModeContext";
 
 const data = {
@@ -30,8 +30,6 @@ const data = {
       fontSize: "16px",
       position: "bottom",
       labels: {
-        // colors: 'white',
-        // colors: theme.darkMode ? 'white' : '#222',
         useSeriesColors: false,
       },
     },
@@ -40,22 +38,19 @@ const data = {
   },
 };
 
-// let total = 0;
-
-// data.series.forEach((num) => {
-//   total += num;
-// });
-
 export default function Featured() {
 
   const theme = useContext(ThemeModeContext);
 
-  if (theme.mode === "dark") {
-    data.options.legend.labels.colors ="#B3B8B3"
-  } else {
-    data.options.legend.labels.colors ="#222"
-  }
-  
+  // fix this!!!
+  useEffect(() => {
+    if (theme.mode === "dark") {
+      data.options.legend.labels.colors ="#B3B8B3"
+    } else {
+      data.options.legend.labels.colors ="#222"
+    }  
+  });
+
 
   return (
     <div className="featured">

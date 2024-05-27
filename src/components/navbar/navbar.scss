@@ -1,14 +1,14 @@
 .navbar {
   height: 70px;
   position: sticky;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   border-bottom: 0.5px solid rgb(241, 238, 238);
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: gray;
-  background-color: white;
+  color: rgb(var(--color_gray));
+  background-color: var(--background-color);
 
   .wrapper {
     width: 100%;
@@ -28,6 +28,7 @@
         border: none;
         outline: none;
         background: transparent;
+        color: rgb(var(--color));
       }
       .searchIcon {
         margin-right: 5px;
@@ -38,6 +39,7 @@
     .items {
       display: flex;
       align-items: center;
+      color: rgb(var(--color_gray));
 
       .item {
         position: relative;
@@ -73,7 +75,7 @@
         }
 
         &:hover {
-          color: #585758;
+          color: rgb(var(--color));
         }
       }
     }

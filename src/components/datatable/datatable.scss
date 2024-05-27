@@ -1,22 +1,23 @@
 .content {
   display: flex;
   align-items: center;
-    justify-content: center;
+  justify-content: center;
   .title {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 36px;
-    color: rgb(46, 43, 43);
+    color: rgb(var(--color));
     margin-top: 20px;
   }
 
   button {
-    color: rgb(46, 43, 43);
+    color: rgb(var(--color));
     font-size: 22px;
     margin: 20px;
     border-radius: 5px;
     border: 2px solid rgb(111, 111, 187);
+    background-color: var(--background-color);
 
     &:hover {
       cursor: pointer;
@@ -26,14 +27,15 @@
 
   .datatable {
     margin: 20px;
-    background-color: white;
+    background-color: var(--background-color);
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
+    border-radius: 10px;
 
     .data {
+      background-color: var(background-color);
       font-size: 18px;
-      color: rgb(65, 62, 62);
-      border-radius: 10px;
+      color: rgb(var(--color));
       border: none;
 
       .cellAction {

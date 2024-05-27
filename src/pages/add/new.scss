@@ -1,22 +1,24 @@
 .new {
   width: 100%;
   display: flex;
+  background-color: var(--background-color);
 
   .addContainer {
     flex: 9;
 
     .top,
     .bottom {
-      background-color: white;
+      background-color: var(--background-color);
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
       padding: 10px;
       margin: 20px;
       display: flex;
       border-radius: 10px;
+      color: rgb(var(--color));
 
       h1 {
-        color: rgb(182, 178, 178);
+        color: rgb(var(--color_gray));
         font-size: 30px;
       }
 
@@ -55,11 +57,13 @@
             }
 
             input {
+              background-color: var(--background-color);
               width: 80%;
               padding: 5px;
               border: none;
               border-bottom: 1px solid gray;
               font-size: 18px;
+              color: rgb(var(--color_gray));
             }
           }
           button {

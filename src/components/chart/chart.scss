@@ -1,11 +1,11 @@
 .chart {
   flex: 4;
-  background-color: white;
+  background-color: var(--second_background-color);
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
   border-radius: 10px;
   padding: 10px;
-  color: rgb(100, 97, 97);
+  color: rgb(var(--color));
 
   .title {
     margin: 10px;

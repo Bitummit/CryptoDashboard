@@ -9,7 +9,8 @@
   border-radius: 10px;
   height: 200px;
   transition: transform 0.5s, background-color 0.5s;
-  background-color: white;
+  background-color: var(--second_background-color);
+  color: rgb(var(--color));
 
   &:hover {
     transform: translate(0px, -30px);
@@ -39,7 +40,7 @@
       justify-content: center;
       align-items: center;
       margin-top: 20px;
-      color: gray;
+      color: rgb(var(--color_gray));
       font-size: 20px;
 
       .up {
