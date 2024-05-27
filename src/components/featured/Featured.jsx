@@ -47,8 +47,15 @@ const data = {
 // });
 
 export default function Featured() {
+
   const theme = useContext(ThemeModeContext);
-  data.options.legend.labels.colors = theme.darkMode ? "#ece8ff" : "#222";
+
+  if (theme.mode === "dark") {
+    data.options.legend.labels.colors ="#B3B8B3"
+  } else {
+    data.options.legend.labels.colors ="#222"
+  }
+  
 
   return (
     <div className="featured">
