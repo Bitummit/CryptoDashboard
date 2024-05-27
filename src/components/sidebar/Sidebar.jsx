@@ -7,14 +7,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { DarkModeContext } from "../../context/darkModeContext";
+import { ThemeModeContext } from "../../context/themeModeContext.jsx";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import btcImage from "../../assets/btc.png";
 import { CollapseContext } from "../../context/collapseContext.jsx";
 
 export default function Sidebar() {
-  const { dispatch } = useContext(DarkModeContext);
+  const { dispatch } = useContext(ThemeModeContext);
   const { collapse, setCollapse } = useContext(CollapseContext);
 
   function showText() {
@@ -49,7 +49,7 @@ export default function Sidebar() {
       <div className="top">
         <span className="logo hiddenText">
           <img src={btcImage} />
-          Panel
+          SHIWA
         </span>
         <button
           onClick={() => {
@@ -57,7 +57,6 @@ export default function Sidebar() {
           }}
         >
           {collapse ? (
-            
             <ArrowBackIcon className="icon back" />
           ) : (
             <DehazeIcon className="icon open" />

@@ -2,7 +2,7 @@ import "./featured.scss";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ReactApexChart from "react-apexcharts";
 import { useContext } from "react";
-import { DarkModeContext } from "../../context/darkModeContext";
+import { ThemeModeContext } from "../../context/themeModeContext";
 
 const data = {
   series: [1023.2, 23042.12, 3821.61, 12412.01],
@@ -47,8 +47,7 @@ const data = {
 // });
 
 export default function Featured() {
-  
-  const theme = useContext(DarkModeContext);
+  const theme = useContext(ThemeModeContext);
   data.options.legend.labels.colors = theme.darkMode ? "#ece8ff" : "#222";
 
   return (
