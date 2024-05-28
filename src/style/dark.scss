@@ -5,7 +5,18 @@
   --second_background-color: #323131;
 }
 
+button {
+  &:hover {
+    background-color: rgb(89, 53, 117);
+  }
+}
+
 .app.dark {
+  button {
+    &:hover {
+      background-color: rgb(89, 53, 117);
+    }
+  }
   .sidebar {
     border: none;
 
@@ -25,11 +36,6 @@
 
   .list {
     .listContainer {
-      button {
-        &:hover {
-          background-color: rgb(67, 67, 129);
-        }
-      }
       .datatable {
         .css-1essi2g-MuiDataGrid-columnHeaderRow {
           background-color: #2d2d2d;
@@ -76,18 +82,9 @@
       color: rgb(227, 223, 223);
     }
   }
-  .walletContainer {
-    .content {
-      h1 {
-        color: rgb(214, 214, 214);
-      }
-    }
-    .datagridtable {
-      background-color: #323131;
 
-      .MuiDataGrid-cell {
-        color: rgb(197, 194, 194);
-      }
+  .walletContainer {
+    .datagridtable {
       .css-1essi2g-MuiDataGrid-columnHeaderRow {
         background-color: #2d2d2d;
         color: rgb(197, 194, 194);
@@ -96,20 +93,9 @@
         --DataGrid-rowBorderColor: none;
       }
     }
-    button {
-      color: rgb(184, 179, 179);
-      &:hover {
-        background-color: rgb(89, 53, 117);
-      }
-    }
+
     .converter {
-      background-color: #323131;
-      color: rgb(184, 179, 179);
-
       input {
-        background-color: #323131;
-        color: rgb(140, 139, 139);
-
         &:disabled {
           background-color: #2d2d2d;
         }
@@ -120,8 +106,8 @@
       }
     }
   }
-  .MuiList-root {
-    background-color: #2d2d2d;
-    color: rgb(184, 179, 179);
-  }
+  // .MuiList-root {
+  //   background-color: #2d2d2d;
+  //   color: rgb(184, 179, 179);
+  // }
 }

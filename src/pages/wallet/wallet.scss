@@ -4,15 +4,15 @@
 
   .walletContainer {
     flex: 9;
-    
+
     .content {
       display: block;
       .totalStatistic {
         margin: 50px;
-        color: gray;
+        color: rgb(var(--color_gray));
         h1 {
           font-weight: bold;
-          color: rgb(56, 56, 56);
+          color: rgb(var(--color));
         }
         .up {
           font-size: 14px;
@@ -35,6 +35,7 @@
           padding: 8px 20px;
           margin: 0px;
           font-size: 18px;
+          color: rgb(var(--color_gray));
         }
       }
     }

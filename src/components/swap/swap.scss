@@ -7,6 +7,13 @@
     box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
     border-radius: 10px;
     margin: 30px;
+    background-color: var(--second_background-color);
+    color: rgb(var(--color));
+
+    .MuiSelect-select {
+      background-color: var(--second_background-color);
+      color: rgb(var(--color));
+    }
 
     .from,
     .to {
@@ -20,6 +27,9 @@
         border-bottom: 1px solid gray;
         font-size: 18px;
         margin-top: 28px;
+        background-color: var(--second_background-color);
+        color: rgb(var(--color_gray));
+
         &:focus {
           outline: none;
         }

@@ -1,6 +1,13 @@
 .root.light {
-    --color: 46, 43, 43;
-    --color_gray: 100, 97, 97;
-    --background-color: #FFF;
-    --second_background-color: #fdfdfd;
+  --color: 46, 43, 43;
+  --color_gray: 100, 97, 97;
+  --background-color: #fff;
+  --second_background-color: #fdfdfd;
+}
+.app {
+  button {
+    &:hover {
+      background-color: rgb(212, 191, 228);
+    }
+  }
 }
