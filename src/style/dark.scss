@@ -5,12 +5,6 @@
   --second_background-color: #323131;
 }
 
-button {
-  &:hover {
-    background-color: rgb(89, 53, 117);
-  }
-}
-
 .app.dark {
   button {
     &:hover {
@@ -26,6 +20,11 @@ button {
     li {
       &:hover {
         background-color: var(--second_background-color);
+      }
+    }
+    button {
+      &:hover {
+        background: none;
       }
     }
   }

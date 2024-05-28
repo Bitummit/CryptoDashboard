@@ -1,18 +1,45 @@
-import { createContext, useReducer } from "react"
+import { createContext, useReduce, useState, useEffect } from "react"
 import themeModeReducer from "./themeModeReducer"
 
 const INITIAL_STATE = {
-    mode: 'light'
+    theme: 'light',
+    switchTheme: () => {}
 }
 
-export const ThemeModeContext = createContext(INITIAL_STATE)
+// export const ThemeModeContext = createContext(INITIAL_STATE)
 
 
-export const ThemeModeContextProvider = ({children}) => {
-    const [state, dispatch] = useReducer(themeModeReducer, INITIAL_STATE)
-    return (
-    <ThemeModeContext.Provider value={{mode:state.mode, dispatch}}>
-        {children}
-    </ThemeModeContext.Provider>
-    );
+// export const ThemeModeContextProvider = ({children}) => {
+//     const [state, dispatch] = useReducer(themeModeReducer, INITIAL_STATE)
+//     return (
+//     <ThemeModeContext.Provider value={{mode:state.mode, dispatch}}>
+//         {children}
+//     </ThemeModeContext.Provider>
+//     );
+// }
+
+
+const ThemeContext = createContext(INITIAL_STATE)
+
+function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState("light")
+
+  useEffect(() => {
+    const isDark = localStorage.getItem('theme') === 'dark'
+    setTheme(isDark ? "dark" : "light")
+  }, [theme])
+
+  const switchTheme = (themeName) => {
+    localStorage.setItem('theme', themeName)
+    setTheme(themeName)
+  }
+
+
+  return (
+    <ThemeContext.Provider value={{ theme, switchTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  )
 }
+
+export { ThemeProvider, ThemeContext }

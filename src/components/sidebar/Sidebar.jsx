@@ -7,14 +7,14 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { ThemeModeContext } from "../../context/themeModeContext.jsx";
+import { ThemeContext } from "../../context/themeModeContext.jsx";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import btcImage from "../../assets/btc.png";
 import { CollapseContext } from "../../context/collapseContext.jsx";
 
 export default function Sidebar() {
-  const { dispatch } = useContext(ThemeModeContext);
+  const { switchTheme } = useContext(ThemeContext);
   const { collapse, setCollapse } = useContext(CollapseContext);
 
   function showText() {
@@ -113,11 +113,11 @@ export default function Sidebar() {
       <div className="bottom">
         <div
           className="colorOption"
-          onClick={() => dispatch({ type: "LIGHT" })}
+          onClick={() => switchTheme("light")}
         ></div>
         <div
           className="colorOption"
-          onClick={() => dispatch({ type: "DARK" })}
+          onClick={() => switchTheme("dark")}
         ></div>
       </div>
     </div>

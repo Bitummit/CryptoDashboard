@@ -50,6 +50,9 @@
       cursor: pointer;
       float: right;
 
+      &:hover {
+        background: none;
+      }
       .icon {
         font-size: 35px;
       }

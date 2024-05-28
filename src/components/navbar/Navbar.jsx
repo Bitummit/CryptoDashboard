@@ -4,11 +4,11 @@ import LanguageIcon from "@mui/icons-material/Language";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
-import { useContext } from "react";
-import { ThemeModeContext } from "../../context/themeModeContext";
+// import { useContext } from "react";
+// import { ThemeContext } from "../../context/themeModeContext";
 
 export default function Navbar() {
-  const { dispatch } = useContext(ThemeModeContext);
+  // const { switchTheme } = useContext(ThemeContext);
 
   return (
     <div className="navbar">

@@ -1,15 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { ThemeModeContextProvider } from './context/themeModeContext.jsx'
+import { ThemeProvider } from './context/themeModeContext.jsx'
 import { CollapseProvider } from './context/collapseContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ThemeModeContextProvider>
+    <ThemeProvider>
       <CollapseProvider>
         <App />
       </CollapseProvider>
-    </ThemeModeContextProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 )

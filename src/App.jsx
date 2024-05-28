@@ -7,19 +7,20 @@ import New from "./pages/add/New";
 import { userInputs } from "./pages/add/formSource";
 import "./style/dark.scss";
 import "./style/light.scss";
-import { ThemeModeContext } from "./context/themeModeContext";
+import { ThemeContext } from "./context/themeModeContext";
 import { useContext } from "react";
 import "./app.scss";
 function App() {
-  const { mode } = useContext(ThemeModeContext);
-  if (mode == "dark") {
+  const { theme } = useContext(ThemeContext);
+
+  if (theme === "dark") {
     document.getElementById("root").classList = ["root dark"];
   } else {
     document.getElementById("root").classList = ["root light"];
   }
 
   return (
-    <div className={mode === "dark" ? "app dark" : "app"}>
+    <div className={theme === "dark" ? "app dark" : "app"}>
       <BrowserRouter>
         <Routes>
           <Route path="/">

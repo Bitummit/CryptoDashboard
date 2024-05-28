@@ -1,8 +1,8 @@
 import "./featured.scss";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ReactApexChart from "react-apexcharts";
-import { useContext, useEffect } from "react";
-import { ThemeModeContext } from "../../context/themeModeContext";
+import { useContext, useEffect, useState } from "react";
+import { ThemeContext } from "../../context/themeModeContext.jsx";
 
 const data = {
   series: [1023.2, 23042.12, 3821.61, 12412.01],
@@ -40,17 +40,22 @@ const data = {
 
 export default function Featured() {
 
-  const theme = useContext(ThemeModeContext);
+  const { theme } = useContext(ThemeContext)
+
+  const [color, setColor] = useState("#222")
 
   // fix this!!!
   useEffect(() => {
-    if (theme.mode === "dark") {
-      data.options.legend.labels.colors ="#B3B8B3"
+    if (theme === "dark") {
+      setColor("#B3B8B3")
+      data.options.legend.labels.colors = color
+      
     } else {
-      data.options.legend.labels.colors ="#222"
-    }  
-  });
-
+      setColor("#222")
+      data.options.legend.labels.colors = color
+    } 
+    
+  }, [theme]);
 
   return (
     <div className="featured">
