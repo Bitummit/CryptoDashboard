@@ -6,10 +6,22 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 // import { useContext } from "react";
 // import { ThemeContext } from "../../context/themeModeContext";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   // const { switchTheme } = useContext(ThemeContext);
+  const { t, i18n } = useTranslation();
 
+  const changeLanguage = () => {
+    if (i18n.language === "en") {
+      i18n.changeLanguage("ru");
+      // localStorage.setItem("lng", "ru")
+    } else {
+      i18n.changeLanguage("en");
+      // localStorage.setItem("lng", "en")
+    }
+    
+  };
   return (
     <div className="navbar">
       <div className="wrapper">
@@ -20,8 +32,8 @@ export default function Navbar() {
           </span>
         </div>
         <div className="items">
-          <div className="item">
-            <LanguageIcon className="icon" /> English
+          <div className="item" onClick={() => changeLanguage()}>
+            <LanguageIcon className="icon" /> {t("language")}
           </div>
           <div className="item">
             <DarkModeIcon
