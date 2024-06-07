@@ -1,0 +1,79 @@
+.auth {
+  background-image: url("../../assets/background.jpg");
+  background-size: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .blockContent {
+    background-color: rgb(218, 208, 224);
+    border-radius: 5px;
+    color: black;
+    width: 30%;
+    height: 50%;
+    position: relative;
+
+    form {
+      margin: 40px 0 0 40px;
+
+      input,
+      label {
+        margin-top: 10px;
+        display: block;
+      }
+
+      label {
+        font-size: 16px;
+      }
+
+      input {
+        padding: 5px;
+        border-radius: 5px;
+        height: 35px;
+        border: none;
+        border-bottom: 1px solid gray;
+        font-size: 20px;
+        color: gray;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      .submitButton {
+        display: flex;
+        justify-content: center;
+
+        button {
+          width: 100%;
+          border-radius: 10px;
+          margin-top: 20px;
+          padding: 15px;
+          border: none;
+          background-color: #222;
+          color: white;
+          font-weight: bold;
+          cursor: pointer;
+          &:hover {
+            background-color: #464343;
+          }
+        }
+      }
+    }
+    .bottomText {
+      position: absolute;
+      bottom: 0px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      margin-bottom: 15px;
+
+      a {
+        color: gray;
+      }
+    }
+  }
+}
