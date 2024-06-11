@@ -12,10 +12,10 @@ export default function Widget(props) {
         </div>
         <div className="time">
           <span className={props.isUp ? "up" : "down"}>
-            {props.isUp ? <TrendingUpIcon /> : <TrendingDownIcon />}
+            {props.isUp ? <TrendingUpIcon className="img"/> : <TrendingDownIcon className="img"/>}
             {props.percent}%
           </span>
-          last week
+          <p>last week</p>
         </div>
       </div>
     </div>

@@ -15,28 +15,30 @@
       }
 
       .charts {
-        margin-top: 20px;
         display: flex;
-        // grid-template-rows: repeat(4, auto);
-        // grid-auto-columns: auto;
         padding: 20px;
         gap: 20px;
+        margin-top: 20px;
 
         @media screen and (max-width: 1200px) {
           display: none;
         }
       }
       .widgets {
+        --widget-size: 300px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(var(--widget-size), 1fr));
         padding: 20px;
         gap: 20px;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-
         @media screen and (max-width: 600px) {
-          grid-template-rows: repeat(4, 250px);
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          grid-template-rows: repeat(2, 130px);
+          --widget-size: 140px;
         }
+        @media screen and (max-width: 480px) {
+          grid-template-rows: repeat(2, 130px);
+          --widget-size: 100px;
+        }
+        
       }
     }
 
