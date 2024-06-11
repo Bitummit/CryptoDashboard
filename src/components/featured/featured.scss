@@ -5,6 +5,13 @@
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
   padding: 10px;
   border-radius: 10px;
+  @media screen and (max-width: 1400px) {
+          flex:2;
+  }
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+
 
   .top {
     display: flex;
@@ -14,9 +21,15 @@
 
     .title {
       font-size: 25px;
+      font-size: clamp(0.8rem, 4vw, 1.5rem);
       font-weight: 500;
       margin: 10px;
       color: rgb(var(--color));
+
+      @media screen and (max-width: 1200px) {
+          display: block;
+          margin-top: 20px;
+        }
     }
     .icon:hover {
       color: rgb(var(--color_gray));
