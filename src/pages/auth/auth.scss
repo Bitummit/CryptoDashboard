@@ -4,7 +4,7 @@
   position: absolute;
   height: 100%;
   width: 100%;
-
+  min-width: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,20 +14,35 @@
     border-radius: 5px;
     color: black;
     width: 30%;
-    height: 50%;
+    height: 60%;
     position: relative;
 
+    @media screen and (max-width: 900px){
+      width: 60%;
+      height: 40%;
+    }
+
+
     form {
-      margin-top: 40px;
+      margin-top: 30px;
+      width: 60%;
+
+      @media screen and (max-width: 600px) {
+        margin-top: 5px;
+      }
 
       input,
       label {
         margin-top: 10px;
         display: block;
+
+        @media screen and (max-width: 600px) {
+          margin-top: 5px;
+        }
       }
 
       label {
-        font-size: 16px;
+        font-size: clamp(0.8rem, 3vw, 1.3rem);
       }
 
       input {
@@ -37,17 +52,21 @@
         border: none;
         border-bottom: 1px solid gray;
         font-size: 20px;
+        width: 97%;
         color: gray;
 
         &:focus {
           outline: none;
         }
+
+        @media screen and (max-width: 600px) {
+          height: 20px;
+        }
       }
       .submitButton {
-        display: flex;
-        justify-content: center;
-
         button {
+          display: flex;
+          justify-content: center;
           width: 100%;
           border-radius: 10px;
           margin-top: 20px;
@@ -57,8 +76,14 @@
           color: white;
           font-weight: bold;
           cursor: pointer;
+
           &:hover {
             background-color: #464343;
+          }
+
+          @media screen and (max-width: 600px) {
+            margin-top: 10px;
+            padding: 10px;
           }
         }
       }
@@ -70,6 +95,11 @@
       right: 0;
       text-align: center;
       margin-bottom: 15px;
+      
+      @media screen and (max-width: 600px) {
+        margin-bottom: 8px;
+        font-size: 10px;
+      }
 
       a {
         color: gray;

@@ -1,5 +1,5 @@
 .sidebar {
-  flex: 0.3;
+  
   position: sticky;
   top: 0;
   border-right: 0.5px solid rgb(241, 238, 238);
@@ -53,6 +53,10 @@
       &:hover {
         background: none;
       }
+
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
       .icon {
         font-size: 35px;
       }
@@ -88,7 +92,7 @@
         }
         .icon {
           align-items: center;
-          font-size: 30px;
+          font-size: clamp(1.5rem, 5vw, 2rem);
           color: #7451f8;
         }
         .hiddenText {

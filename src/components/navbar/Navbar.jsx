@@ -31,24 +31,24 @@ export default function Navbar() {
             <SearchIcon />
           </span>
         </div>
-        <div className="items">
+        <div className="items language">
           <div className="item" onClick={() => changeLanguage()}>
             <LanguageIcon className="icon" /> {t("language")}
           </div>
-          <div className="item">
+          <div className="item themeMode">
             <DarkModeIcon
               className="icon"
               // onClick={() => dispatch({ type: "TOGGLE" })}
             />
           </div>
-          <div className="item">
+          <div className="item notification">
             <NotificationsIcon className="icon" />
             <div className="counter">1</div>
           </div>
-          <div className="item">
+          <div className="item list">
             <FormatListBulletedIcon className="icon" />
           </div>
-          <div className="item">
+          <div className="item profile">
             <img
               src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg"
               alt=""

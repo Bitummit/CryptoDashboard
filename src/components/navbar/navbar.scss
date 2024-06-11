@@ -17,12 +17,21 @@
     align-items: center;
     justify-content: space-between;
 
+    @media screen and (max-width: 600px) {
+      padding-left: 20px;
+      justify-content: right;
+    }
+
     .search {
       border-radius: 20px;
       display: flex;
       align-items: center;
       border: 0.5px solid lightgray;
       padding: 5px;
+
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
 
       input {
         border: none;
@@ -49,7 +58,7 @@
         cursor: pointer;
 
         .icon {
-          font-size: 30px;
+          font-size: clamp(1.5rem, 7vw, 2rem);
         }
 
         .avatar {
@@ -72,11 +81,24 @@
           position: absolute;
           top: -5px;
           right: -5px;
+
+          
         }
 
         &:hover {
           color: rgb(var(--color));
         }
+      }
+    }
+    .item.notification, .item.list {
+      @media screen and (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    .item.profile {
+      @media screen and (max-width: 600px) {
+     
       }
     }
   }
