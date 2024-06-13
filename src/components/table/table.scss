@@ -5,31 +5,33 @@
   border-radius: 10px;
 
   .tableCell {
-    font-size: 18px;
+    font-size: clamp(0.1rem, 1vw, 1.1rem);
     text-align: center;
     background-color: var(--second_background-color);
     color: rgb(var(--color));
 
-    .incoming {
+    .incoming, .outcoming {
       height: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgb(67, 177, 67);
       border-radius: 10px;
+
+      @media screen and (max-width: 1000px) {
+        height: 30px;
+      }
+    }
+
+    .incoming {
+      background-color: rgb(67, 177, 67);
     }
 
     .outcoming {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       background-color: rgb(225, 73, 73);
-      border-radius: 10px;
     }
 
     .icon {
-      font-size: 24px;
+      font-size: clamp(0.1rem, 2vw, 1.5rem);
     }
     .cellWrapper {
       display: flex;
@@ -40,6 +42,10 @@
         width: 20px;
         height: 20px;
         margin-right: 5px;
+
+        @media screen and (max-width: 1000px) {
+          display: none;
+        }
       }
     }
 

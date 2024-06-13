@@ -17,7 +17,7 @@ const rows = data;
 export default function List() {
   return (
     <TableContainer className="table" component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 250 }} aria-label="simple table">
         <TableHead>
           <TableRow className="tableHead">
             <TableCell className="tableCell"></TableCell>

@@ -47,7 +47,7 @@
 
     .header {
       margin-top: 70px;
-      font-size: clamp(0.7rem, 3vw, 2rem);
+      font-size: clamp(1rem, 3vw, 2rem);
       font-weight: bold;
 
       @media screen and (max-width: 600px) {

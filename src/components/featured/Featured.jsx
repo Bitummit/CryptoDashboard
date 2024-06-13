@@ -43,8 +43,8 @@ export default function Featured() {
         <h1 className="title">Wallet Statistic</h1>
         <MoreVertIcon className="icon" fontSize="medium" />
       </div>
-      <div className="bottom" style={{height: '85%'}}>
-        <div className="featuredChart" style={{height: '85%', width:'99%'}}>
+      <div className="bottom" style={{height: '80%'}}>
+        <div className="featuredChart" style={{height: '90%', width:'99%'}}>
         <ResponsivePie
         data={data}
         margin={{ top: 30, right: 0, bottom: 80, left: 0 }}

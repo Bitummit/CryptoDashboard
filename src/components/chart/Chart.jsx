@@ -22,7 +22,7 @@ export default function Chart() {
   return (
     <div className="chart">
         <div className="title">Last 6 Months (Wallet Statistic)</div>
-      <ResponsiveContainer width="100%" height="100%" aspect={3 / 1}>
+      <ResponsiveContainer width="100%" height="80%" aspect={3 / 1}>
         <AreaChart
           className="line"
           data={data}

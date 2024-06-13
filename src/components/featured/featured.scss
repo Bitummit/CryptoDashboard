@@ -5,9 +5,17 @@
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
   padding: 10px;
   border-radius: 10px;
-  @media screen and (max-width: 1400px) {
-          flex:2;
-  }
+  min-width: 350px;
+  width: 400px;
+  // @media screen and (max-width: 750px) {
+  //   padding: 0;
+  //   min-width: 325px;
+  // }
+
+  // @media screen and (max-width: 600px) {
+  //   padding: 0;
+  //   min-width: 250px;
+  // }
   @media screen and (max-width: 1200px) {
     display: none;
   }
