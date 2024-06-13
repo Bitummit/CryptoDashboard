@@ -68,6 +68,7 @@ export default function Home() {
             <List />
           </div>
         </div>
+        
       </div>
     </div>
   );
