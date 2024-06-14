@@ -12,8 +12,7 @@ import List from "../../components/table/Table";
 import { Trans, useTranslation } from "react-i18next";
 
 export default function Home() {
-  const {t, i18n} = useTranslation()
-
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="home">
@@ -28,7 +27,7 @@ export default function Home() {
             {t("home.title")}
           </div>
 
-          <div className="widgets">
+          <div className="flex flex-wrap justify-content gap-10 m-8">
             <Widget
               name="ETH"
               price="3,558.56"
@@ -68,7 +67,6 @@ export default function Home() {
             <List />
           </div>
         </div>
-        
       </div>
     </div>
   );
