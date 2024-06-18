@@ -58,7 +58,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="flex flex-wrap justify-content gap-10 m-8">
+          <div className="flex flex-wrap justify-content gap-8 m-8">
             <Featured />
             <Chart />
           </div>

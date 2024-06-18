@@ -87,25 +87,25 @@ export default function Featured() {
     },
   };
   return (
-    <div className="flex-1 min-w-64">
-    <div className="max-w-sm bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 md:p-6">
+    <div className="flex-1 min-w-52">
+      <div className="max-w-sm bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 md:p-6">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">
           Wallet Statistic
         </h5>
-      <div className="grid grid-cols-1 mt-10 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
+        <div className="grid grid-cols-1 mt-10 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
 
-      <div className="py-6" id="donut-chart">
-        <ReactApexChart
-          options={chartData.options}
-          type="donut"
-          series={chartData.series}
-          width={"100%"}
-          height={350}
-        />
+        <div className="py-6" id="donut-chart">
+          <ReactApexChart
+            options={chartData.options}
+            type="donut"
+            series={chartData.series}
+            width={"100%"}
+            height={350}
+          />
+        </div>
+
+        <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
       </div>
-
-      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
-    </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 
 export default function Widget(props) {
   return (
-    <div className="flex-1 mt-10 hover:-translate-y-5 transition duration-500 min-w-64">
+    <div className="flex-1 mt-10 hover:-translate-y-5 transition duration-500 min-w-52">
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg custom-shadow dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center">
           <img
