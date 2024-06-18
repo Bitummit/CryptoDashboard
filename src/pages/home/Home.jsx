@@ -9,7 +9,7 @@ import btcImage from "../../assets/btc.png";
 import ltcImage from "../../assets/ltc.png";
 import solImage from "../../assets/sol.png";
 import List from "../../components/table/Table";
-import { Trans, useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
   const { t, i18n } = useTranslation();
@@ -58,7 +58,7 @@ export default function Home() {
             />
           </div>
 
-          <div className="charts">
+          <div className="flex flex-wrap justify-content gap-10 m-8">
             <Featured />
             <Chart />
           </div>

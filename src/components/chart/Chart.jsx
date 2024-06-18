@@ -20,7 +20,7 @@ const data = [
 
 export default function Chart() {
   return (
-    <div className="chart">
+    <div className="flex-3">
         <div className="title">Last 6 Months (Wallet Statistic)</div>
       <ResponsiveContainer width="100%" height="80%" aspect={3 / 1}>
         <AreaChart

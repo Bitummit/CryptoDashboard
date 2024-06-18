@@ -1,106 +1,111 @@
-import "./featured.scss";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ReactApexChart from "react-apexcharts";
-import { useContext, useEffect, useState } from "react";
-import { ThemeContext } from "../../context/themeModeContext.jsx";
-import { ResponsivePie } from '@nivo/pie'
-
 
 export default function Featured() {
-
   const data = [
     {
-      "id": "ETH",
-      "label": "ETH",
-      "value": 1023.2,
-      "color": "hsl(262, 70%, 50%)"
+      label: "ETH",
+      value: 1023.2,
     },
     {
-      "id": "BTC",
-      "label": "BTC",
-      "value": 23042.12,
-      "color": "hsl(132, 70%, 50%)"
+      label: "BTC",
+      value: 23042.12,
     },
     {
-      "id": "LTC",
-      "label": "LTC",
-      "value": 3821.61,
-      "color": "hsl(332, 70%, 50%)"
+      label: "LTC",
+      value: 3821.61,
     },
     {
-      "id": "SOL",
-      "label": "SOL",
-      "value": 12412.01,
-      "color": "hsl(183, 70%, 50%)"
-    }
-  ]
+      label: "SOL",
+      value: 12412.01,
+    },
+  ];
 
+  const chartData = {
+    series: data.map((data) => {
+      return data.value;
+    }),
+    options: {
+      colors: ["#1C64F2", "#16BDCA", "#FDBA8C", "#E74694"],
+      stroke: {
+        colors: ["transparent"],
+      },
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: true,
+              name: {
+                show: true,
+                offsetY: 20,
+              },
+              total: {
+                showAlways: true,
+                show: true,
+                fontWeight: "bold",
+                label: "Total",
+                formatter: function () {
+                  const sum = chartData.series.reduce((a, b) => {
+                    return a + b;
+                  }, 0);
+                  return "$" + sum;
+                },
+              },
+              value: {
+                show: true,
+                fontWeight: "bold",
+                offsetY: -20,
+              },
+            },
+            size: "80%",
+          },
+        },
+      },
+      grid: {
+        padding: {
+          top: -5,
+        },
+      },
+      labels: data.map((data) => {
+        return data.label;
+      }),
 
-
+      dataLabels: {
+        enabled: false,
+      },
+      legend: {
+        position: "bottom",
+        offsetY: 5,
+        fontSize: 16,
+      },
+      yaxis: {
+        labels: {
+          formatter: function (value) {
+            return "$ " + value;
+          },
+        },
+      },
+    },
+  };
   return (
-    <div className="featured">
-      <div className="top">
-        <h1 className="title">Wallet Statistic</h1>
-        <MoreVertIcon className="icon" fontSize="medium" />
+    <div className="flex-1 min-w-64">
+    <div className="max-w-sm bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 md:p-6">
+        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">
+          Wallet Statistic
+        </h5>
+      <div className="grid grid-cols-1 mt-10 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
+
+      <div className="py-6" id="donut-chart">
+        <ReactApexChart
+          options={chartData.options}
+          type="donut"
+          series={chartData.series}
+          width={"100%"}
+          height={350}
+        />
       </div>
-      <div className="bottom" style={{height: '80%'}}>
-        <div className="featuredChart" style={{height: '90%', width:'99%'}}>
-        <ResponsivePie
-        data={data}
-        margin={{ top: 30, right: 0, bottom: 80, left: 0 }}
-        valueFormat=" >-$~"
-        startAngle={32}
-        innerRadius={0.5}
-        padAngle={3}
-        cornerRadius={9}
-        activeOuterRadiusOffset={9}
-        colors={{ scheme: 'purples' }}
-        borderWidth={4}
-        borderColor="black"
-        arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor="#333333"
-        arcLinkLabelsOffset={-9}
-        arcLinkLabelsDiagonalLength={20}
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color', modifiers: [] }}
-        arcLabelsSkipAngle={12}
-        arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    '2.2'
-                ]
-            ]
-        }}
-        legends={[
-            {
-                anchor: 'bottom',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: 50,
-                itemsSpacing: 4,
-                itemWidth: 53,
-                itemHeight: 14,
-                itemTextColor: '#999',
-                itemDirection: 'right-to-left',
-                itemOpacity: 1,
-                symbolSize: 15,
-                symbolShape: 'circle',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: '#000'
-                        }
-                    }
-                ]
-            }
-        ]}
-    />
-        </div>
-      </div>
+
+      <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
+    </div>
     </div>
   );
 }
