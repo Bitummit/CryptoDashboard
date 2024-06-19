@@ -15,7 +15,7 @@ const rows = data;
 
 export default function List() {
   return (
-    <div class="relative overflow-x-auto rounded-lg border m-5">
+    <div class="relative overflow-x-auto rounded-lg border m-3">
       <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
