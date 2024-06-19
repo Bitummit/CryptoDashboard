@@ -15,8 +15,8 @@ const rows = data;
 
 export default function List() {
   return (
-    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-      <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
+    <div class="relative overflow-x-auto rounded-lg border m-5">
+      <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr>
             <th scope="col" class="px-6 py-3 text-center"></th>
@@ -24,7 +24,7 @@ export default function List() {
               ID
             </th>
             <th scope="col" class="px-6 py-3 text-center">
-              FROM->TO
+              FROM-TO
             </th>
             <th scope="col" class="px-6 py-3 text-center">
               Amount
@@ -58,14 +58,19 @@ export default function List() {
                 </div>
               </th>
               <td className="px-6 py-4 text-center text-gray-950">
-                {row.from} -> {row.to}
+                {row.from} - {row.to}
               </td>
               <td className="px-6 py-4">
                 <div className="flex justify-center items-center text-gray-950 font-bold">
-                <img className="coinImage" src={row.img} /> {row.coin}
+                  <img className="coinImage" src={row.img} /> {row.coin}
                 </div>
-                <div className={"flex justify-center items-center " + (row.isIncoming ? "text-green" : "text-red")}>
-                {row.isIncoming ? "+" : "-"} ${row.amount}
+                <div
+                  className={
+                    "flex justify-center items-center " +
+                    (row.isIncoming ? "text-green" : "text-red")
+                  }
+                >
+                  {row.isIncoming ? "+" : "-"} ${row.amount}
                 </div>
               </td>
               <td className="px-6 py-4 flex justify-center items-center">
