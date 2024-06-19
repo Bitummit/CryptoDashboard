@@ -8,7 +8,6 @@ import Paper from "@mui/material/Paper";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import CallReceivedIcon from "@mui/icons-material/CallReceived";
 
-
 import "./table.scss";
 import data from "./data.json";
 
@@ -16,54 +15,66 @@ const rows = data;
 
 export default function List() {
   return (
-    <TableContainer className="table" component={Paper}>
-      <Table sx={{ minWidth: 250 }} aria-label="simple table">
-        <TableHead>
-          <TableRow className="tableHead">
-            <TableCell className="tableCell"></TableCell>
-            <TableCell className="tableCell">Transaction ID</TableCell>
-            <TableCell className="tableCell">Date</TableCell>
-            <TableCell className="tableCell">From</TableCell>
-            <TableCell className="tableCell">To</TableCell>
-            <TableCell className="tableCell">Coin</TableCell>
-            <TableCell className="tableCell">Amount</TableCell>
-            <TableCell className="tableCell">Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-md text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+            <th scope="col" class="px-6 py-3 text-center"></th>
+            <th scope="col" class="px-6 py-3 text-center">
+              ID
+            </th>
+            <th scope="col" class="px-6 py-3 text-center">
+              FROM->TO
+            </th>
+            <th scope="col" class="px-6 py-3 text-center">
+              Amount
+            </th>
+            <th scope="col" class="px-6 py-3 text-center">
+              Status
+            </th>
+          </tr>
+        </thead>
+        <tbody>
           {rows.map((row) => (
-            <TableRow key={row.id}>
-              <TableCell className="tableCell">
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+              <td class="px-6 py-4 ">
                 {row.isIncoming ? (
-                  <div className="incoming">
-                    <CallReceivedIcon className="icon" />
+                  <div className="incoming text-green">
+                    <CallReceivedIcon />
                   </div>
                 ) : (
-                  <div className="outcoming">
-                    <CallMadeIcon className="icon" />
+                  <div className="outcoming text-red">
+                    <CallMadeIcon />
                   </div>
                 )}
-              </TableCell>
-              <TableCell className="tableCell">#{row.id}</TableCell>
-              <TableCell className="tableCell">
-                {row.date} {row.time}
-              </TableCell>
-              <TableCell className="tableCell">{row.from}</TableCell>
-              <TableCell className="tableCell">{row.to}</TableCell>
-              <TableCell className="tableCell">
-                <div className="cellWrapper">
-                <img className="coinImage" src={row.img}/> {row.coin} 
+              </td>
+              <th
+                scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center "
+              >
+                #{row.id}
+                <div className="text-sm text-gray-700 dark:text-gray-400">
+                  {row.date} {row.time}
                 </div>
-              </TableCell>
-              <TableCell className="tableCell">
+              </th>
+              <td className="px-6 py-4 text-center text-gray-950">
+                {row.from} -> {row.to}
+              </td>
+              <td className="px-6 py-4">
+                <div className="flex justify-center items-center text-gray-950 font-bold">
+                <img className="coinImage" src={row.img} /> {row.coin}
+                </div>
+                <div className={"flex justify-center items-center " + (row.isIncoming ? "text-green" : "text-red")}>
                 {row.isIncoming ? "+" : "-"} ${row.amount}
-              </TableCell>
-              <TableCell className="tableCell">
-                <span className={`status ${row.status}`}>{row.status}</span></TableCell>
-            </TableRow>
+                </div>
+              </td>
+              <td className="px-6 py-4 flex justify-center items-center">
+                <span className={`status ${row.status}`}>{row.status}</span>
+              </td>
+            </tr>
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </tbody>
+      </table>
+    </div>
   );
 }

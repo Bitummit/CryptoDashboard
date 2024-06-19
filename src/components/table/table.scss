@@ -1,70 +1,17 @@
-.table {
-  margin-top: 20px;
-  font-size: 18px;
-  text-align: center;
-  border-radius: 10px;
+.status {
+  padding: 5px;
+  border-radius: 5px;
 
-  .tableCell {
-    font-size: clamp(0.1rem, 1vw, 1.1rem);
-    text-align: center;
-    background-color: var(--second_background-color);
-    color: rgb(var(--color));
-
-    .incoming, .outcoming {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 10px;
-
-      @media screen and (max-width: 1000px) {
-        height: 30px;
-      }
-    }
-
-    .incoming {
-      background-color: rgb(67, 177, 67);
-    }
-
-    .outcoming {
-      background-color: rgb(225, 73, 73);
-    }
-
-    .icon {
-      font-size: clamp(0.1rem, 2vw, 1.5rem);
-    }
-    .cellWrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .coinImage {
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-
-        @media screen and (max-width: 1000px) {
-          display: none;
-        }
-      }
-    }
-
-    .status {
-      padding: 5px;
-      border-radius: 5px;
-
-      &.Completed {
-        color: rgb(67, 177, 67);
-        background-color: rgb(163, 243, 163);
-      }
-      &.Pending {
-        color: rgb(143, 134, 5);
-        background-color: rgb(238, 228, 96);
-      }
-      &.Canceled {
-        color: rgb(225, 73, 73);
-        background-color: rgb(233, 161, 161);
-      }
-    }
+  &.Completed {
+    color: rgb(67, 177, 67);
+    background-color: rgb(163, 243, 163);
+  }
+  &.Pending {
+    color: rgb(143, 134, 5);
+    background-color: rgb(238, 228, 96);
+  }
+  &.Canceled {
+    color: rgb(225, 73, 73);
+    background-color: rgb(233, 161, 161);
   }
 }

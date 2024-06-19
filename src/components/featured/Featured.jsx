@@ -54,6 +54,9 @@ export default function Featured() {
                 show: true,
                 fontWeight: "bold",
                 offsetY: -20,
+                formatter: function (value) {
+                  return "$" + value;
+                },
               },
             },
             size: "80%",
