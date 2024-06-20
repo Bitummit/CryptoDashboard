@@ -24,9 +24,9 @@ export default function Home() {
     mobile = true
   }
   return (
-    <div className="flex">
+    <div className={!mobile && "flex"}>
       
-      { !mobile ? <Sidebar /> : <SidebarMobile />}
+      { !mobile && <Sidebar />}
       <div className="flex-9">
         <Navbar />
         <div className="pageContent">
@@ -72,12 +72,12 @@ export default function Home() {
             <Featured />
             <Chart />
           </div>
-          {/* <div className="bg-white dark:bg-gray-800 rounded-lg custom-shadow m-8 p-2 min-w-52">
+          <div className="bg-white dark:bg-gray-800 rounded-lg custom-shadow m-8 p-2 min-w-52">
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1 m-3 p-4">
               Latest transactions
-           </h5> */}
+           </h5>
             <List />
-          {/* </div> */}
+          </div>
         </div>
       </div>
     </div>

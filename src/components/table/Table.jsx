@@ -8,7 +8,7 @@ const rows = data;
 
 export default function List() {
   return (
-    <div className="rounded-lg border m-3 overflow-x-scroll ">
+    <div className="rounded-lg border m-2 overflow-x-scroll ">
       <table className="text-sm md:text-md text-gray-500 dark:text-gray-400 w-full min-w-[640px] table-auto">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
           <tr className="table-row">
