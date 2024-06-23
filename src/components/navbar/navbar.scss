@@ -1,105 +1,16 @@
-.navbar {
-  height: 70px;
-  position: sticky;
-  z-index: 2;
-  top: 0;
-  border-bottom: 0.5px solid rgb(241, 238, 238);
+
+.counter {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+  color: white;
   display: flex;
   align-items: center;
-  font-size: 14px;
-  color: rgb(var(--color_gray));
-  background-color: var(--background-color);
-
-  .wrapper {
-    width: 100%;
-    padding-left: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    @media screen and (max-width: 600px) {
-      padding-left: 20px;
-      justify-content: right;
-    }
-
-    .search {
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      border: 0.5px solid lightgray;
-      padding: 5px;
-
-      @media screen and (max-width: 600px) {
-        display: none;
-      }
-
-      input {
-        border: none;
-        outline: none;
-        background: transparent;
-        color: rgb(var(--color));
-      }
-      .searchIcon {
-        margin-right: 5px;
-        cursor: pointer;
-      }
-    }
-
-    .items {
-      display: flex;
-      align-items: center;
-      color: rgb(var(--color_gray));
-
-      .item {
-        position: relative;
-        display: flex;
-        align-items: center;
-        margin: 20px;
-        cursor: pointer;
-
-        .icon {
-          font-size: clamp(1.5rem, 7vw, 2rem);
-        }
-
-        .avatar {
-          width: 45px;
-          height: 45px;
-          border-radius: 50%;
-        }
-
-        .counter {
-          width: 20px;
-          height: 20px;
-          background-color: red;
-          border-radius: 50%;
-          color: white;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 15px;
-          font-weight: bold;
-          position: absolute;
-          top: -5px;
-          right: -5px;
-
-          
-        }
-
-        &:hover {
-          color: rgb(var(--color));
-        }
-      }
-    }
-    .item.notification, .item.list {
-      @media screen and (max-width: 600px) {
-        display: none;
-      }
-    }
-
-    .item.profile {
-      @media screen and (max-width: 600px) {
-     
-      }
-    }
-  }
+  justify-content: center;
+  font-size: 15px;
+  font-weight: bold;
+  position: absolute;
+  top: -5px;
+  right: -5px;
 }

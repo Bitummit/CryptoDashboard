@@ -8,7 +8,8 @@
   height: 100vh;
   background-color: var(--background-color);
   transition: flex 0.2s, background-color 0.5s;
-  z-index: 3;
+  z-index: 20;
+  flex: 1;
 
   .top {
     height: 70px;
@@ -134,4 +135,8 @@
       }
     }
   }
+}
+
+.sidebar.collapsed {
+  flex: 4;
 }
