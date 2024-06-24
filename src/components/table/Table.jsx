@@ -46,15 +46,15 @@ export default function List() {
                 className="table-cell px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center "
               >
                 #{row.id}
-                <div className="text-sm text-gray-700 dark:text-gray-400">
+                <div className="text-sm text-gray-700 dark:text-gray-400 ">
                   {row.date} {row.time}
                 </div>
               </th>
-              <td className="px-6 py-4 text-center text-gray-950 table-cell">
+              <td className="px-6 py-4 text-center text-gray-950 table-cell dark:text-gray-200">
                 {row.from} - {row.to}
               </td>
-              <td className="px-6 py-4 table-cell">
-                <div className="flex justify-center items-center text-gray-950 font-bold">
+              <td className="px-6 py-4 table-cell ">
+                <div className="flex justify-center items-center text-gray-950 font-bold dark:text-gray-300" >
                   <img className="coinImage" src={row.img} /> {row.coin}
                 </div>
                 <div

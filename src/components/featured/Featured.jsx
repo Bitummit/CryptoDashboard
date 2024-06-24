@@ -41,6 +41,7 @@ export default function Featured() {
               total: {
                 showAlways: true,
                 show: true,
+                
                 fontWeight: "bold",
                 label: "Total",
                 formatter: function () {
@@ -79,6 +80,9 @@ export default function Featured() {
         position: "bottom",
         offsetY: 5,
         fontSize: 16,
+        style: {
+          cssClass: "dark:text-white",
+        },
       },
       yaxis: {
         labels: {
@@ -97,7 +101,7 @@ export default function Featured() {
         </h5>
         <div className="grid grid-cols-1 mt-10 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
 
-        <div className="py-6" id="donut-chart">
+        <div className="py-6 " id="donut-chart">
           <ReactApexChart
             options={chartData.options}
             type="donut"

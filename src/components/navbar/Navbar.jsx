@@ -22,22 +22,31 @@ export default function Navbar() {
       i18n.changeLanguage("en");
       // localStorage.setItem("lng", "en")
     }
-    
   };
   return (
     <div className="navbar h-70 sticky z-10 top-0 border-b-2 flex items-center text-sm  dark:text-white bg-white border-gray-200 dark:bg-gray-800">
       <div className="wrapper w-full flex items-center justify-between">
-        <div className="search hidden md:block ml-12 rounded-3xl flex items-center border border-gray-300 p-2">
-          <input className="border-0 outline-none bg-transparent text-gray-600" type="text" placeholder="Search..." />
+        <div className="search hidden md:block ml-12 rounded-3xl flex items-center border border-gray-300">
+          <input
+            className="border-0 focus:ring-0 bg-transparent text-gray-600"
+            type="text"
+            placeholder="Search..."
+          />
           <span className="cursor-pointer mr-2">
             <SearchIcon />
           </span>
         </div>
         <div className="relative flex items-center text-gray-600 hover:text-gray-800 m-6 cursor-pointer block md:hidden">
-            <Dropdown label=""  dismissOnClick={false} renderTrigger={() => <FormatListBulletedIcon className="scale-125" />}>
-              <Link to="/" style={{ textDecoration: "none" }}>
-                <Dropdown.Item className="text-xl">Dashboard</Dropdown.Item>
-              </Link>
+          <Dropdown
+            label=""
+            dismissOnClick={false}
+            renderTrigger={() => (
+              <FormatListBulletedIcon className="scale-125" />
+            )}
+          >
+            <Link to="/" style={{ textDecoration: "none" }}>
+              <Dropdown.Item className="text-xl">Dashboard</Dropdown.Item>
+            </Link>
             <Link to="/users" style={{ textDecoration: "none" }}>
               <Dropdown.Item className="text-xl">Users</Dropdown.Item>
             </Link>
@@ -45,15 +54,18 @@ export default function Navbar() {
               <Dropdown.Item className="text-xl">My wallet</Dropdown.Item>
             </Link>
             {/* <Link to="/" style={{ textDecoration: "none" }}> */}
-              <Dropdown.Item className="text-xl">Settings</Dropdown.Item>
+            <Dropdown.Item className="text-xl">Settings</Dropdown.Item>
             {/* </Link>
             <Link to="/" style={{ textDecoration: "none" }}> */}
-              <Dropdown.Item className="text-xl">Sign out</Dropdown.Item>
+            <Dropdown.Item className="text-xl">Sign out</Dropdown.Item>
             {/* </Link> */}
-            </Dropdown>
-          </div>
+          </Dropdown>
+        </div>
         <div className="flex items-center items">
-          <div className="relative flex items-center text-gray-600  hover:text-gray-800 m-6 cursor-pointer text-base" onClick={() => changeLanguage()}>
+          <div
+            className="relative flex items-center text-gray-600  hover:text-gray-800 m-6 cursor-pointer text-base"
+            onClick={() => changeLanguage()}
+          >
             <LanguageIcon className="scale-125 mr-1" /> {t("language")}
           </div>
           <div className="relative flex items-center text-gray-600 hover:text-gray-800 m-6 cursor-pointer ">
@@ -66,7 +78,7 @@ export default function Navbar() {
             <NotificationsIcon className="scale-125" />
             <div className="counter">1</div>
           </div>
-          
+
           <div className="relative flex items-center m-6 cursor-pointer">
             <img
               src="https://buffer.com/cdn-cgi/image/w=1000,fit=contain,q=90,f=auto/library/content/images/size/w1200/2023/10/free-images.jpg"

@@ -24,7 +24,7 @@ export default function Home() {
     mobile = true
   }
   return (
-    <div className={!mobile && "flex"}>
+    <div className={`bg-white dark:bg-gray-900 ${!mobile && "flex"}`}>
       
       { !mobile && <Sidebar />}
       <div className="flex-9">
@@ -37,7 +37,7 @@ export default function Home() {
             </Trans> */}
           </div>
 
-          <div className="flex flex-wrap justify-content gap-10 m-8">
+          <div className="flex flex-wrap justify-content gap-20 m-8">
             <Widget
               name="ETH"
               price="3,558.56"
@@ -72,7 +72,7 @@ export default function Home() {
             <Featured />
             <Chart />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg custom-shadow m-8 p-2 min-w-52">
+          <div className="bg-white dark:bg-gray-800 rounded-lg custom-shadow m-8 p-2 min-w-52 ">
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1 m-3 p-4">
               Latest transactions
            </h5>
