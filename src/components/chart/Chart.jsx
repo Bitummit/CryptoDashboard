@@ -43,8 +43,7 @@ const chartData = {
       labels: {
         show: true,
         style: {
-          cssClass:
-            "text-xs fill-gray-500 dark:fill-gray-400",
+          cssClass: "text-xs fill-gray-500 dark:fill-gray-400",
         },
         formatter: function (value) {
           return "$" + value;
@@ -95,7 +94,7 @@ const chartData = {
 
 export default function Chart() {
   return (
-    <div className="flex-3 bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 min-w-52 min-h-80">
+    <div className="flex-3 bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 min-w-52 min-h-80 w-full">
       <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">
         Last 6 Months (Wallet Statistic)
       </h5>
@@ -106,7 +105,6 @@ export default function Chart() {
           series={chartData.series}
           width={"100%"}
           height={"100%"}
-          
         />
       </div>
     </div>

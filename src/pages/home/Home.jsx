@@ -1,5 +1,4 @@
 
-import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Widget from "../../components/widget/Widget";
 import Featured from "../../components/featured/Featured";
@@ -10,7 +9,6 @@ import ltcImage from "../../assets/ltc.png";
 import solImage from "../../assets/sol.png";
 import List from "../../components/table/Table";
 import { useTranslation } from "react-i18next";
-import SidebarMobile from "../../components/sidebar/SidebarMobile";
 import useWindowDimensions from "../../services/useWindowDimensions";
 
 
@@ -24,10 +22,9 @@ export default function Home() {
     mobile = true
   }
   return (
-    <div className={`bg-white dark:bg-gray-900 ${!mobile && "flex"}`}>
-      
-      { !mobile && <Sidebar />}
-      <div className="flex-9">
+    <div className="bg-white dark:bg-gray-900">
+    
+      <div>
         <Navbar />
         <div className="pageContent">
           <div >
