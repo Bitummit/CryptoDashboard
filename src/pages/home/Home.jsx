@@ -1,4 +1,3 @@
-
 import Navbar from "../../components/navbar/Navbar";
 import Widget from "../../components/widget/Widget";
 import Featured from "../../components/featured/Featured";
@@ -11,24 +10,19 @@ import List from "../../components/table/Table";
 import { useTranslation } from "react-i18next";
 import useWindowDimensions from "../../services/useWindowDimensions";
 
-
-
 export default function Home() {
   const { height, width } = useWindowDimensions();
   const { t, i18n } = useTranslation();
-  let mobile = false
 
-  if (width < 650) {
-    mobile = true
-  }
   return (
     <div className="bg-white dark:bg-gray-900">
-    
       <div>
         <Navbar />
         <div className="pageContent">
-          <div >
-            <h1 className="pt-10 pl-10 text-4xl text-gray-600 dark:text-white font-bold">{t("home.title")}</h1>
+          <div>
+            <h1 className="pt-10 pl-10 text-4xl text-gray-600 dark:text-white font-bold">
+              {t("home.title")}
+            </h1>
             {/* <Trans i18nKey="home.title">
               Dashboard
             </Trans> */}
@@ -72,7 +66,7 @@ export default function Home() {
           <div className="bg-white dark:bg-gray-800 rounded-lg custom-shadow m-8 p-2 min-w-52 ">
             <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1 m-3 p-4">
               Latest transactions
-           </h5>
+            </h5>
             <List />
           </div>
         </div>

@@ -1,7 +1,9 @@
 const flowbite = require("flowbite-react/tailwind");
+const tailwind = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", flowbite.content()],
   theme: {
     extend: {
@@ -21,6 +23,14 @@ export default {
         70: "70px",
       },
     },
+    shiwa: {
+      
+    }
   },
-  plugins: [flowbite.plugin()],
+  plugins: [
+    flowbite.plugin(),
+    tailwind(({ addVariant }) => {
+      addVariant('shiwa', '.shiwa &');
+    }),
+  ],
 };

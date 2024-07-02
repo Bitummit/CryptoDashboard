@@ -15,13 +15,15 @@ function App() {
 
   if (theme === "dark") {
     document.getElementById("root").classList = ["root dark"];
+    document.body.classList=["bg-gray-900"]
   } else {
     document.getElementById("root").classList = ["root light"];
+    document.body.classList=["bg-white"]
   }
+  
 
   return (
     <div className={theme === "dark" ? "app dark" : "app"}>
-      
       <BrowserRouter>
         <Routes>
           <Route path="/">

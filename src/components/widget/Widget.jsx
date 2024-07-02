@@ -1,4 +1,3 @@
-
 import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import TrendingDownIcon from "@mui/icons-material/TrendingDown";
 
@@ -13,7 +12,7 @@ export default function Widget(props) {
             alt=""
           />
         </div>
-        <h5 className="flex justify-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <h5 className="flex justify-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white shiwa:text-green">
           {props.name} ${props.price}
         </h5>
         <div className="flex justify-center mb-2 font-normal text-gray-700 dark:text-gray-400">

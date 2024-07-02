@@ -76,10 +76,12 @@ export default function NewSidebar() {
                       </div>
                     </Sidebar.Item>
                     <Sidebar.Item>
+                    <Link to="/login" style={{ textDecoration: "none" }}>
                       <div className="flex items-center p-1">
                         <LogoutIcon className="scale-125 text-shiwa" />
                         <span className="text-2xl ml-2">Logout</span>
                       </div>
+                      </Link>
                     </Sidebar.Item>
                     <div className="absolute left-0 bottom-0 w-full flex items-center justify-center pb-8">
                       <div
