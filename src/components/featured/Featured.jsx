@@ -72,7 +72,7 @@ export default function Featured() {
       labels: data.map((data) => {
         return data.label;
       }),
-
+      
       dataLabels: {
         enabled: false,
       },
@@ -80,26 +80,24 @@ export default function Featured() {
         position: "bottom",
         offsetY: 5,
         fontSize: 16,
-        style: {
-          cssClass: "dark:text-white",
-        },
       },
       yaxis: {
         labels: {
           formatter: function (value) {
             return "$ " + value;
           },
+          
         },
       },
     },
   };
   return (
     <div className="flex-1 min-w-52">
-      <div className="max-w-sm bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 md:p-6">
-        <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">
+      <div className="max-w-sm bg-colorBgSecondary rounded-lg custom-shadow p-4 md:p-6">
+        <h5 className="text-xl font-bold leading-none text-colorTextGraySecond pe-1">
           Wallet Statistic
         </h5>
-        <div className="grid grid-cols-1 mt-10 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
+        <div className="grid grid-cols-1 mt-10 items-center border-t justify-between"></div>
 
         <div className="py-6 " id="donut-chart">
           <ReactApexChart
@@ -111,7 +109,7 @@ export default function Featured() {
           />
         </div>
 
-        <div className="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between"></div>
+        <div className="grid grid-cols-1 items-center border-t justify-between"></div>
       </div>
     </div>
   );

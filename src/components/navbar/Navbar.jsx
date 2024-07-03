@@ -25,14 +25,14 @@ export default function Navbar() {
     }
   };
   return (
-    <div className="navbar h-70 sticky z-10 top-0 border-b-2 flex items-center text-sm  dark:text-white bg-white border-gray-200 dark:bg-gray-800">
+    <div className="navbar h-70 sticky z-10 top-0 border-b-2 flex items-center text-sm  text-colorTextPrimary bg-colorBgSecondary border-colorBorder">
       <div className="wrapper w-full flex items-center justify-between">
-        <div className="flex items-center jusrify-center">
+        <div className="flex items-center justify-center">
           <NewSidebar />
-        <div className="search hidden md:block ml-12 rounded-3xl flex items-center border border-gray-300">
+        <div className="search hidden md:block ml-12 rounded-3xl flex items-center border border-colorBorder">
           
           <input
-            className="border-0 focus:ring-0 bg-transparent text-gray-600"
+            className="border-0 focus:ring-0 bg-transparent text-colorTextPrimary"
             type="text"
             placeholder="Search..."
           />
@@ -44,18 +44,18 @@ export default function Navbar() {
         
         <div className="flex items-center items">
           <div
-            className="relative flex items-center text-gray-600  hover:text-gray-800 m-6 cursor-pointer text-base"
+            className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary m-6 cursor-pointer text-base"
             onClick={() => changeLanguage()}
           >
             <LanguageIcon className="scale-125 mr-1" /> {t("language")}
           </div>
-          <div className="relative flex items-center text-gray-600 hover:text-gray-800 m-6 cursor-pointer ">
+          <div className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary m-6 cursor-pointer ">
             <DarkModeIcon
               className="scale-125"
               // onClick={() => switchTheme("dark")}
             />
           </div>
-          <div className="relative flex items-center text-gray-600 hover:text-gray-800 m-6 cursor-pointer  hidden md:block">
+          <div className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary m-6 cursor-pointer  hidden md:block">
             <NotificationsIcon className="scale-125" />
             <div className="counter">1</div>
           </div>

@@ -25,8 +25,8 @@ function ThemeProvider({ children }) {
   const [theme, setTheme] = useState("light")
 
   useEffect(() => {
-    const isDark = localStorage.getItem('theme') === 'dark'
-    setTheme(isDark ? "dark" : "light")
+    const themeName = localStorage.getItem('theme')
+    setTheme(themeName)
   }, [theme])
 
   const switchTheme = (themeName) => {

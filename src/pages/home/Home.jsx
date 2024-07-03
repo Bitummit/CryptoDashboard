@@ -15,12 +15,12 @@ export default function Home() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div className="bg-white dark:bg-gray-900">
+    <div className="bg-colorBgPrimary">
       <div>
         <Navbar />
         <div className="pageContent">
           <div>
-            <h1 className="pt-10 pl-10 text-4xl text-gray-600 dark:text-white font-bold">
+            <h1 className="pt-10 pl-10 text-4xl text-colorTextGraySecond font-bold">
               {t("home.title")}
             </h1>
             {/* <Trans i18nKey="home.title">
@@ -63,8 +63,8 @@ export default function Home() {
             <Featured />
             <Chart />
           </div>
-          <div className="bg-white dark:bg-gray-800 rounded-lg custom-shadow m-8 p-2 min-w-52 ">
-            <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1 m-3 p-4">
+          <div className="bg-colorBgSecondary rounded-lg custom-shadow m-8 p-2 min-w-52 ">
+            <h5 className="text-xl font-bold leading-none text-colorTextGraySecond pe-1 m-3 p-4">
               Latest transactions
             </h5>
             <List />

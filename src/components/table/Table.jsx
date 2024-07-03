@@ -8,9 +8,9 @@ const rows = data;
 
 export default function List() {
   return (
-    <div className="rounded-lg border m-2 overflow-x-scroll ">
-      <table className="text-sm md:text-md text-gray-500 dark:text-gray-400 w-full min-w-[640px] table-auto">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <div className="rounded-lg border m-2 overflow-x-scroll border-colorBorder">
+      <table className="text-sm md:text-md w-full min-w-[640px] table-auto">
+        <thead className="text-xs text-colorTextPrimary uppercase bg-colorBgThird ">
           <tr className="table-row">
             <th scope="col" className="px-6 py-3 text-center table-cell"></th>
             <th scope="col" className="px-6 py-3 text-center table-cell">
@@ -29,7 +29,7 @@ export default function List() {
         </thead>
         <tbody>
           {rows.map((row) => (
-            <tr className="table-row bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
               <td className="px-6 py-4 table-cell">
                 {row.isIncoming ? (
                   <div className="incoming text-green">
@@ -43,18 +43,18 @@ export default function List() {
               </td>
               <th
                 scope="row"
-                className="table-cell px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center "
+                className="table-cell px-6 py-4 font-medium text-colorTextPrimary space-nowrap text-center "
               >
                 #{row.id}
-                <div className="text-sm text-gray-700 dark:text-gray-400 ">
+                <div className="text-sm text-colorTextGraySecond ">
                   {row.date} {row.time}
                 </div>
               </th>
-              <td className="px-6 py-4 text-center text-gray-950 table-cell dark:text-gray-200">
+              <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
                 {row.from} - {row.to}
               </td>
               <td className="px-6 py-4 table-cell ">
-                <div className="flex justify-center items-center text-gray-950 font-bold dark:text-gray-300" >
+                <div className="flex justify-center items-center text-colorTextPrimary font-bold" >
                   <img className="coinImage" src={row.img} /> {row.coin}
                 </div>
                 <div

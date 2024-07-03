@@ -8,22 +8,21 @@ import { userInputs } from "./pages/add/formSource";
 import "./style/dark.scss";
 import "./style/light.scss";
 import { ThemeContext } from "./context/themeModeContext";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./app.scss";
+
+// https://stackoverflow.com/questions/70388520/why-are-async-api-calls-necessary-with-react-query
+// https://codesandbox.io/s/fragrant-glade-8huj6?file=/src/index.js:501-509
+// https://flowbite.com/docs/components/skeleton/
+//fix bottom body
+
 function App() {
   const { theme } = useContext(ThemeContext);
+  // document.body.classList=[`${'bg-gray-700'}`]
 
-  if (theme === "dark") {
-    document.getElementById("root").classList = ["root dark"];
-    document.body.classList=["bg-gray-900"]
-  } else {
-    document.getElementById("root").classList = ["root light"];
-    document.body.classList=["bg-white"]
-  }
-  
 
   return (
-    <div className={theme === "dark" ? "app dark" : "app"}>
+    <div className={`app theme-${theme}`}>
       <BrowserRouter>
         <Routes>
           <Route path="/">

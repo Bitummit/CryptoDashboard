@@ -25,9 +25,9 @@ export default function NewSidebar() {
         onClick={() => setIsOpen(true)}
       />
 
-      <Drawer open={isOpen} onClose={handleClose} className="p-0 m-0">
-        <div className="myHeader flex justify-between p-4">
-          <h5 className="text-3xl ml-8 text-shiwa">SHIWA</h5>
+      <Drawer open={isOpen} onClose={handleClose} className="p-0 m-0 bg-colorBgSecondary">
+        <div className="flex justify-between p-4">
+          <h5 className="text-3xl ml-8 text-shiwa-50">SHIWA</h5>
           <CloseOutlinedIcon
             className="cursor-pointer"
             onClick={() => setIsOpen(false)}
@@ -39,58 +39,62 @@ export default function NewSidebar() {
               <div>
                 <Sidebar.Items>
                   <Sidebar.ItemGroup>
-                    <Sidebar.Item>
+                    <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
                       <Link to="/" style={{ textDecoration: "none" }}>
                         <div className="flex items-center p-1 ">
-                          <DashboardIcon className="scale-125 text-shiwa" />
+                          <DashboardIcon className="scale-125 text-shiwa-50" />
                           <span className="text-2xl ml-2">Dashboard</span>
                         </div>
                       </Link>
                     </Sidebar.Item>
-                    <Sidebar.Item>
+                    <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
                       <Link to="/users" style={{ textDecoration: "none" }}>
                         <div className="flex items-center p-1">
-                          <GroupIcon className="scale-125 text-shiwa" />
+                          <GroupIcon className="scale-125 text-shiwa-50" />
                           <span className="text-2xl ml-2">Users</span>
                         </div>
                       </Link>
                     </Sidebar.Item>
-                    <Sidebar.Item>
+                    <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
                       <Link to="/wallet" style={{ textDecoration: "none" }}>
                         <div className="flex items-center p-1">
-                          <AccountBalanceWalletIcon className="scale-125 text-shiwa" />
+                          <AccountBalanceWalletIcon className="scale-125 text-shiwa-50" />
                           <span className="text-2xl ml-2">Wallet</span>
                         </div>
                       </Link>
                     </Sidebar.Item>
-                    <Sidebar.Item>
+                    <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
                       <div className="flex items-center p-1">
-                        <SettingsIcon className="scale-125 text-shiwa" />
+                        <SettingsIcon className="scale-125 text-shiwa-50" />
                         <span className="text-2xl ml-2">Settings</span>
                       </div>
                     </Sidebar.Item>
-                    <Sidebar.Item>
+                    <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
                       <div className="flex items-center p-1">
-                        <AccountCircleIcon className="scale-125 text-shiwa" />
+                        <AccountCircleIcon className="scale-125 text-shiwa-50" />
                         <span className="text-2xl ml-2">Profile</span>
                       </div>
                     </Sidebar.Item>
-                    <Sidebar.Item>
+                    <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
                     <Link to="/login" style={{ textDecoration: "none" }}>
                       <div className="flex items-center p-1">
-                        <LogoutIcon className="scale-125 text-shiwa" />
+                        <LogoutIcon className="scale-125 text-shiwa-50" />
                         <span className="text-2xl ml-2">Logout</span>
                       </div>
                       </Link>
                     </Sidebar.Item>
                     <div className="absolute left-0 bottom-0 w-full flex items-center justify-center pb-8">
                       <div
-                        className="w-10 h-10 border-2 bg-white mr-3 rounded-lg border-shiwa cursor-pointer"
+                        className="w-10 h-10 border-2 bg-white mr-3 rounded-lg border-shiwa-400 cursor-pointer"
                         onClick={() => switchTheme("light")}
                       ></div>
                       <div
-                        className="w-10 h-10 border-2 bg-gray-900 rounded-lg border-shiwa cursor-pointer"
+                        className="w-10 h-10 border-2 bg-gray-900 mr-3 rounded-lg border-shiwa-400 cursor-pointer"
                         onClick={() => switchTheme("dark")}
+                      ></div>
+                      <div
+                        className="w-10 h-10 border-2 bg-shiwa-50 rounded-lg border-shiwa-400 cursor-pointer"
+                        onClick={() => switchTheme("shiwa")}
                       ></div>
                     </div>
                   </Sidebar.ItemGroup>

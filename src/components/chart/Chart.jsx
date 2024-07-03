@@ -28,7 +28,7 @@ const chartData = {
       labels: {
         show: true,
         style: {
-          cssClass: "text-xs font-normal fill-gray-500 dark:fill-gray-400",
+          cssClass: "text-xs font-normal fill-colorTextPrimary",
         },
       },
       axisBorder: {
@@ -43,7 +43,7 @@ const chartData = {
       labels: {
         show: true,
         style: {
-          cssClass: "text-xs fill-gray-500 dark:fill-gray-400",
+          cssClass: "text-xs fill-colorTextPrimary",
         },
         formatter: function (value) {
           return "$" + value;
@@ -94,8 +94,8 @@ const chartData = {
 
 export default function Chart() {
   return (
-    <div className="flex-3 bg-white rounded-lg custom-shadow dark:bg-gray-800 p-4 min-w-52 min-h-80 w-full">
-      <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white pe-1">
+    <div className="flex-3 bg-colorBgSecondary rounded-lg custom-shadow p-4 min-w-52 min-h-80 w-full">
+      <h5 className="text-xl font-bold leading-none text-colorTextGraySecond pe-1">
         Last 6 Months (Wallet Statistic)
       </h5>
       <div className="h-4/5 mt-6">
