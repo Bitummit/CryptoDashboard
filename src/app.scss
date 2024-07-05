@@ -5,10 +5,11 @@
 }
 
 .custom-shadow {
-  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-  box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
+  -webkit-box-shadow: 2px 4px 10px 1px hsla(0, 0%, 0%, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(35, 101, 224, 0.47);
+  // box-shadow: 2px 4px 10px 1px rgba(86, 172, 194, 0.47);
 }
 .shadow-dark {
   -webkit-filter: drop-shadow(5px 5px 5px rgba(201, 201, 201, 0.47));
-    filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.47));
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.47));
 }

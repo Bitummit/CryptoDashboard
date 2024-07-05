@@ -14,11 +14,12 @@ import "./app.scss";
 // https://stackoverflow.com/questions/70388520/why-are-async-api-calls-necessary-with-react-query
 // https://codesandbox.io/s/fragrant-glade-8huj6?file=/src/index.js:501-509
 // https://flowbite.com/docs/components/skeleton/
-//fix bottom body
+// https://blog.logrocket.com/async-rendering-react-suspense-hooks-other-methods/
+// fix bottom body
 
 function App() {
   const { theme } = useContext(ThemeContext);
-  // document.body.classList=[`${'bg-gray-700'}`]
+  document.body.classList=['bg-colorBgPrimary']
 
 
   return (

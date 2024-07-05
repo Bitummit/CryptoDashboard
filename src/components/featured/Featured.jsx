@@ -1,6 +1,15 @@
 import ReactApexChart from "react-apexcharts";
+import fetchData from "../../api/fetchData";
+import { useEffect } from "react";
+import { getData } from "../../fetch/getData";
+
+// const resourse = fetchData(`https://api.tvmaze.com/shows/27436/episodes`);
+const resourse = getData(`https://api.tvmaze.com/shows/27436/episodes`, 5000);
 
 export default function Featured() {
+  
+  const testFetch = resourse.read();
+
   const data = [
     {
       label: "ETH",
@@ -41,7 +50,7 @@ export default function Featured() {
               total: {
                 showAlways: true,
                 show: true,
-                
+
                 fontWeight: "bold",
                 label: "Total",
                 formatter: function () {
@@ -72,7 +81,7 @@ export default function Featured() {
       labels: data.map((data) => {
         return data.label;
       }),
-      
+
       dataLabels: {
         enabled: false,
       },
@@ -86,11 +95,13 @@ export default function Featured() {
           formatter: function (value) {
             return "$ " + value;
           },
-          
         },
       },
     },
   };
+
+  
+
   return (
     <div className="flex-1 min-w-52">
       <div className="max-w-sm bg-colorBgSecondary rounded-lg custom-shadow p-4 md:p-6">

@@ -1,4 +1,7 @@
 import ReactApexChart from "react-apexcharts";
+import fetchData from "../../api/fetchData";
+import { getData } from "../../fetch/getData";
+
 
 const data = [
   { name: "January", total: 20231 },
@@ -92,12 +95,19 @@ const chartData = {
   },
 };
 
+const resourse = getData(`https://api.tvmaze.com/shows/27436/episodes`, 3000); // change here on fetch
+
 export default function Chart() {
+
+  const data = resourse.read();
+
+  console.log(data);
   return (
     <div className="flex-3 bg-colorBgSecondary rounded-lg custom-shadow p-4 min-w-52 min-h-80 w-full">
       <h5 className="text-xl font-bold leading-none text-colorTextGraySecond pe-1">
         Last 6 Months (Wallet Statistic)
       </h5>
+    
       <div className="h-4/5 mt-6">
         <ReactApexChart
           options={chartData.options}

@@ -1,7 +1,5 @@
 import Navbar from "../../components/navbar/Navbar";
 import Widget from "../../components/widget/Widget";
-import Featured from "../../components/featured/Featured";
-import Chart from "../../components/chart/Chart";
 import ethImage from "../../assets/eth.png";
 import btcImage from "../../assets/btc.png";
 import ltcImage from "../../assets/ltc.png";
@@ -9,6 +7,13 @@ import solImage from "../../assets/sol.png";
 import List from "../../components/table/Table";
 import { useTranslation } from "react-i18next";
 import useWindowDimensions from "../../services/useWindowDimensions";
+import { Suspense } from "react";
+import FeaturedLoading from "../../components/loading/FeaturedLoading";
+import ChartLoading from "../../components/loading/ChartLoading";
+import React from "react";
+
+const Featured = React.lazy(() => import("../../components/featured/Featured"));
+const Chart = React.lazy(() => import("../../components/chart/Chart"));
 
 export default function Home() {
   const { height, width } = useWindowDimensions();
@@ -60,8 +65,13 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-content gap-8 m-8">
-            <Featured />
-            <Chart />
+            {/* Makesuspense group */}
+            <Suspense fallback={<FeaturedLoading />}>
+              <Featured />
+            </Suspense>
+            <Suspense fallback={<ChartLoading />}>
+              <Chart />
+            </Suspense>
           </div>
           <div className="bg-colorBgSecondary rounded-lg custom-shadow m-8 p-2 min-w-52 ">
             <h5 className="text-xl font-bold leading-none text-colorTextGraySecond pe-1 m-3 p-4">
