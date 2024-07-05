@@ -101,7 +101,6 @@ export default function Chart() {
 
   const data = resourse.read();
 
-  console.log(data);
   return (
     <div className="flex-3 bg-colorBgSecondary rounded-lg custom-shadow p-4 min-w-52 min-h-80 w-full">
       <h5 className="text-xl font-bold leading-none text-colorTextGraySecond pe-1">

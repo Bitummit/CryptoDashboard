@@ -17,10 +17,20 @@ import "./app.scss";
 // https://blog.logrocket.com/async-rendering-react-suspense-hooks-other-methods/
 // fix bottom body
 
+
 function App() {
   const { theme } = useContext(ThemeContext);
-  document.body.classList=['bg-colorBgPrimary']
 
+  // document.body.classList=["bg-colorBgPrimary"] - не работает
+
+  if (theme === 'dark') {
+    document.body.classList=["bg-gray-900"]
+
+  } else if (theme === 'shiwa'){
+    document.body.classList=["bg-shiwa-300"]
+  } else {
+    document.body.classList=["bg-white"]
+  } 
 
   return (
     <div className={`app theme-${theme}`}>
