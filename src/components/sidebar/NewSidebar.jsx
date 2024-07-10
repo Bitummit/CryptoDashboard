@@ -21,11 +21,15 @@ export default function NewSidebar() {
   return (
     <div>
       <FormatListBulletedIcon
-        className="scale-125 cursor-pointer"
+        className="scale-125 cursor-pointer text-colorTextGraySecond"
         onClick={() => setIsOpen(true)}
       />
 
-      <Drawer open={isOpen} onClose={handleClose} className="p-0 m-0 bg-colorBgSecondary">
+      <Drawer
+        open={isOpen}
+        onClose={handleClose}
+        className="p-0 m-0 bg-colorBgSecondary w-full md:w-80"
+      >
         <div className="flex justify-between p-4">
           <h5 className="text-3xl ml-8 text-shiwa-50">SHIWA</h5>
           <CloseOutlinedIcon
@@ -76,11 +80,11 @@ export default function NewSidebar() {
                       </div>
                     </Sidebar.Item>
                     <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
-                    <Link to="/login" style={{ textDecoration: "none" }}>
-                      <div className="flex items-center p-1">
-                        <LogoutIcon className="scale-125 text-shiwa-50" />
-                        <span className="text-2xl ml-2">Logout</span>
-                      </div>
+                      <Link to="/login" style={{ textDecoration: "none" }}>
+                        <div className="flex items-center p-1">
+                          <LogoutIcon className="scale-125 text-shiwa-50" />
+                          <span className="text-2xl ml-2">Logout</span>
+                        </div>
                       </Link>
                     </Sidebar.Item>
                     <div className="absolute left-0 bottom-0 w-full flex items-center justify-center pb-8">

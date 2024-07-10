@@ -23,7 +23,7 @@ export default function LanguageButton() {
           onClick={() => changeLanguage()}
         >
           <LanguageIcon className="scale-125 mr-1" />
-          <span>{t("language")}</span>
+          <span className="hidden md:block">{t("language")}</span>
         </div>
       </div>
     </div>
