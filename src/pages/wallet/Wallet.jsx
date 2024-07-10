@@ -1,5 +1,4 @@
 import "./wallet.scss";
-import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import DataGridTable from "../../components/datagridtable/DataGridTable";
 import { useEffect, useState } from "react";
@@ -103,7 +102,6 @@ export default function Wallet() {
 
   return (
     <div className="wallet">
-      <Sidebar />
       <div className="walletContainer">
         <Navbar />
         <div className="content">

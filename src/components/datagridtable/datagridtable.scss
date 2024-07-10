@@ -4,6 +4,7 @@
   border-radius: 10px;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(133, 82, 228, 0.47);
+  background-color: var(--second_background-color);
 }
 .walletTable {
   display: flex;
@@ -18,6 +19,7 @@
   }
 
   .MuiDataGrid-cell {
+    color: rgb(var(--color_gray));
     font-size: 20px;
     font-weight: bold;
     --rowBorderColor: none;
@@ -58,6 +60,7 @@
   }
 
   .MuiDataGrid-cell {
+    color: rgb(var(--color));
     font-size: 15px;
     text-align: center;
     --rowBorderColor: none;

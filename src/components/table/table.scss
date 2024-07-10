@@ -1,62 +1,17 @@
-.table {
-  margin-top: 20px;
-  font-size: 18px;
-  text-align: center;
+.status {
+  padding: 5px;
+  border-radius: 5px;
 
-  .tableCell {
-    font-size: 18px;
-    text-align: center;
-    background-color: white;
-
-    .incoming {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgb(67, 177, 67);
-      border-radius: 10px;
-    }
-
-    .outcoming {
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: rgb(225, 73, 73);
-      border-radius: 10px;
-    }
-
-    .icon {
-      font-size: 24px;
-    }
-    .cellWrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      .coinImage {
-        width: 20px;
-        height: 20px;
-        margin-right: 5px;
-      }
-    }
-
-    .status {
-      padding: 5px;
-      border-radius: 5px;
-
-      &.Completed {
-        color: rgb(67, 177, 67);
-        background-color: rgb(163, 243, 163);
-      }
-      &.Pending {
-        color: rgb(143, 134, 5);
-        background-color: rgb(238, 228, 96);
-      }
-      &.Canceled {
-        color: rgb(225, 73, 73);
-        background-color: rgb(233, 161, 161);
-      }
-    }
+  &.Completed {
+    color: rgb(67, 177, 67);
+    background-color: rgb(163, 243, 163);
+  }
+  &.Pending {
+    color: rgb(143, 134, 5);
+    background-color: rgb(238, 228, 96);
+  }
+  &.Canceled {
+    color: rgb(225, 73, 73);
+    background-color: rgb(233, 161, 161);
   }
 }
