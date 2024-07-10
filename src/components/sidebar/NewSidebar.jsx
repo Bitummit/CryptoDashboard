@@ -21,7 +21,7 @@ export default function NewSidebar() {
   return (
     <div>
       <FormatListBulletedIcon
-        className="scale-125 ml-10 cursor-pointer"
+        className="scale-125 cursor-pointer"
         onClick={() => setIsOpen(true)}
       />
 

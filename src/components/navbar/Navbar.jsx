@@ -29,7 +29,7 @@ export default function Navbar() {
       <div className="wrapper w-full flex items-center justify-between">
         <div className="flex items-center justify-center">
           <NewSidebar />
-        <div className="search hidden md:block ml-12 rounded-3xl flex items-center border border-colorBorder">
+        {/* <div className="search hidden md:block ml-12 rounded-3xl flex items-center border border-colorBorder">
           
           <input
             className="border-0 focus:ring-0 bg-transparent text-colorTextPrimary"
@@ -39,7 +39,7 @@ export default function Navbar() {
           <span className="cursor-pointer mr-2">
             <SearchIcon />
           </span>
-        </div>
+        </div> */}
         </div>
         
         <div className="flex items-center items">
@@ -49,7 +49,7 @@ export default function Navbar() {
           >
             <LanguageIcon className="scale-125 mr-1" /> {t("language")}
           </div>
-          <div className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary m-6 cursor-pointer ">
+          {/* <div className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary m-6 cursor-pointer ">
             <DarkModeIcon
               className="scale-125"
               // onClick={() => switchTheme("dark")}
@@ -58,7 +58,7 @@ export default function Navbar() {
           <div className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary m-6 cursor-pointer  hidden md:block">
             <NotificationsIcon className="scale-125" />
             <div className="counter">1</div>
-          </div>
+          </div> */}
 
           <div className="relative flex items-center m-6 cursor-pointer">
             <img
