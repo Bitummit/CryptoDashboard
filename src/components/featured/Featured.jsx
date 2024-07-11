@@ -4,10 +4,9 @@ import { useEffect } from "react";
 import { getData } from "../../fetch/getData";
 
 // const resourse = fetchData(`https://api.tvmaze.com/shows/27436/episodes`);
-const resourse = getData(`https://api.tvmaze.com/shows/27436/episodes`, 5000);
+const resourse = getData(`https://api.tvmaze.com/shows/27436/episodes`, 1000);
 
 export default function Featured() {
-  
   const testFetch = resourse.read();
 
   const data = [
@@ -33,7 +32,11 @@ export default function Featured() {
     series: data.map((data) => {
       return data.value;
     }),
+
     options: {
+      chart: {
+        foreColor: "var(--color-text-gray-second)",
+      },
       colors: ["#1C64F2", "#16BDCA", "#FDBA8C", "#E74694"],
       stroke: {
         colors: ["transparent"],
@@ -50,7 +53,6 @@ export default function Featured() {
               total: {
                 showAlways: true,
                 show: true,
-
                 fontWeight: "bold",
                 label: "Total",
                 formatter: function () {
@@ -99,8 +101,6 @@ export default function Featured() {
       },
     },
   };
-
-  
 
   return (
     <div className="flex-1 min-w-52">

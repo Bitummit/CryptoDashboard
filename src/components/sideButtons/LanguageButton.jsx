@@ -2,7 +2,7 @@ import NewSidebar from "../sidebar/NewSidebar";
 import LanguageIcon from "@mui/icons-material/Language";
 import { useTranslation } from "react-i18next";
 
-export default function LanguageButton() {
+export default function LanguageButton(props) {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = () => {
@@ -16,16 +16,12 @@ export default function LanguageButton() {
   };
 
   return (
-    <div className="fixed bottom-10 left-0 border border-colorBorder rounded-r-lg bg-colorBgSecondary z-40 md:w-20">
-      <div className="p-3 md:ml-3">
-        <div
-          className="relative flex items-center text-colorTextGraySecond hover:text-colorTextPrimary cursor-pointer text-base"
-          onClick={() => changeLanguage()}
-        >
-          <LanguageIcon className="scale-125 mr-1" />
-          <span className="hidden md:block">{t("language")}</span>
-        </div>
-      </div>
+    <div
+      className="relative flex items-center justify-center text-colorTextGraySecond hover:text-colorTextPrimary cursor-pointer text-base"
+      onClick={() => changeLanguage()}
+    >
+      <LanguageIcon className="scale-125 mr-1" />
+      <span>{props.isLong ? t("lngLong") : t("language")}</span>
     </div>
   );
 }
