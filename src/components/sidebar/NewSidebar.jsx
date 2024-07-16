@@ -34,7 +34,7 @@ export default function NewSidebar() {
         <div className="flex justify-between p-4">
           <h5 className="text-3xl ml-8 text-shiwa-50">SHIWA</h5>
           <CloseOutlinedIcon
-            className="cursor-pointer"
+            className="cursor-pointer text-colorTextGraySecond"
             onClick={() => setIsOpen(false)}
           />
         </div>

@@ -35,7 +35,7 @@ export default function Home() {
             </Trans> */}
           </div>
 
-          <div className="flex flex-wrap justify-content gap-20 m-8">
+          <div className="flex flex-wrap justify-content gap-10 m-8">
             <Widget
               name="ETH"
               price="3,558.56"
