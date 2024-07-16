@@ -11,19 +11,19 @@
     margin-top: 20px;
   }
 
-  button {
-    color: rgb(var(--color));
-    font-size: 22px;
-    margin: 20px;
-    border-radius: 5px;
-    border: 2px solid rgb(111, 111, 187);
-    background-color: var(--background-color);
+  // button {
+  //   color: rgb(var(--color));
+  //   font-size: 22px;
+  //   margin: 20px;
+  //   border-radius: 5px;
+  //   border: 2px solid rgb(111, 111, 187);
+  //   background-color: var(--background-color);
 
-    &:hover {
-      cursor: pointer;
-      background-color: #a49dc5;
-    }
-  }
+  //   &:hover {
+  //     cursor: pointer;
+  //     background-color: #a49dc5;
+  //   }
+  // }
 
   .datatable {
     margin: 20px;
