@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
+
+// Later maybe use url params instead of filter state
+
 export default function Dropdown(props) {
   const [selectedFilter, setFilter] = useState(props.filters[0]);
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +41,7 @@ export default function Dropdown(props) {
               onClick={() => {
                 setFilter(item);
               }}
-              className="cursor-pointer hover:bg-colorBgThird hover:border-l-white hover:border-l-4 text-xl p-2 m-1"
+              className="cursor-pointer hover:bg-colorBgThird hover:border-l-colorTextGraySecond hover:border-l-4 text-xl p-2 m-1"
             >
               {" "}
               {item}
