@@ -7,7 +7,7 @@ export default function Users() {
   
 
   return (
-    <div className="bg-colorBgPrimary md:px-32">
+    <div className="bg-colorBgPrimary md:px-32 users">
       <div>
         <SideButtons />
         <div className="pageContent">
@@ -17,7 +17,7 @@ export default function Users() {
             </h1>
           </div>
           <div className="mt-10">
-            <Dropdown />
+            <Dropdown filters={["All users", "Active", "Inactive"]}/>
           </div>
           <div>
             <div className="bg-colorBgSecondary rounded-lg custom-shadow my-10 p-5 min-w-52 ">

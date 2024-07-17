@@ -10,6 +10,7 @@ export default {
       colors: {
         green: "#4CBB17",
         red: "#D2042D",
+        blue: "#1876E2",
         shiwa: {
           '50': "#6EC1E4",
           '100': "#5CAED1",

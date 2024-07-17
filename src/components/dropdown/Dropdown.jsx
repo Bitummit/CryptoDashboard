@@ -1,44 +1,51 @@
-import { useState } from "react";
-import { Dropdown } from "flowbite-react";
+import { useState, useEffect, useRef } from "react";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-export default function Select() {
-  const [selectedFilter, setFilter] = useState("All users");
+export default function Dropdown(props) {
+  const [selectedFilter, setFilter] = useState(props.filters[0]);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const customTheme = {
-    
-  }
+  let menuRef = useRef();
+
+  useEffect(() => {
+    let handler = (e) => {
+      if (!menuRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+  });
 
   return (
-    <div >
-        <Dropdown
-              size="lg"
-              className="flex items-center"
-              label={selectedFilter}
-              dismissOnClick={true}
+    <div ref={menuRef} className="relative flex flex-col w-full md:w-40">
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="bg-blue text-gray-100 p-3 text-lg rounded-lg flex items-center justify-center"
+      >
+        {selectedFilter}
+        {isOpen ? (
+          <ArrowDropUpIcon className="scale-125" />
+        ) : (
+          <ArrowDropDownIcon className="scale-125" />
+        )}
+      </button>
+      {isOpen && (
+        <div className="absolute bg-colorBgSecondary text-colorTextPrimary border border-colorBorder rounded-lg top-16 w-full">
+          {props.filters.map((item) => (
+            <div
+              onClick={() => {
+                setFilter(item);
+              }}
+              className="cursor-pointer hover:bg-colorBgThird hover:border-l-white hover:border-l-4 text-xl p-2 m-1"
             >
-              <Dropdown.Item
-              className="text-lg"
-                onClick={() => {
-                  setFilter("All users");
-                }}
-              >
-                All users
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={() => {
-                  setFilter("Active");
-                }}
-              >
-                Active
-              </Dropdown.Item>
-              <Dropdown.Item
-                onClick={() => {
-                  setFilter("Inactive");
-                }}
-              >
-                Inactive
-              </Dropdown.Item>
-            </Dropdown>
+              {" "}
+              {item}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
