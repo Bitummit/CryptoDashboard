@@ -25,10 +25,10 @@ export default function Dropdown(props) {
   });
 
   return (
-    <div ref={menuRef} className="relative flex flex-col w-full md:w-40">
+    <div ref={menuRef} className="relative flex flex-col mx-5 mt-3 md:mx-0 md:w-40 md:mt-0">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-blue text-gray-100 p-3 text-lg rounded-lg flex items-center justify-center"
+        className="bg-blue-100 text-gray-100 p-3 text-lg rounded-lg flex items-center justify-center h-14"
       >
         {selectedFilter}
         {isOpen ? (
@@ -43,6 +43,7 @@ export default function Dropdown(props) {
             <div
               onClick={() => {
                 setFilter(item);
+                setIsOpen(false);
                 //fetch с фильтром и seachParams
               }}
               className="cursor-pointer hover:bg-colorBgThird hover:border-l-colorTextGraySecond hover:border-l-4 text-xl p-2 m-1"

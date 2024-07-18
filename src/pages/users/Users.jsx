@@ -1,11 +1,10 @@
 import DataTable from "../../components/datatable/Datatable";
 import Dropdown from "../../components/dropdown/Dropdown";
+import Search from "../../components/search/Search";
 import SideButtons from "../../components/sideButtons/SideButtons";
 import { useState } from "react";
 
 export default function Users() {
-  
-
   return (
     <div className="bg-colorBgPrimary md:px-32 users">
       <div>
@@ -16,8 +15,9 @@ export default function Users() {
               All Users
             </h1>
           </div>
-          <div className="mt-10">
-            <Dropdown filters={["All users", "Active", "Inactive"]}/>
+          <div className="mt-10 flex flex-col-reverse md:flex-row ">
+            <Dropdown filters={["All users", "Active", "Inactive"]} />
+            <Search />
           </div>
           <div>
             <div className="bg-colorBgSecondary rounded-lg custom-shadow my-10 p-5 min-w-52 ">
