@@ -8,9 +8,9 @@ export default function Search() {
           <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <SearchIcon className="text-gray-500" />
           </div>
-          <div className="h-12 block w-full bg-gray-50 rounded-lg border border-gray-300">
+          <div className="h-12 block w-full bg-colorBgSecondary rounded-lg border border-colorBorder">
             <input
-              class="h-11 w-3/4 p-4 ps-10 text-lg text-gray-900  rounded-lg bg-gray-50 focus:outline-none"
+              class="h-11 w-3/4 p-4 ps-10 text-lg text-colorTextPrimary bg-colorBgSecondary rounded-lg focus:outline-none"
               placeholder="Quick search..."
               required
             />

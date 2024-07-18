@@ -2,8 +2,8 @@ import "./datatable.scss";
 import { DataGrid } from "@mui/x-data-grid";
 import data from "./data.json";
 import { Link } from "react-router-dom";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const rows = data;
 
@@ -52,14 +52,13 @@ export default function DataTable() {
                 </div>
               </td>
               <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
-                <div>
-                <button className="mr-4 text-blue-100 hover:text-blue-200 bg-blue-10 rounded-lg p-1">
+                <div className="flex flex-col items-center justify-center md:flex-row">
+                  <button className="md:mr-4 text-blue-100 hover:bg-blue-200 bg-blue-10 rounded-lg p-1">
                     <EditIcon />
                   </button>
-                  <button className="text-red-100 hover:text-red-200 bg-red-50 rounded-lg p-1">
+                  <button className="mt-2 md:mt-0 text-red-100 hover:bg-red-200 bg-red-50 rounded-lg p-1">
                     <DeleteIcon />
                   </button>
-                  
                 </div>
               </td>
             </tr>
