@@ -36,7 +36,7 @@ export default function List() {
                     <CallReceivedIcon />
                   </div>
                 ) : (
-                  <div className="outcoming text-red">
+                  <div className="outcoming text-red-100">
                     <CallMadeIcon />
                   </div>
                 )}
@@ -60,7 +60,7 @@ export default function List() {
                 <div
                   className={
                     "flex justify-center items-center " +
-                    (row.isIncoming ? "text-green" : "text-red")
+                    (row.isIncoming ? "text-green" : "text-red-100")
                   }
                 >
                   {row.isIncoming ? "+" : "-"} ${row.amount}

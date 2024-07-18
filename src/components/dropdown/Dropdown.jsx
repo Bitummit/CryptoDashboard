@@ -28,14 +28,17 @@ export default function Dropdown(props) {
     <div ref={menuRef} className="relative flex flex-col mx-5 mt-3 md:mx-0 md:w-40 md:mt-0">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="bg-blue-100 text-gray-100 p-3 text-lg rounded-lg flex items-center justify-center h-14"
+        className="bg-blue-100 text-gray-100 p-3 text-lg rounded-lg flex items-center justify-between h-12"
       >
         {selectedFilter}
+
+
         {isOpen ? (
           <ArrowDropUpIcon className="scale-125" />
         ) : (
           <ArrowDropDownIcon className="scale-125" />
         )}
+
       </button>
       {isOpen && (
         <div className="absolute bg-colorBgSecondary text-colorTextPrimary border border-colorBorder rounded-lg top-16 w-full">

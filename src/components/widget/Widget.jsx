@@ -16,7 +16,7 @@ export default function Widget(props) {
           {props.name} ${props.price}
         </h5>
         <div className="flex justify-center mb-2 font-normal text-colorTextGraySecond">
-          <span className={props.isUp ? "text-green" : "text-red"}>
+          <span className={props.isUp ? "text-green" : "text-red-100"}>
             {props.isUp ? <TrendingUpIcon /> : <TrendingDownIcon />}
             {props.percent}%
           </span>

@@ -20,10 +20,11 @@ export default function Users() {
             <Search />
           </div>
           <div>
-            <div className="bg-colorBgSecondary rounded-lg custom-shadow my-10 p-5 min-w-52 ">
+            <div className="mt-5 mx-1 md:mt-10 md:mx-0">
               <DataTable />
+              </div>
               <div className="flex justify-end text-xs">Pagination here</div>
-            </div>
+            
           </div>
         </div>
       </div>
