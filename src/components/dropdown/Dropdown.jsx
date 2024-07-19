@@ -25,7 +25,7 @@ export default function Dropdown(props) {
   });
 
   return (
-    <div ref={menuRef} className="relative flex flex-col mx-5 mt-3 md:mx-0 md:w-40 md:mt-0">
+    <div ref={menuRef} className="relative flex flex-col mx-5 mt-3 md:mx-0 md:w-40 md:mt-0 rounded-lg">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className="bg-blue-100 text-gray-100 p-3 text-lg rounded-lg flex items-center justify-between h-12"

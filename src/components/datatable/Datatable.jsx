@@ -4,26 +4,98 @@ import data from "./data.json";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-
-const rows = data;
+import { useState } from "react";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 
 export default function DataTable() {
+  const [rows, setRows] = useState(data);
+  const [order, setOrder] = useState({ key: "", direction: "ASC" });
+
+  const sorting = (col) => {
+    if (order.direction === "ASC") {
+      const sorted = [...data].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+
+      setRows(sorted);
+      setOrder({
+        key: col,
+        direction: "DSC",
+      });
+    } else{
+      const sorted = [...data].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+
+      setRows(sorted);
+      setOrder({
+        key: col,
+        direction: "ASC",
+      });
+    }
+  };
+
   return (
     <div className="rounded-lg border overflow-x-scroll border-colorBorder custom-shadow min-w-52">
       <table className="text-sm md:text-lg w-full min-w-[640px] table-auto">
         <thead className="text-base text-colorTextPrimary uppercase bg-colorBgThird ">
           <tr className="table-row">
-            <th scope="col" className="px-6 py-3 text-center table-cell">
+            <th
+              onClick={() => {
+                sorting("lastName");
+              }}
+              scope="col"
+              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
+            >
               Name
+              {order.key === "lastName" &&
+                (order.direction === "ASC" ? (
+                  <ArrowDownwardIcon className="scale-75" />
+                ) : (
+                  <ArrowUpwardIcon className="scale-75" />
+                ))}
             </th>
-            <th scope="col" className="px-6 py-3 text-center table-cell">
+            <th
+              onClick={() => {
+                sorting("email");
+              }}
+              scope="col"
+              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
+            >
               Email
+              {order.key === "email" &&
+                (order.direction === "ASC" ? (
+                  <ArrowDownwardIcon className="scale-75" />
+                ) : (
+                  <ArrowUpwardIcon className="scale-75" />
+                ))}
             </th>
-            <th scope="col" className="px-6 py-3 text-center table-cell">
+            <th
+              onClick={() => {
+                sorting("balance");
+              }}
+              scope="col"
+              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
+            >
               Balance
+              {order.key === "balance" &&
+                (order.direction === "ASC" ? (
+                  <ArrowDownwardIcon className="scale-75" />
+                ) : (
+                  <ArrowUpwardIcon className="scale-75" />
+                ))}
             </th>
-            <th scope="col" className="px-6 py-3 text-center table-cell">
+            <th
+              onClick={() => {
+                sorting("status");
+              }}
+              scope="col"
+              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
+            >
               Status
+              {order.key === "status" &&
+                (order.direction === "ASC" ? (
+                  <ArrowDownwardIcon className="scale-75" />
+                ) : (
+                  <ArrowUpwardIcon className="scale-75" />
+                ))}
             </th>
             <th scope="col" className="px-6 py-3 text-center table-cell"></th>
           </tr>

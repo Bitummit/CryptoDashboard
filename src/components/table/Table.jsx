@@ -32,7 +32,7 @@ export default function List() {
             <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
               <td className="px-6 py-4 table-cell">
                 {row.isIncoming ? (
-                  <div className="incoming text-green">
+                  <div className="incoming text-green-200">
                     <CallReceivedIcon />
                   </div>
                 ) : (
@@ -60,7 +60,7 @@ export default function List() {
                 <div
                   className={
                     "flex justify-center items-center " +
-                    (row.isIncoming ? "text-green" : "text-red-100")
+                    (row.isIncoming ? "text-green-200" : "text-red-100")
                   }
                 >
                   {row.isIncoming ? "+" : "-"} ${row.amount}
