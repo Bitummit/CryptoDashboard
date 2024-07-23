@@ -10,6 +10,10 @@ import "./style/light.scss";
 import { ThemeContext } from "./context/themeModeContext";
 import { useContext, useEffect, useState } from "react";
 import "./app.scss";
+import {
+  QueryClient,
+  QueryClientProvider
+} from '@tanstack/react-query'
 
 // https://stackoverflow.com/questions/70388520/why-are-async-api-calls-necessary-with-react-query
 // https://codesandbox.io/s/fragrant-glade-8huj6?file=/src/index.js:501-509
@@ -19,6 +23,7 @@ import "./app.scss";
 
 
 function App() {
+  const client = new QueryClient();
   const { theme } = useContext(ThemeContext);
 
   // document.body.classList=["bg-colorBgPrimary"] - не работает
@@ -35,20 +40,22 @@ function App() {
   return (
     <div className={`app theme-${theme}`}>
       <BrowserRouter>
-        <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="login" element={<Login />} />
-            <Route path="wallet" element={<Wallet />} />
-            <Route path="users">
-              <Route index element={<Users />} />
-              <Route
-                path="new"
-                element={<New inputs={userInputs} title="Add New User" />}
-              />
+        <QueryClientProvider client={client}>
+          <Routes>
+            <Route path="/">
+              <Route index element={<Home />} />
+              <Route path="login" element={<Login />} />
+              <Route path="wallet" element={<Wallet />} />
+              <Route path="users">
+                <Route index element={<Users />} />
+                <Route
+                  path="new"
+                  element={<New inputs={userInputs} title="Add New User" />}
+                />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </QueryClientProvider>
       </BrowserRouter>
     </div>
   );

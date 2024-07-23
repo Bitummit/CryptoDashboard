@@ -1,16 +1,26 @@
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
-import data from "./data.json";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { useQuery } from "@tanstack/react-query";
+import Axios from "axios";
 
-export default function DataTable() {
-  const [rows, setRows] = useState(data);
+export default function DataTable(props) {
+  const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
+
+  const { data, status } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      return await Axios.get(`http://127.0.0.1:8000/api/users/?page=1`).then(
+        (res) => setRows(res.data.results)
+      );
+    },
+  });
+  console.log(data, status);
 
   const sorting = (col) => {
     if (order.direction === "ASC") {
@@ -21,7 +31,7 @@ export default function DataTable() {
         key: col,
         direction: "DSC",
       });
-    } else{
+    } else {
       const sorted = [...data].sort((a, b) => (a[col] < b[col] ? 1 : -1));
 
       setRows(sorted);
@@ -104,21 +114,24 @@ export default function DataTable() {
           {rows.map((row) => (
             <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
               <td className="px-6 py-4 text-center text-colorTextPrimary table-cell font-bold">
-                {row.firstName} {row.lastName} /{" "}
+                {row.first_name} {row.last_name} /{" "}
                 <span className="text-colorTextGraySecond text-sm">
-                  {row.login}
+                  {row.username}
                 </span>
               </td>
               <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
                 {row.email}
               </td>
               <td className="px-6 py-4 text-center font-bold text-colorTextPrimary table-cell">
-                ${row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                {/* ${row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, e",")} */}
+                $1
               </td>
               <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
                 <div className="flex items-center justify-center">
                   <div
-                    className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
+                    // className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
+                    className={`rounded-lg w-3 h-3 mr-1 active`}
+
                   ></div>
                   <span>{row.status}</span>
                 </div>
