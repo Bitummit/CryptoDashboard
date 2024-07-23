@@ -1,16 +1,16 @@
-import DataTable from "../../components/datatable/Datatable";
+// import DataTable from "../../components/datatable/Datatable";
 import Dropdown from "../../components/dropdown/Dropdown";
 import Search from "../../components/search/Search";
 import SideButtons from "../../components/sideButtons/SideButtons";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 
+const DataTable = lazy(() => import("../../components/datatable/Datatable"));
 
 export default function Users() {
-
   const [currentPage, setCurrentpage] = useState("1");
-  
+
   return (
     <div className="bg-colorBgPrimary md:px-32 users">
       <div>
@@ -34,9 +34,9 @@ export default function Users() {
           </div>
           <div>
             <div className="mt-5 mx-1 md:mt-10 md:mx-0">
-            <Suspense fallback="123">
-              <DataTable />
-            </Suspense>
+              <Suspense fallback="123">
+                <DataTable page={currentPage} />
+              </Suspense>
             </div>
             <div className="flex justify-end text-xs">Pagination here</div>
           </div>

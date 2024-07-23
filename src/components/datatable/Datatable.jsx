@@ -15,12 +15,12 @@ export default function DataTable(props) {
   const { data, status } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      return await Axios.get(`http://127.0.0.1:8000/api/users/?page=1`).then(
+      return await Axios.get(`http://127.0.0.1:8000/api/users/?page=${props.page}`).then(
         (res) => setRows(res.data.results)
       );
     },
   });
-  console.log(data, status);
+  console.log(rows, status);
 
   const sorting = (col) => {
     if (order.direction === "ASC") {
@@ -123,15 +123,12 @@ export default function DataTable(props) {
                 {row.email}
               </td>
               <td className="px-6 py-4 text-center font-bold text-colorTextPrimary table-cell">
-                {/* ${row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, e",")} */}
-                $1
+                ${row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </td>
               <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
                 <div className="flex items-center justify-center">
                   <div
-                    // className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
-                    className={`rounded-lg w-3 h-3 mr-1 active`}
-
+                    className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
                   ></div>
                   <span>{row.status}</span>
                 </div>

@@ -12,7 +12,7 @@ export default function Dropdown(props) {
   const [searchParams] = useSearchParams();
   const status = searchParams.get("status");
 
-  let menuRef = useRef();
+  const menuRef = useRef();
 
   useEffect(() => {
     let handler = (e) => {
