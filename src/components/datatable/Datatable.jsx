@@ -2,29 +2,46 @@ import "./datatable.scss";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
+import { useSearchParams, useNavigate, createSearchParams } from "react-router-dom";
 
-export default function DataTable(props) {
+export default function DataTable() {
+  const [searchParams] = useSearchParams();
+  const currentPage = searchParams.get("page") ? searchParams.get("page") : 1;
+
+  const navigate = useNavigate()
+  // const [page, setPage] = useState(currentPage);
+
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
 
-  const { data, status } = useQuery({
+  const { data, status, refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
-      return await Axios.get(`http://127.0.0.1:8000/api/users/?page=${props.page}`).then(
-        (res) => setRows(res.data.results)
-      );
+      return await Axios.get(
+        `http://127.0.0.1:8000/api/users/?page=${currentPage}`
+      ).then((res) => {
+        return res.data.results;
+      });
+      
     },
   });
+
+  useEffect(() => {
+    console.log(123);
+    refetch()
+    setRows(data);
+  });
+
   console.log(rows, status);
 
   const sorting = (col) => {
     if (order.direction === "ASC") {
-      const sorted = [...data].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      const sorted = [...rows].sort((a, b) => (a[col] > b[col] ? 1 : -1));
 
       setRows(sorted);
       setOrder({
@@ -32,7 +49,7 @@ export default function DataTable(props) {
         direction: "DSC",
       });
     } else {
-      const sorted = [...data].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      const sorted = [...rows].sort((a, b) => (a[col] < b[col] ? 1 : -1));
 
       setRows(sorted);
       setOrder({
@@ -49,13 +66,13 @@ export default function DataTable(props) {
           <tr className="table-row">
             <th
               onClick={() => {
-                sorting("lastName");
+                sorting("last_name");
               }}
               scope="col"
               className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
             >
               Name
-              {order.key === "lastName" &&
+              {order.key === "last_name" &&
                 (order.direction === "ASC" ? (
                   <ArrowDownwardIcon className="scale-75" />
                 ) : (
@@ -147,6 +164,13 @@ export default function DataTable(props) {
           ))}
         </tbody>
       </table>
+      <div className="flex justify-end text-xs h-12 border border-green-100" onClick={() => {
+        navigate({pathname: "", search: createSearchParams({
+          page: 2
+        }).toString()})
+        }}>
+        Pagination here
+      </div>
     </div>
   );
 }
