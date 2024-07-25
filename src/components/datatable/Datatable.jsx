@@ -7,41 +7,51 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
-import { useSearchParams, useNavigate, createSearchParams } from "react-router-dom";
+import {
+  useSearchParams,
+  useNavigate,
+  createSearchParams,
+} from "react-router-dom";
 
 export default function DataTable() {
   const [searchParams] = useSearchParams();
-  const currentPage = searchParams.get("page") ? searchParams.get("page") : 1;
-
-  const navigate = useNavigate()
-  // const [page, setPage] = useState(currentPage);
+  const navigate = useNavigate();
+  const [page, setPage] = useState(1);
 
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
 
-  const { data, status, refetch } = useQuery({
-    queryKey: ["users"],
+  function handlePageChange() {
+    setPage(2);
+    navigate({
+      pathname: "",
+      search: createSearchParams({
+        page: 2,
+      }).toString(),
+    });
+  }
+
+  const { data, status } = useQuery({
+    queryKey: ["/users", page],
     queryFn: async () => {
       return await Axios.get(
-        `http://127.0.0.1:8000/api/users/?page=${currentPage}`
+        `http://127.0.0.1:8000/api/users/?page=${page}`
       ).then((res) => {
         return res.data.results;
       });
-      
     },
   });
-
   useEffect(() => {
-    console.log(123);
-    refetch()
+    console.log("use effect");
     setRows(data);
-  });
-
-  console.log(rows, status);
+  }, [page]);
 
   const sorting = (col) => {
+    console.log(data);
     if (order.direction === "ASC") {
-      const sorted = [...rows].sort((a, b) => (a[col] > b[col] ? 1 : -1));
+      const sorted = [...data].sort((a, b) =>
+        a[col].localeCompare(b[col], undefined, { numeric: true })
+      );
 
       setRows(sorted);
       setOrder({
@@ -49,7 +59,7 @@ export default function DataTable() {
         direction: "DSC",
       });
     } else {
-      const sorted = [...rows].sort((a, b) => (a[col] < b[col] ? 1 : -1));
+      const sorted = [...data].sort((a, b) => b[col].localeCompare(a[col], undefined, { numeric: true }));
 
       setRows(sorted);
       setOrder({
@@ -164,11 +174,12 @@ export default function DataTable() {
           ))}
         </tbody>
       </table>
-      <div className="flex justify-end text-xs h-12 border border-green-100" onClick={() => {
-        navigate({pathname: "", search: createSearchParams({
-          page: 2
-        }).toString()})
-        }}>
+      <div
+        className="flex justify-end text-xs h-12 border border-green-100"
+        onClick={() => {
+          handlePageChange();
+        }}
+      >
         Pagination here
       </div>
     </div>

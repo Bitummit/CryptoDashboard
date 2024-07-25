@@ -23,13 +23,14 @@ import {
 
 
 function App() {
-  const client = new QueryClient({
+  const [client]  = useState(() => new QueryClient({
     defaultOptions: {
       queries: {
         suspense: true,
       },
     },
-  });
+  }))
+  
   const { theme } = useContext(ThemeContext);
 
   // document.body.classList=["bg-colorBgPrimary"] - не работает
