@@ -12,6 +12,7 @@ import {
   useNavigate,
   createSearchParams,
 } from "react-router-dom";
+import PaginationShort from "../pagination/PaginationShort";
 
 export default function DataTable() {
   const [searchParams] = useSearchParams();
@@ -21,12 +22,15 @@ export default function DataTable() {
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
 
-  function handlePageChange() {
-    setPage(2);
+  const pagesPerPage = 10;
+  const [totalPages, setTotalPages] = useState(1);
+
+  function handlePageChange(newValue) {
+    setPage(newValue);
     navigate({
       pathname: "",
       search: createSearchParams({
-        page: 2,
+        page: newValue,
       }).toString(),
     });
   }
@@ -37,17 +41,20 @@ export default function DataTable() {
       return await Axios.get(
         `http://127.0.0.1:8000/api/users/?page=${page}`
       ).then((res) => {
-        return res.data.results;
+        
+        return res.data;
       });
     },
   });
   useEffect(() => {
     console.log("use effect");
-    setRows(data);
+    setRows(data.results);
+    setTotalPages(Math.ceil(data.count / pagesPerPage))
+    console.log(totalPages);
+    console.log("fetch");
   }, [page]);
 
   const sorting = (col) => {
-    console.log(data);
     if (order.direction === "ASC") {
       const sorted = [...data].sort((a, b) =>
         a[col].localeCompare(b[col], undefined, { numeric: true })
@@ -59,7 +66,9 @@ export default function DataTable() {
         direction: "DSC",
       });
     } else {
-      const sorted = [...data].sort((a, b) => b[col].localeCompare(a[col], undefined, { numeric: true }));
+      const sorted = [...data].sort((a, b) =>
+        b[col].localeCompare(a[col], undefined, { numeric: true })
+      );
 
       setRows(sorted);
       setOrder({
@@ -174,13 +183,12 @@ export default function DataTable() {
           ))}
         </tbody>
       </table>
-      <div
-        className="flex justify-end text-xs h-12 border border-green-100"
-        onClick={() => {
-          handlePageChange();
-        }}
-      >
-        Pagination here
+      <div className="flex justify-center w-full md:justify-end">
+        <PaginationShort
+          handlePageChange={handlePageChange}
+          page={page}
+          total={totalPages}
+        />
       </div>
     </div>
   );
