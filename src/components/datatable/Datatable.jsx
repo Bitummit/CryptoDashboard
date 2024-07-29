@@ -13,6 +13,8 @@ import {
   createSearchParams,
 } from "react-router-dom";
 import PaginationShort from "../pagination/PaginationShort";
+import Pagination from "../pagination/Pagination";
+
 
 export default function DataTable() {
   const [searchParams] = useSearchParams();
@@ -35,28 +37,36 @@ export default function DataTable() {
     });
   }
 
-  const { data, status } = useQuery({
+  const { data, status, error } = useQuery({
     queryKey: ["/users", page],
     queryFn: async () => {
       return await Axios.get(
         `http://127.0.0.1:8000/api/users/?page=${page}`
       ).then((res) => {
-        
         return res.data;
-      });
+      })
+      .catch((error) => {
+        return "Error";
+    });;
     },
+    throwOnError: (error) => error.response?.status >= 500,
   });
+
+  if (data === "Error") {
+    return <div>Error!</div>
+  }
+
   useEffect(() => {
     console.log("use effect");
+    
     setRows(data.results);
-    setTotalPages(Math.ceil(data.count / pagesPerPage))
-    console.log(totalPages);
-    console.log("fetch");
+    setTotalPages(Math.ceil(data.count / pagesPerPage));
   }, [page]);
+
 
   const sorting = (col) => {
     if (order.direction === "ASC") {
-      const sorted = [...data].sort((a, b) =>
+      const sorted = [...data.results].sort((a, b) =>
         a[col].localeCompare(b[col], undefined, { numeric: true })
       );
 
@@ -66,7 +76,7 @@ export default function DataTable() {
         direction: "DSC",
       });
     } else {
-      const sorted = [...data].sort((a, b) =>
+      const sorted = [...data.results].sort((a, b) =>
         b[col].localeCompare(a[col], undefined, { numeric: true })
       );
 
@@ -79,7 +89,8 @@ export default function DataTable() {
   };
 
   return (
-    <div className="rounded-lg border overflow-x-scroll border-colorBorder custom-shadow min-w-52">
+    <div>
+    <div className="rounded-lg border overflow-x-scroll border-colorBorder custom-shadow min-w-52 mb-5">
       <table className="text-sm md:text-lg w-full min-w-[640px] table-auto">
         <thead className="text-base text-colorTextPrimary uppercase bg-colorBgThird ">
           <tr className="table-row">
@@ -183,7 +194,7 @@ export default function DataTable() {
           ))}
         </tbody>
       </table>
-      <div className="flex justify-center w-full md:justify-end">
+      <div className="hidden md:flex w-full justify-end">
         <PaginationShort
           handlePageChange={handlePageChange}
           page={page}
@@ -191,5 +202,16 @@ export default function DataTable() {
         />
       </div>
     </div>
+    <div className="flex justify-center w-full md:hidden mb-3">
+        <PaginationShort
+          handlePageChange={handlePageChange}
+          page={page}
+          total={totalPages}
+        />
+      </div>
+      <Pagination page={page}
+          total={totalPages}/>
+    </div>
+    
   );
 }

@@ -1,30 +1,53 @@
 export default function Pagination(props) {
-  let items;
 
-  if (props.current > 1) {
-    items.push(
-      <li>
-        <p class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          Prevz
+  // for (let i = 1; i <= props.total; i++) {
+  //   items.push(
+  //     <li>
+  //       <p className="border border-colorBorder rounded-l px-3 py-1 mr-1 bg-colorBgThird">
+  //         i
+  //       </p>
+  //     </li>
+  //   );
+  // }
+  let current = props.page,
+        last = props.total,
+        delta = 2,
+        left = current - delta,
+        right = current + delta + 1,
+        items = [],
+        itemsWithDots = [],
+        l;
+
+    for (let i = 1; i <= last; i++) {
+        if (i == 1 || i == last || i >= left && i < right) {
+          items.push(
+            <li>
+        <p className="border border-colorBorder rounded-l px-3 py-1 mr-1 bg-colorBgThird">
+          i
         </p>
       </li>
-    );
-  }
+          );
+        }
+    }
 
-  <li>
-    <p class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-      1
-    </p>
-  </li>;
-
-  if (props.current < total) {
-    items.push(
-      <li>
-        <p class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
-          Next
+    for (let i of items) {
+        if (l) {
+            if (i - l === 2) {
+              itemsWithDots.push(
+                  <li>
+        <p className="border border-colorBorder rounded-l px-3 py-1 mr-1 bg-colorBgThird">
+          l+1
         </p>
       </li>
-    );
-  }
+                );
+            } else if (i - l !== 1) {
+              itemsWithDots.push('...');
+            }
+        }
+        itemsWithDots.push(i);
+        l = i;
+    }
+
+    console.log(itemsWithDots);
   return <div></div>;
 }
