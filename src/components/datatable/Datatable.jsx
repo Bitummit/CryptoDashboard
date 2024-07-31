@@ -2,7 +2,7 @@ import "./datatable.scss";
 import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useQuery } from "@tanstack/react-query";
@@ -19,12 +19,12 @@ import Pagination from "../pagination/Pagination";
 export default function DataTable() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
 
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
 
-  const pagesPerPage = 10;
+  const PAGES_PER_PAGE = 2;
   const [totalPages, setTotalPages] = useState(1);
 
   function handlePageChange(newValue) {
@@ -47,21 +47,25 @@ export default function DataTable() {
       })
       .catch((error) => {
         return "Error";
-    });;
-    },
-    throwOnError: (error) => error.response?.status >= 500,
+      });;
+    }
   });
 
   if (data === "Error") {
     return <div>Error!</div>
   }
 
-  useEffect(() => {
-    console.log("use effect");
-    
+  useLayoutEffect(() => {
+    console.log("datatable use effect");
+    // setTotalPages(Math.ceil(data.count / PAGES_PER_PAGE));
     setRows(data.results);
-    setTotalPages(Math.ceil(data.count / pagesPerPage));
+    
   }, [page]);
+
+  useEffect(() => {
+    setTotalPages(Math.ceil(data.count / PAGES_PER_PAGE));
+  }, [])
+  
 
 
   const sorting = (col) => {
