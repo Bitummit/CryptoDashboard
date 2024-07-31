@@ -12,9 +12,10 @@ import {
   useNavigate,
   createSearchParams,
 } from "react-router-dom";
-import PaginationShort from "../pagination/PaginationShort";
+import SortingTableHeader from "./SortingTableHeader";
+import TableHeader from "./TableHeader";
 import Pagination from "../pagination/Pagination";
-
+import sorting from "../../services/sorting";
 
 export default function DataTable() {
   const [searchParams] = useSearchParams();
@@ -29,18 +30,17 @@ export default function DataTable() {
   const { data, status, error } = useQuery({
     queryKey: ["/users", page],
     queryFn: async () => {
-      return await Axios.get(
-        `http://127.0.0.1:8000/api/users/?page=${page}`
-      ).then((res) => {
-        return res.data;
-      })
-      .catch((error) => {
-        return "Error";
-      });;
-    }
+      return await Axios.get(`http://127.0.0.1:8000/api/users/?page=${page}`)
+        .then((res) => {
+          return res.data;
+        })
+        .catch((error) => {
+          return "Error";
+        });
+    },
   });
 
-  if (data === "Error") return <div>Error!</div>
+  if (data === "Error") return <div>Error!</div>;
 
   useLayoutEffect(() => {
     console.log("datatable use effect");
@@ -48,10 +48,9 @@ export default function DataTable() {
   }, [page]);
 
   useEffect(() => {
-    const pagesPerPage = data.results.length
+    const pagesPerPage = data.results.length;
     setTotalPages(Math.ceil(data.count / pagesPerPage));
-  }, [])
-  
+  }, []);
 
   function handlePageChange(newValue) {
     setPage(newValue);
@@ -62,153 +61,99 @@ export default function DataTable() {
       }).toString(),
     });
   }
+function handleHeaderClick(field_name) {
+  setRows(sorting(field_name, order, data, setOrder));
+}
 
-  
-  const sorting = (col) => {
-    if (order.direction === "ASC") {
-      const sorted = [...data.results].sort((a, b) =>
-        a[col].localeCompare(b[col], undefined, { numeric: true })
-      );
-
-      setRows(sorted);
-      setOrder({
-        key: col,
-        direction: "DSC",
-      });
-    } else {
-      const sorted = [...data.results].sort((a, b) =>
-        b[col].localeCompare(a[col], undefined, { numeric: true })
-      );
-
-      setRows(sorted);
-      setOrder({
-        key: col,
-        direction: "ASC",
-      });
-    }
-  };
 
   return (
     <div>
-    <div className="rounded-lg border overflow-x-scroll border-colorBorder custom-shadow min-w-52 mb-5">
-      <table className="text-sm md:text-lg w-full min-w-[640px] table-auto">
-        <thead className="text-base text-colorTextPrimary uppercase bg-colorBgThird ">
-          <tr className="table-row">
-            <th
-              onClick={() => {
-                sorting("last_name");
-              }}
-              scope="col"
-              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
-            >
-              Name
-              {order.key === "last_name" &&
-                (order.direction === "ASC" ? (
-                  <ArrowDownwardIcon className="scale-75" />
-                ) : (
-                  <ArrowUpwardIcon className="scale-75" />
-                ))}
-            </th>
-            <th
-              onClick={() => {
-                sorting("email");
-              }}
-              scope="col"
-              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
-            >
-              Email
-              {order.key === "email" &&
-                (order.direction === "ASC" ? (
-                  <ArrowDownwardIcon className="scale-75" />
-                ) : (
-                  <ArrowUpwardIcon className="scale-75" />
-                ))}
-            </th>
-            <th
-              onClick={() => {
-                sorting("balance");
-              }}
-              scope="col"
-              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
-            >
-              Balance
-              {order.key === "balance" &&
-                (order.direction === "ASC" ? (
-                  <ArrowDownwardIcon className="scale-75" />
-                ) : (
-                  <ArrowUpwardIcon className="scale-75" />
-                ))}
-            </th>
-            <th
-              onClick={() => {
-                sorting("status");
-              }}
-              scope="col"
-              className="px-6 py-3 text-center table-cell cursor-pointer border-r border-colorBorder hover:bg-gray-500"
-            >
-              Status
-              {order.key === "status" &&
-                (order.direction === "ASC" ? (
-                  <ArrowDownwardIcon className="scale-75" />
-                ) : (
-                  <ArrowUpwardIcon className="scale-75" />
-                ))}
-            </th>
-            <th scope="col" className="px-6 py-3 text-center table-cell"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => (
-            <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
-              <td className="px-6 py-4 text-center text-colorTextPrimary table-cell font-bold">
-                {row.first_name} {row.last_name} /{" "}
-                <span className="text-colorTextGraySecond text-sm">
-                  {row.username}
-                </span>
-              </td>
-              <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
-                {row.email}
-              </td>
-              <td className="px-6 py-4 text-center font-bold text-colorTextPrimary table-cell">
-                ${row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-              </td>
-              <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
-                <div className="flex items-center justify-center">
-                  <div
-                    className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
-                  ></div>
-                  <span>{row.status}</span>
-                </div>
-              </td>
-              <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
-                <div className="flex flex-col items-center justify-center md:flex-row">
-                  <button className="md:mr-4 text-blue-100 hover:bg-blue-200 bg-blue-10 rounded-lg p-1">
-                    <EditIcon />
-                  </button>
-                  <button className="mt-2 md:mt-0 text-red-100 hover:bg-red-200 bg-red-50 rounded-lg p-1">
-                    <DeleteIcon />
-                  </button>
-                </div>
-              </td>
+      <div className="rounded-lg border overflow-x-scroll border-colorBorder custom-shadow min-w-52 mb-5">
+        <table className="text-sm md:text-lg w-full min-w-[640px] table-auto">
+          <thead className="text-base text-colorTextPrimary uppercase bg-colorBgThird ">
+            <tr className="table-row">
+              <SortingTableHeader
+                field_key="last_name"
+                field_name="Name"
+                order={order}
+                handleHeaderClick={handleHeaderClick}
+              />
+              <SortingTableHeader
+                field_key="email"
+                field_name="Email"
+                order={order}
+                handleHeaderClick={handleHeaderClick}
+              />
+              <SortingTableHeader
+                field_key="balance"
+                field_name="Balance"
+                order={order}
+                handleHeaderClick={handleHeaderClick}
+              />
+              <SortingTableHeader
+                field_key="status"
+                field_name="Status"
+                order={order}
+                handleHeaderClick={handleHeaderClick}
+              />
+              {/* <th scope="col" className="px-6 py-3 text-center table-cell"></th> */}
+              <TableHeader />
             </tr>
-          ))}
-        </tbody>
-      </table>
-      
-      <div className="m-3 mr-8">
-        <Pagination page={page} total={totalPages} handlePageChange={handlePageChange}/>
-      </div>
-      {/* <div className="flex justify-center w-full md:justify-end">
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
+                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell font-bold">
+                  {row.first_name} {row.last_name} /{" "}
+                  <span className="text-colorTextGraySecond text-sm">
+                    {row.username}
+                  </span>
+                </td>
+                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
+                  {row.email}
+                </td>
+                <td className="px-6 py-4 text-center font-bold text-colorTextPrimary table-cell">
+                  $
+                  {row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </td>
+                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
+                  <div className="flex items-center justify-center">
+                    <div
+                      className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
+                    ></div>
+                    <span>{row.status}</span>
+                  </div>
+                </td>
+                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
+                  <div className="flex flex-col items-center justify-center md:flex-row">
+                    <button className="md:mr-4 text-blue-100 hover:bg-blue-200 bg-blue-10 rounded-lg p-1">
+                      <EditIcon />
+                    </button>
+                    <button className="mt-2 md:mt-0 text-red-100 hover:bg-red-200 bg-red-50 rounded-lg p-1">
+                      <DeleteIcon />
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div className="m-3 mr-8">
+          <Pagination
+            page={page}
+            total={totalPages}
+            handlePageChange={handlePageChange}
+          />
+        </div>
+        {/* <div className="flex justify-center w-full md:justify-end">
         <PaginationShort
           handlePageChange={handlePageChange}
           page={page}
           total={totalPages}
         />
       </div> */}
+      </div>
     </div>
-
-      
-    </div>
-    
   );
 }
