@@ -2,16 +2,17 @@ import { useEffect, useState } from "react";
 
 export default function Pagination(props) {
   function item_component(value) {
+    let dots = "...";
     return (
-      <li>
+      <div onClick={() => props.handlePageChange(value)}>
         <p
-          className={` border border-colorBorder rounded-l px-3 py-1 mr-1 bg-colorBgThird ${
-            value === props.page && "bg-green-100"
+          className={`flex items-center justify-center px-3 py-1 text-colorTextGraySecond bg-colorBgSecondary border border-colorBorder rounded-lg dark:bg-colorBgThird cursor-pointer ${
+            value === props.page ? "border-blue-50 border-2" : "hover:bg-gray-100 hover:text-colorTextPrimary"
           }`}
         >
           {value}
         </p>
-      </li>
+      </div>
     );
   }
 
@@ -43,8 +44,6 @@ export default function Pagination(props) {
   useEffect(() => {
     console.log("paginate use effect");
     setItems(paginate(props.page, props.total));
-    
-    
   }, [current, props.total]);
 
   // current, items = paginate(props.page, props.total);
@@ -90,7 +89,7 @@ export default function Pagination(props) {
 
   // console.log(itemsWithDots);
   return (
-    <div>
+    <div class="flex justify-end items-center text-sm gap-1">
       {items.map((item) => (
         <div key={item.index}>{item} </div>
       ))}

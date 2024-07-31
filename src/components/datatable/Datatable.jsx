@@ -19,23 +19,12 @@ import Pagination from "../pagination/Pagination";
 export default function DataTable() {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
+  const [totalPages, setTotalPages] = useState(1);
 
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
-
-  const PAGES_PER_PAGE = 2;
-  const [totalPages, setTotalPages] = useState(1);
-
-  function handlePageChange(newValue) {
-    setPage(newValue);
-    navigate({
-      pathname: "",
-      search: createSearchParams({
-        page: newValue,
-      }).toString(),
-    });
-  }
 
   const { data, status, error } = useQuery({
     queryKey: ["/users", page],
@@ -51,23 +40,30 @@ export default function DataTable() {
     }
   });
 
-  if (data === "Error") {
-    return <div>Error!</div>
-  }
+  if (data === "Error") return <div>Error!</div>
 
   useLayoutEffect(() => {
     console.log("datatable use effect");
-    // setTotalPages(Math.ceil(data.count / PAGES_PER_PAGE));
     setRows(data.results);
-    
   }, [page]);
 
   useEffect(() => {
-    setTotalPages(Math.ceil(data.count / PAGES_PER_PAGE));
+    const pagesPerPage = data.results.length
+    setTotalPages(Math.ceil(data.count / pagesPerPage));
   }, [])
   
 
+  function handlePageChange(newValue) {
+    setPage(newValue);
+    navigate({
+      pathname: "",
+      search: createSearchParams({
+        page: newValue,
+      }).toString(),
+    });
+  }
 
+  
   const sorting = (col) => {
     if (order.direction === "ASC") {
       const sorted = [...data.results].sort((a, b) =>
@@ -198,23 +194,20 @@ export default function DataTable() {
           ))}
         </tbody>
       </table>
-      <div className="hidden md:flex w-full justify-end">
+      
+      <div className="m-3 mr-8">
+        <Pagination page={page} total={totalPages} handlePageChange={handlePageChange}/>
+      </div>
+      {/* <div className="flex justify-center w-full md:justify-end">
         <PaginationShort
           handlePageChange={handlePageChange}
           page={page}
           total={totalPages}
         />
-      </div>
+      </div> */}
     </div>
-    <div className="flex justify-center w-full md:hidden mb-3">
-        <PaginationShort
-          handlePageChange={handlePageChange}
-          page={page}
-          total={totalPages}
-        />
-      </div>
-      <Pagination page={page}
-          total={totalPages}/>
+
+      
     </div>
     
   );
