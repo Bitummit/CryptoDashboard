@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useState, useEffect, useLayoutEffect } from "react";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
 import { useQuery } from "@tanstack/react-query";
 import Axios from "axios";
 import {
@@ -14,8 +12,10 @@ import {
 } from "react-router-dom";
 import SortingTableHeader from "./SortingTableHeader";
 import TableHeader from "./TableHeader";
+import TableCell from "./TableCell";
 import Pagination from "../pagination/Pagination";
 import sorting from "../../services/sorting";
+import query_get from "../../api/queries";
 
 export default function DataTable() {
   const [searchParams] = useSearchParams();
@@ -27,18 +27,7 @@ export default function DataTable() {
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
 
-  const { data, status, error } = useQuery({
-    queryKey: ["/users", page],
-    queryFn: async () => {
-      return await Axios.get(`http://127.0.0.1:8000/api/users/?page=${page}`)
-        .then((res) => {
-          return res.data;
-        })
-        .catch((error) => {
-          return "Error";
-        });
-    },
-  });
+  const { data, status, error } = query_get(`users/?page=${page}`, ["/users", page])
 
   if (data === "Error") return <div>Error!</div>;
 
@@ -61,9 +50,10 @@ export default function DataTable() {
       }).toString(),
     });
   }
-function handleHeaderClick(field_name) {
-  setRows(sorting(field_name, order, data, setOrder));
-}
+
+  function handleHeaderClick(field_name) {
+    setRows(sorting(field_name, order, data, setOrder));
+  }
 
 
   return (
@@ -96,35 +86,34 @@ function handleHeaderClick(field_name) {
                 order={order}
                 handleHeaderClick={handleHeaderClick}
               />
-              {/* <th scope="col" className="px-6 py-3 text-center table-cell"></th> */}
               <TableHeader />
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => (
               <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
-                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell font-bold">
-                  {row.first_name} {row.last_name} /{" "}
+                <TableCell bold={true}>
+                {row.first_name} {row.last_name} /{" "}
                   <span className="text-colorTextGraySecond text-sm">
                     {row.username}
                   </span>
-                </td>
-                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
+                </TableCell>
+                <TableCell >
                   {row.email}
-                </td>
-                <td className="px-6 py-4 text-center font-bold text-colorTextPrimary table-cell">
+                </TableCell>
+                <TableCell bold={true}>
                   $
                   {row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                </td>
-                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
+                </TableCell>
+                <TableCell >
                   <div className="flex items-center justify-center">
                     <div
                       className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
                     ></div>
                     <span>{row.status}</span>
                   </div>
-                </td>
-                <td className="px-6 py-4 text-center text-colorTextPrimary table-cell">
+                </TableCell>
+                <TableCell >
                   <div className="flex flex-col items-center justify-center md:flex-row">
                     <button className="md:mr-4 text-blue-100 hover:bg-blue-200 bg-blue-10 rounded-lg p-1">
                       <EditIcon />
@@ -133,7 +122,7 @@ function handleHeaderClick(field_name) {
                       <DeleteIcon />
                     </button>
                   </div>
-                </td>
+                  </TableCell>
               </tr>
             ))}
           </tbody>
@@ -146,13 +135,6 @@ function handleHeaderClick(field_name) {
             handlePageChange={handlePageChange}
           />
         </div>
-        {/* <div className="flex justify-center w-full md:justify-end">
-        <PaginationShort
-          handlePageChange={handlePageChange}
-          page={page}
-          total={totalPages}
-        />
-      </div> */}
       </div>
     </div>
   );

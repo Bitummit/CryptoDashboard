@@ -7,7 +7,7 @@ export default function Pagination(props) {
       <div onClick={() => props.handlePageChange(value)}>
         <p
           className={`flex items-center justify-center px-3 py-1 text-colorTextGraySecond bg-colorBgSecondary border border-colorBorder rounded-lg dark:bg-colorBgThird cursor-pointer ${
-            value === props.page ? "border-blue-50 border-2" : "hover:bg-gray-100 hover:text-colorTextPrimary"
+            value === props.page ? "border-blue-100 border-2" : "hover:bg-gray-100 hover:text-colorTextPrimary"
           }`}
         >
           {value}
