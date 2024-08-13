@@ -57,16 +57,17 @@ export default function DataTable() {
 
   function handleHeaderClick(field_name) {
     // setRows(sorting(field_name, order, data, setOrder));
-
+    
+    console.log(field_name);
     if (order.direction === "ASC") {
-      console.log("asc");
       setOrder({ key: field_name, direction: "DSC" });
-      setSortingField("-" + field_name);
+      field_name === "balance" ? field_name = setSortingField("-wallet__balance") : setSortingField("-" + field_name)
+      ;
 
     } else {
-      console.log("dsc");
       setOrder({ key: field_name, direction: "ASC" });
-      setSortingField(field_name);
+      field_name === "balance" ? field_name = setSortingField("wallet__balance") : setSortingField(field_name)
+
     }
   }
 
