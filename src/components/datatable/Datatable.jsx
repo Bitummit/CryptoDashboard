@@ -22,19 +22,23 @@ export default function DataTable() {
   const navigate = useNavigate();
 
   const [page, setPage] = useState(Number(searchParams.get("page")) || 1);
+  const [sortingField, setSortingField] = useState("-pk");
   const [totalPages, setTotalPages] = useState(1);
 
   const [rows, setRows] = useState([]);
   const [order, setOrder] = useState({ key: "", direction: "ASC" });
 
-  const { data, status, error } = query_get(`users/?page=${page}`, ["/users", page])
+  const { data, status, error } = query_get(
+    `users/?page=${page}&ordering=${sortingField}`,
+    ["/users", page, sortingField]
+  );
 
   if (data === "Error") return <div>Error!</div>;
 
   useLayoutEffect(() => {
     console.log("datatable use effect");
     setRows(data.results);
-  }, [page]);
+  }, [page, sortingField]);
 
   useEffect(() => {
     const pagesPerPage = data.results.length;
@@ -52,9 +56,19 @@ export default function DataTable() {
   }
 
   function handleHeaderClick(field_name) {
-    setRows(sorting(field_name, order, data, setOrder));
-  }
+    // setRows(sorting(field_name, order, data, setOrder));
 
+    if (order.direction === "ASC") {
+      console.log("asc");
+      setOrder({ key: field_name, direction: "DSC" });
+      setSortingField("-" + field_name);
+
+    } else {
+      console.log("dsc");
+      setOrder({ key: field_name, direction: "ASC" });
+      setSortingField(field_name);
+    }
+  }
 
   return (
     <div>
@@ -93,19 +107,17 @@ export default function DataTable() {
             {rows.map((row) => (
               <tr className="table-row bg-colorBgSecondary border-b border-colorBorder hover:bg-colorBorder">
                 <TableCell bold={true}>
-                {row.first_name} {row.last_name} /{" "}
+                  {row.first_name} {row.last_name} /{" "}
                   <span className="text-colorTextGraySecond text-sm">
                     {row.username}
                   </span>
                 </TableCell>
-                <TableCell >
-                  {row.email}
-                </TableCell>
+                <TableCell>{row.email}</TableCell>
                 <TableCell bold={true}>
                   $
                   {row.balance.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 </TableCell>
-                <TableCell >
+                <TableCell>
                   <div className="flex items-center justify-center">
                     <div
                       className={`rounded-lg w-3 h-3 mr-1 ${row.status.toLowerCase()}`}
@@ -113,7 +125,7 @@ export default function DataTable() {
                     <span>{row.status}</span>
                   </div>
                 </TableCell>
-                <TableCell >
+                <TableCell>
                   <div className="flex flex-col items-center justify-center md:flex-row">
                     <button className="md:mr-4 text-blue-100 hover:bg-blue-200 bg-blue-10 rounded-lg p-1">
                       <EditIcon />
@@ -122,7 +134,7 @@ export default function DataTable() {
                       <DeleteIcon />
                     </button>
                   </div>
-                  </TableCell>
+                </TableCell>
               </tr>
             ))}
           </tbody>
