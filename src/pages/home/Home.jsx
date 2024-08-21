@@ -10,6 +10,7 @@ import useWindowDimensions from "../../services/useWindowDimensions";
 import { Suspense } from "react";
 import FeaturedLoading from "../../components/loading/FeaturedLoading";
 import ChartLoading from "../../components/loading/ChartLoading";
+import SideButtons from "../../components/sideButtons/SideButtons";
 import React from "react";
 
 const Featured = React.lazy(() => import("../../components/featured/Featured"));
@@ -20,9 +21,10 @@ export default function Home() {
   const { t, i18n } = useTranslation();
 
   return (
-    <div className="bg-colorBgPrimary">
+    <div className="bg-colorBgPrimary md:px-20">
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
+        <SideButtons />
         <div className="pageContent">
           <div>
             <h1 className="pt-10 pl-10 text-4xl text-colorTextGraySecond font-bold">
@@ -33,7 +35,7 @@ export default function Home() {
             </Trans> */}
           </div>
 
-          <div className="flex flex-wrap justify-content gap-20 m-8">
+          <div className="flex flex-wrap justify-content gap-10 m-8">
             <Widget
               name="ETH"
               price="3,558.56"
@@ -65,7 +67,6 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-content gap-8 m-8">
-            {/* Makesuspense group */}
             <Suspense fallback={<FeaturedLoading />}>
               <Featured />
             </Suspense>

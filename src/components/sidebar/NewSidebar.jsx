@@ -11,6 +11,7 @@ import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LanguageButton from "../sideButtons/LanguageButton.jsx";
 
 export default function NewSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,15 +22,19 @@ export default function NewSidebar() {
   return (
     <div>
       <FormatListBulletedIcon
-        className="scale-125 ml-10 cursor-pointer"
+        className="scale-125 cursor-pointer text-colorTextGraySecond"
         onClick={() => setIsOpen(true)}
       />
 
-      <Drawer open={isOpen} onClose={handleClose} className="p-0 m-0 bg-colorBgSecondary">
+      <Drawer
+        open={isOpen}
+        onClose={handleClose}
+        className="p-0 m-0 bg-colorBgSecondary"
+      >
         <div className="flex justify-between p-4">
           <h5 className="text-3xl ml-8 text-shiwa-50">SHIWA</h5>
           <CloseOutlinedIcon
-            className="cursor-pointer"
+            className="cursor-pointer text-colorTextGraySecond"
             onClick={() => setIsOpen(false)}
           />
         </div>
@@ -76,13 +81,16 @@ export default function NewSidebar() {
                       </div>
                     </Sidebar.Item>
                     <Sidebar.Item className="text-colorTextGraySecond hover:bg-colorBgThird">
-                    <Link to="/login" style={{ textDecoration: "none" }}>
-                      <div className="flex items-center p-1">
-                        <LogoutIcon className="scale-125 text-shiwa-50" />
-                        <span className="text-2xl ml-2">Logout</span>
-                      </div>
+                      <Link to="/login" style={{ textDecoration: "none" }}>
+                        <div className="flex items-center p-1">
+                          <LogoutIcon className="scale-125 text-shiwa-50" />
+                          <span className="text-2xl ml-2">Logout</span>
+                        </div>
                       </Link>
                     </Sidebar.Item>
+                    <div className="absolute bottom-28 left-0 flex justify-center w-full md:hidden">
+                      <LanguageButton isLong={true} />
+                    </div>
                     <div className="absolute left-0 bottom-0 w-full flex items-center justify-center pb-8">
                       <div
                         className="w-10 h-10 border-2 bg-white mr-3 rounded-lg border-shiwa-400 cursor-pointer"
